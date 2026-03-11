@@ -30,7 +30,7 @@
     .corner-accent.tr{top:16px;right:16px;border-top:1px solid rgba(180,79,255,0.2);border-right:1px solid rgba(180,79,255,0.2)}
     .corner-accent.bl{bottom:16px;left:16px;border-bottom:1px solid rgba(0,255,157,0.18);border-left:1px solid rgba(0,255,157,0.18)}
     .corner-accent.br{bottom:16px;right:16px;border-bottom:1px solid rgba(255,60,172,0.15);border-right:1px solid rgba(255,60,172,0.15)}
-    nav,section,footer{position:relative;z-index:2}
+    nav,section,.logos-bar,footer{position:relative;z-index:2}
     nav{display:flex;align-items:center;justify-content:space-between;padding:20px 72px;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,9,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--panel-border)}
     .logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none}
     .logo-svg-mark{width:44px;height:44px}
@@ -57,6 +57,7 @@
     .eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--cyan)}
     h2{font-family:'Orbitron',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:0.02em;line-height:1.15;color:var(--text-primary);margin-bottom:18px}
     .sub{font-size:15px;color:var(--text-secondary);max-width:520px;line-height:1.8;margin-bottom:60px;font-weight:400}
+    /* Hero */
     .hero{min-height:100vh;display:flex;align-items:center;padding:150px 72px 100px;position:relative;overflow:hidden}
     .hero-radial{position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle at center,rgba(0,229,255,0.07) 0%,rgba(180,79,255,0.03) 40%,transparent 70%);top:50%;right:-200px;transform:translateY(-50%);pointer-events:none;animation:breathe 7s ease-in-out infinite}
     @keyframes breathe{0%,100%{transform:translateY(-50%) scale(1);opacity:1}50%{transform:translateY(-50%) scale(1.08);opacity:0.65}}
@@ -73,6 +74,7 @@
     .btn-primary:hover{background:#FF8C33;transform:translateY(-2px);box-shadow:0 8px 40px var(--orange-glow)}
     .btn-ghost{background:var(--panel-bg);color:var(--text-secondary);padding:14px 32px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:500;text-decoration:none;border:1px solid var(--panel-border);cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(20px);letter-spacing:0.04em}
     .btn-ghost:hover{border-color:var(--cyan-line);color:var(--text-primary)}
+    /* Fleet */
     #fleet{background:rgba(7,9,15,0.4)}
     .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .fleet-card{background:rgba(10,14,26,0.75);border:1px solid var(--panel-border);border-radius:10px;padding:32px 24px;display:flex;flex-direction:column;gap:12px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(10px);position:relative;overflow:hidden}
@@ -82,6 +84,7 @@
     .fleet-icon{width:48px;height:48px;border-radius:10px;background:var(--cyan-soft);border:1px solid var(--cyan-line);display:flex;align-items:center;justify-content:center;font-size:22px}
     .fleet-name{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:600;color:var(--text-primary);letter-spacing:0.04em}
     .fleet-desc{font-size:14px;color:var(--text-secondary);line-height:1.75;font-weight:400}
+    /* How it works */
     #how-it-works{background:rgba(5,7,12,0.6)}
     .steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--panel-border);border-radius:12px;border:1px solid var(--panel-border);overflow:hidden;margin-top:20px}
     .step-card{background:rgba(10,14,26,0.75);padding:40px 32px;text-align:center;position:relative;backdrop-filter:blur(12px)}
@@ -90,6 +93,7 @@
     .step-title{font-family:'Orbitron',sans-serif;font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:12px;letter-spacing:0.06em}
     .step-desc{font-size:14px;color:var(--text-secondary);line-height:1.75}
     .step-connector{position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:2px;height:40px;background:linear-gradient(to bottom,transparent,var(--cyan),transparent)}
+    /* Compliance */
     #compliance{background:rgba(7,9,15,0.3)}
     .compliance-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
     .compliance-list{display:flex;flex-direction:column;gap:16px;margin-top:8px}
@@ -98,24 +102,27 @@
     .comp-check{width:24px;height:24px;border-radius:50%;background:var(--cyan-soft);border:1px solid var(--cyan-line);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--cyan);font-size:12px;margin-top:1px}
     .comp-text{font-size:14px;color:var(--text-secondary);line-height:1.7}
     .comp-text strong{color:var(--text-primary);font-weight:600}
-    .comp-note{margin-top:24px;padding:16px 20px;background:rgba(0,229,255,0.04);border:1px solid var(--cyan-line);border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);line-height:1.7;letter-spacing:0.04em}
+    .comp-note{margin-top:24px;padding:16px 20px;background:rgba(0,229,255,0.04);border:1px solid var(--cyan-line);border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);line-height:1.7;letter-spacing:0.04em}
     .comp-visual{display:flex;flex-direction:column;gap:16px}
     .comp-badge-large{background:rgba(10,14,26,0.9);border:1px solid var(--panel-border);border-radius:12px;padding:32px;text-align:center}
     .comp-badge-icon{font-size:48px;margin-bottom:16px}
     .comp-badge-title{font-family:'Orbitron',sans-serif;font-size:18px;font-weight:700;color:var(--text-primary);letter-spacing:0.06em;margin-bottom:8px}
     .comp-badge-sub{font-size:13px;color:var(--text-secondary);line-height:1.7}
     .comp-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;justify-content:center}
-    .comp-tag{background:var(--cyan-soft);border:1px solid var(--cyan-line);border-radius:100px;padding:5px 14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);letter-spacing:0.08em;text-transform:uppercase}
+    .comp-tag{background:var(--cyan-soft);border:1px solid var(--cyan-line);border-radius:100px;padding:5px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:0.08em;text-transform:uppercase}
+    /* Pricing */
     #pricing-reminder{background:rgba(5,7,12,0.7);text-align:center}
     .pricing-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:820px;margin:0 auto 40px}
     .tier-card{background:rgba(10,14,26,0.75);border:1px solid var(--panel-border);border-radius:10px;padding:28px 20px;text-align:center;transition:border-color 0.3s}
     .tier-card:hover{border-color:var(--cyan-line)}
     .tier-name{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px}
     .tier-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
+    /* CTA */
     .cta-section{text-align:center;background:rgba(5,7,12,0.8);border-top:1px solid var(--panel-border)}
     .cta-section h2{max-width:580px;margin:0 auto 16px}
     .cta-sub{font-size:16px;color:var(--text-secondary);max-width:440px;margin:0 auto 44px;line-height:1.8;font-weight:400}
     .cta-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+    /* Footer */
     footer{padding:36px 72px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--panel-border)}
     .footer-copy{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-secondary);margin-top:4px;letter-spacing:0.05em}
     .footer-links{display:flex;gap:28px}
@@ -140,6 +147,7 @@
 <div class="corner-accent tr"></div>
 <div class="corner-accent bl"></div>
 <div class="corner-accent br"></div>
+
 <nav>
   <a href="/" class="logo-wrap">
     <svg class="logo-svg-mark" viewBox="0 0 46 46" fill="none">
@@ -147,7 +155,11 @@
       <path d="M23 4 L38 13.5 L38 32.5 L23 42 L8 32.5 L8 13.5 Z" fill="url(#lgrad)"/>
       <circle cx="23" cy="23" r="13" stroke="rgba(0,229,255,0.18)" stroke-width="0.8"/>
       <text x="23" y="27" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="800" font-size="9" fill="#00E5FF">360</text>
-      <defs><linearGradient id="lgrad" x1="8" y1="4" x2="38" y2="42" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0D1A2A"/><stop offset="100%" stop-color="#001C26"/></linearGradient></defs>
+      <defs>
+        <linearGradient id="lgrad" x1="8" y1="4" x2="38" y2="42" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#0D1A2A"/><stop offset="100%" stop-color="#001C26"/>
+        </linearGradient>
+      </defs>
     </svg>
     <div class="logo-wordmark">
       <div class="logo-primary">360<span>ops</span></div>
@@ -165,11 +177,13 @@
         <li><a href="/construction.html">🏗️ Construction</a></li>
       </ul>
     </li>
+    <li><a href="/pricing.html">Pricing</a></li>
     <li><a href="https://portal.360ops.ai" style="color:var(--text-secondary);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;font-family:'Rajdhani',sans-serif;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Sign In</a></li>
     <li><a href="https://portal.360ops.ai/signup" class="nav-cta">Get Started</a></li>
   </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-radial"></div>
   <div class="hero-content">
@@ -177,26 +191,55 @@
     <h1>HIPAA-Aware AI Agents for Healthcare Operations</h1>
     <p class="hero-sub">From patient scheduling to billing reconciliation — AI that knows what it can and can't touch.</p>
     <div class="hero-actions">
-      <a href="https://portal.360ops.ai/signup" class="btn-primary">Start Free Trial <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="https://portal.360ops.ai/signup" class="btn-primary">
+        Start Free Trial
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
       <a href="#compliance" class="btn-ghost">View Compliance Details</a>
     </div>
   </div>
 </section>
 
+<!-- YOUR AI FLEET -->
 <section id="fleet">
   <div class="eyebrow">Your AI Fleet</div>
   <h2>Six agents built<br>for healthcare operations.</h2>
   <p class="sub">Each agent is purpose-built for a specific healthcare workflow — deployed to your environment, connected to your systems, operating within your compliance boundaries.</p>
   <div class="fleet-grid">
-    <div class="fleet-card"><div class="fleet-icon">📋</div><div class="fleet-name">Patient Coordination Agent</div><p class="fleet-desc">Handles scheduling, follow-ups, and appointment summaries. Reduces no-shows and keeps your care coordination running without manual overhead.</p></div>
-    <div class="fleet-card"><div class="fleet-icon">💊</div><div class="fleet-name">Prior Auth Agent</div><p class="fleet-desc">Tracks prior authorization status and drafts appeal letters. Never miss a PA deadline or lose revenue to administrative delays again.</p></div>
-    <div class="fleet-card"><div class="fleet-icon">🧾</div><div class="fleet-name">Medical Billing Agent</div><p class="fleet-desc">Reconciles insurance claims and flags billing discrepancies. Catches underpayments, denials, and coding errors before they hit your bottom line.</p></div>
-    <div class="fleet-card"><div class="fleet-icon">📊</div><div class="fleet-name">Practice Analytics Agent</div><p class="fleet-desc">Tracks KPIs, patient volumes, and revenue cycle metrics. Real-time visibility into the operational health of your practice.</p></div>
-    <div class="fleet-card"><div class="fleet-icon">🗂️</div><div class="fleet-name">Compliance Monitor Agent</div><p class="fleet-desc">Monitors workflows for HIPAA compliance issues. Flags anomalies, access patterns, and documentation gaps before they become audit findings.</p></div>
-    <div class="fleet-card"><div class="fleet-icon">📞</div><div class="fleet-name">Patient Communication Agent</div><p class="fleet-desc">Drafts compliant patient communications and recalls. Personalized, professionally worded — reviewed by your staff before it ever goes out.</p></div>
+    <div class="fleet-card">
+      <div class="fleet-icon">📋</div>
+      <div class="fleet-name">Patient Coordination Agent</div>
+      <p class="fleet-desc">Handles scheduling, follow-ups, and appointment summaries. Reduces no-shows and keeps your care coordination running without manual overhead.</p>
+    </div>
+    <div class="fleet-card">
+      <div class="fleet-icon">💊</div>
+      <div class="fleet-name">Prior Auth Agent</div>
+      <p class="fleet-desc">Tracks prior authorization status and drafts appeal letters. Never miss a PA deadline or lose revenue to administrative delays again.</p>
+    </div>
+    <div class="fleet-card">
+      <div class="fleet-icon">🧾</div>
+      <div class="fleet-name">Medical Billing Agent</div>
+      <p class="fleet-desc">Reconciles insurance claims and flags billing discrepancies. Catches underpayments, denials, and coding errors before they hit your bottom line.</p>
+    </div>
+    <div class="fleet-card">
+      <div class="fleet-icon">📊</div>
+      <div class="fleet-name">Practice Analytics Agent</div>
+      <p class="fleet-desc">Tracks KPIs, patient volumes, and revenue cycle metrics. Real-time visibility into the operational health of your practice.</p>
+    </div>
+    <div class="fleet-card">
+      <div class="fleet-icon">🗂️</div>
+      <div class="fleet-name">Compliance Monitor Agent</div>
+      <p class="fleet-desc">Monitors workflows for HIPAA compliance issues. Flags anomalies, access patterns, and documentation gaps before they become audit findings.</p>
+    </div>
+    <div class="fleet-card">
+      <div class="fleet-icon">📞</div>
+      <div class="fleet-name">Patient Communication Agent</div>
+      <p class="fleet-desc">Drafts compliant patient communications and recalls. Personalized, professionally worded — reviewed by your staff before it ever goes out.</p>
+    </div>
   </div>
 </section>
 
+<!-- HOW IT WORKS -->
 <section id="how-it-works">
   <div style="text-align:center;margin-bottom:56px">
     <div class="eyebrow" style="justify-content:center">How It Works</div>
@@ -205,25 +248,29 @@
   </div>
   <div class="steps-row">
     <div class="step-card">
-      <div class="step-num">STEP 01</div><div class="step-icon">🔗</div>
+      <div class="step-num">STEP 01</div>
+      <div class="step-icon">🔗</div>
       <div class="step-title">Connect</div>
       <p class="step-desc">We connect read-only to your EHR, practice management system, and billing platform. No write access. No data stored. Your systems stay in control.</p>
       <div class="step-connector"></div>
     </div>
     <div class="step-card">
-      <div class="step-num">STEP 02</div><div class="step-icon">🚀</div>
+      <div class="step-num">STEP 02</div>
+      <div class="step-icon">🚀</div>
       <div class="step-title">Deploy</div>
       <p class="step-desc">Your AI fleet is configured for your specific workflows and compliance requirements. Each agent is scoped to its role — nothing more.</p>
       <div class="step-connector"></div>
     </div>
     <div class="step-card">
-      <div class="step-num">STEP 03</div><div class="step-icon">⚙️</div>
+      <div class="step-num">STEP 03</div>
+      <div class="step-icon">⚙️</div>
       <div class="step-title">Operate</div>
       <p class="step-desc">Agents run autonomously in the background — surfacing insights, drafting documents, and flagging issues while your team focuses on patient care.</p>
     </div>
   </div>
 </section>
 
+<!-- COMPLIANCE -->
 <section id="compliance">
   <div class="compliance-inner">
     <div>
@@ -231,12 +278,26 @@
       <h2>HIPAA-Aware<br>by Design.</h2>
       <p class="sub" style="margin-bottom:32px">360ops was architected from the ground up with healthcare data sensitivity in mind. Every layer of the platform enforces boundaries around PHI.</p>
       <div class="compliance-list">
-        <div class="comp-item"><div class="comp-check">✓</div><div class="comp-text"><strong>Zero PHI storage</strong> — patient data never stored on 360ops servers. We process, we don't retain.</div></div>
-        <div class="comp-item"><div class="comp-check">✓</div><div class="comp-text"><strong>Read-only connector access</strong> — we can't write to your EHR. Your clinical data stays entirely under your control.</div></div>
-        <div class="comp-item"><div class="comp-check">✓</div><div class="comp-text"><strong>12-stage gatekeeper</strong> — detects and protects PHI in every AI query before it reaches any model or external service.</div></div>
-        <div class="comp-item"><div class="comp-check">✓</div><div class="comp-text"><strong>Dedicated database</strong> — no other healthcare client can ever see your data. Fully isolated, always.</div></div>
+        <div class="comp-item">
+          <div class="comp-check">✓</div>
+          <div class="comp-text"><strong>Zero PHI storage</strong> — patient data never stored on 360ops servers. We process, we don't retain.</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-check">✓</div>
+          <div class="comp-text"><strong>Read-only connector access</strong> — we can't write to your EHR. Your clinical data stays entirely under your control.</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-check">✓</div>
+          <div class="comp-text"><strong>12-stage gatekeeper</strong> — detects and protects PHI in every AI query before it reaches any model or external service.</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-check">✓</div>
+          <div class="comp-text"><strong>Dedicated database</strong> — no other healthcare client can ever see your data. Fully isolated, always.</div>
+        </div>
       </div>
-      <div class="comp-note">⚠ 360ops is not a covered entity. PHI handling guidance is provided as part of onboarding. HIPAA BAA available on Tier 5 Enterprise.</div>
+      <div class="comp-note">
+        ⚠ 360ops is not a covered entity. PHI handling guidance is provided as part of onboarding. HIPAA BAA available on Tier 5 Enterprise.
+      </div>
     </div>
     <div class="comp-visual">
       <div class="comp-badge-large">
@@ -255,24 +316,37 @@
   </div>
 </section>
 
+<!-- PRICING REMINDER -->
 <section id="pricing-reminder">
   <div class="eyebrow" style="justify-content:center">Pricing</div>
   <h2>Transparent tiers.<br>No surprises.</h2>
   <p class="sub" style="margin:0 auto 48px;text-align:center">Same clear pricing across all industries. Choose the tier that matches your practice size and operational needs.</p>
   <div class="pricing-tiers">
-    <div class="tier-card"><div class="tier-name">Starter</div><div class="tier-desc">For small practices getting started with AI automation. Core agents, essential integrations.</div></div>
-    <div class="tier-card" style="border-color:var(--cyan-line)"><div class="tier-name">Professional</div><div class="tier-desc">For growing practices. Full AI fleet, advanced analytics, priority support.</div></div>
-    <div class="tier-card"><div class="tier-name">Enterprise</div><div class="tier-desc">For multi-site health systems. Custom deployments, HIPAA BAA, dedicated success team.</div></div>
+    <div class="tier-card">
+      <div class="tier-name">Starter</div>
+      <div class="tier-desc">For small practices getting started with AI automation. Core agents, essential integrations.</div>
+    </div>
+    <div class="tier-card" style="border-color:var(--cyan-line)">
+      <div class="tier-name">Professional</div>
+      <div class="tier-desc">For growing practices. Full AI fleet, advanced analytics, priority support.</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-name">Enterprise</div>
+      <div class="tier-desc">For multi-site health systems. Custom deployments, HIPAA BAA, dedicated success team.</div>
+    </div>
   </div>
   <a href="/#pricing" class="btn-ghost" style="display:inline-flex">View Full Pricing →</a>
 </section>
 
+<!-- CTA -->
 <section class="cta-section">
   <div class="eyebrow" style="justify-content:center">Get Started</div>
   <h2>Ready to deploy AI<br>in your practice?</h2>
   <p class="cta-sub">Start your free trial today. No PHI stored. No write access to your EHR. Just AI that works within your boundaries.</p>
   <div class="cta-actions">
-    <a href="https://portal.360ops.ai/signup" class="btn-primary">Start Free Trial →</a>
+    <a href="https://portal.360ops.ai/signup" class="btn-primary">
+      Start Free Trial →
+    </a>
     <a href="mailto:hello@360ops.ai" class="btn-ghost">Talk to a Specialist</a>
   </div>
 </section>
@@ -290,11 +364,34 @@
     <div class="footer-copy">© 2025 360ops. All rights reserved.</div>
   </div>
   <div class="footer-links">
-    <a href="/#">Privacy</a><a href="/#">Terms</a><a href="mailto:hello@360ops.ai">Contact</a>
+    <a href="/#">Privacy</a>
+    <a href="/#">Terms</a>
+    <a href="mailto:hello@360ops.ai">Contact</a>
   </div>
 </footer>
+
 <script>
-(function(){const cv=document.getElementById('traceCanvas');const ctx=cv.getContext('2d');let W,H;function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight}resize();addEventListener('resize',resize);const COLORS=[{r:0,g:229,b:255},{r:180,g:79,b:255},{r:0,g:255,b:157},{r:255,g:60,b:172},{r:255,g:230,b:0}];function rCol(){return COLORS[Math.floor(Math.random()*COLORS.length)]}const TL=140,SMN=0.28,SMX=0.88,VM=12,HM=9,NL=3000;const vT=[],hT=[],iN=[];function spawnV(){vT.push({x:60+Math.random()*(W-120),y:-TL,s:SMN+Math.random()*(SMX-SMN),o:0.10+Math.random()*0.20,c:rCol()})}function spawnH(){hT.push({x:-TL,y:60+Math.random()*(H-120),s:SMN+Math.random()*(SMX-SMN),o:0.10+Math.random()*0.20,c:rCol()})}for(let i=0;i<7;i++)vT.push({x:Math.random()*W,y:Math.random()*H,s:SMN+Math.random()*(SMX-SMN),o:0.10+Math.random()*0.20,c:rCol()});for(let i=0;i<5;i++)hT.push({x:Math.random()*W,y:Math.random()*H,s:SMN+Math.random()*(SMX-SMN),o:0.10+Math.random()*0.20,c:rCol()});function checkX(){for(const v of vT)for(const h of hT){if(Math.abs(v.x-h.x)<25&&Math.abs(v.y-h.y)<25){if(!iN.some(n=>Math.abs(n.x-v.x)<60&&Math.abs(n.y-v.y)<60&&(Date.now()-n.b)<1200)){iN.push({x:(v.x+h.x)/2,y:(v.y+h.y)/2,b:Date.now(),mr:6+Math.random()*12,c:{r:Math.round((v.c.r+h.c.r)/2),g:Math.round((v.c.g+h.c.g)/2),b:Math.round((v.c.b+h.c.b)/2)}})}}}}function drawTrace(tr,isV){const{r,g,b}=tr.c;const grad=isV?ctx.createLinearGradient(tr.x,tr.y-TL,tr.x,tr.y):ctx.createLinearGradient(tr.x-TL,tr.y,tr.x,tr.y);grad.addColorStop(0,`rgba(${r},${g},${b},0)`);grad.addColorStop(0.6,`rgba(${r},${g},${b},${tr.o*0.5})`);grad.addColorStop(1,`rgba(${r},${g},${b},${tr.o})`);ctx.strokeStyle=grad;ctx.lineWidth=1;ctx.beginPath();if(isV){ctx.moveTo(tr.x,tr.y-TL);ctx.lineTo(tr.x,tr.y)}else{ctx.moveTo(tr.x-TL,tr.y);ctx.lineTo(tr.x,tr.y)}ctx.stroke();ctx.fillStyle=`rgba(${Math.min(r+40,255)},${Math.min(g+40,255)},${Math.min(b+40,255)},${tr.o*1.6})`;ctx.beginPath();ctx.arc(tr.x,tr.y,1.5,0,Math.PI*2);ctx.fill()}function drawNode(n){const age=Date.now()-n.b;if(age>NL)return false;const p=age/NL;const{r,g,b}=n.c;let rd,op;if(p<0.15){rd=n.mr*(p/0.15);op=p/0.15}else{rd=n.mr;op=1-((p-0.15)/0.85)}const gg=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,rd*3.5);gg.addColorStop(0,`rgba(${r},${g},${b},${0.18*op})`);gg.addColorStop(1,`rgba(${r},${g},${b},0)`);ctx.fillStyle=gg;ctx.beginPath();ctx.arc(n.x,n.y,rd*3.5,0,Math.PI*2);ctx.fill();ctx.strokeStyle=`rgba(${r},${g},${b},${0.7*op})`;ctx.lineWidth=1;ctx.beginPath();ctx.arc(n.x,n.y,rd,0,Math.PI*2);ctx.stroke();ctx.fillStyle=`rgba(${Math.min(r+50,255)},${Math.min(g+50,255)},${Math.min(b+50,255)},${0.9*op})`;ctx.beginPath();ctx.arc(n.x,n.y,2.5,0,Math.PI*2);ctx.fill();const rr=rd+rd*2.5*p;ctx.strokeStyle=`rgba(${r},${g},${b},${0.25*op*(1-p)})`;ctx.lineWidth=0.5;ctx.beginPath();ctx.arc(n.x,n.y,rr,0,Math.PI*2);ctx.stroke();return true}let lastV=0,lastH=0;function loop(){ctx.clearRect(0,0,W,H);const now=Date.now();if(now-lastV>1800+Math.random()*2000){if(vT.length<VM)spawnV();lastV=now}if(now-lastH>2400+Math.random()*2500){if(hT.length<HM)spawnH();lastH=now}for(let i=vT.length-1;i>=0;i--){vT[i].y+=vT[i].s;if(vT[i].y-TL>H){vT.splice(i,1);continue}drawTrace(vT[i],true)}for(let i=hT.length-1;i>=0;i--){hT[i].x+=hT[i].s;if(hT[i].x-TL>W){hT.splice(i,1);continue}drawTrace(hT[i],false)}checkX();for(let i=iN.length-1;i>=0;i--){if(!drawNode(iN[i]))iN.splice(i,1)}requestAnimationFrame(loop)}loop();})();
+(function(){
+  const cv=document.getElementById('traceCanvas');
+  const ctx=cv.getContext('2d');
+  let W,H;
+  function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight}
+  resize();addEventListener('resize',resize);
+  const COLORS=[{r:0,g:229,b:255},{r:180,g:79,b:255},{r:0,g:255,b:157},{r:255,g:60,b:172},{r:255,g:230,b:0}];
+  function rCol(){return COLORS[Math.floor(Math.random()*COLORS.length)]}
+  const TL=140,SMN=0.28,SMX=0.88,VM=12,HM=9,NL=3000;
+  const vT=[],hT=[],iN=[];
+  function spawnV(){vT.push({x:60+Math.random()*(W-120),y:-TL,s:SMN+Math.random()*(SMX-SMN),o:0.10+Math.random()*0.20,c:rCol()})}
+  function spawnH(){hT.push({x:-TL,y:60+Math.random()*(H-120),s:SMN+Math.random()*(SMX-SMN),o:0.10+Math.random()*0.20,c:rCol()})}
+  for(let i=0;i<7;i++)vT.push({x:Math.random()*W,y:Math.random()*H,s:SMN+Math.random()*(SMX-SMN),o:0.10+Math.random()*0.20,c:rCol()});
+  for(let i=0;i<5;i++)hT.push({x:Math.random()*W,y:Math.random()*H,s:SMN+Math.random()*(SMX-SMN),o:0.10+Math.random()*0.20,c:rCol()});
+  function checkX(){for(const v of vT)for(const h of hT){if(Math.abs(v.x-h.x)<25&&Math.abs(v.y-h.y)<25){if(!iN.some(n=>Math.abs(n.x-v.x)<60&&Math.abs(n.y-v.y)<60&&(Date.now()-n.b)<1200)){iN.push({x:(v.x+h.x)/2,y:(v.y+h.y)/2,b:Date.now(),mr:6+Math.random()*12,c:{r:Math.round((v.c.r+h.c.r)/2),g:Math.round((v.c.g+h.c.g)/2),b:Math.round((v.c.b+h.c.b)/2)}})}}}}
+  function drawTrace(tr,isV){const{r,g,b}=tr.c;const grad=isV?ctx.createLinearGradient(tr.x,tr.y-TL,tr.x,tr.y):ctx.createLinearGradient(tr.x-TL,tr.y,tr.x,tr.y);grad.addColorStop(0,`rgba(${r},${g},${b},0)`);grad.addColorStop(0.6,`rgba(${r},${g},${b},${tr.o*0.5})`);grad.addColorStop(1,`rgba(${r},${g},${b},${tr.o})`);ctx.strokeStyle=grad;ctx.lineWidth=1;ctx.beginPath();if(isV){ctx.moveTo(tr.x,tr.y-TL);ctx.lineTo(tr.x,tr.y)}else{ctx.moveTo(tr.x-TL,tr.y);ctx.lineTo(tr.x,tr.y)}ctx.stroke();ctx.fillStyle=`rgba(${Math.min(r+40,255)},${Math.min(g+40,255)},${Math.min(b+40,255)},${tr.o*1.6})`;ctx.beginPath();ctx.arc(tr.x,tr.y,1.5,0,Math.PI*2);ctx.fill()}
+  function drawNode(n){const age=Date.now()-n.b;if(age>NL)return false;const p=age/NL;const{r,g,b}=n.c;let rd,op;if(p<0.15){rd=n.mr*(p/0.15);op=p/0.15}else{rd=n.mr;op=1-((p-0.15)/0.85)}const gg=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,rd*3.5);gg.addColorStop(0,`rgba(${r},${g},${b},${0.18*op})`);gg.addColorStop(1,`rgba(${r},${g},${b},0)`);ctx.fillStyle=gg;ctx.beginPath();ctx.arc(n.x,n.y,rd*3.5,0,Math.PI*2);ctx.fill();ctx.strokeStyle=`rgba(${r},${g},${b},${0.7*op})`;ctx.lineWidth=1;ctx.beginPath();ctx.arc(n.x,n.y,rd,0,Math.PI*2);ctx.stroke();ctx.fillStyle=`rgba(${Math.min(r+50,255)},${Math.min(g+50,255)},${Math.min(b+50,255)},${0.9*op})`;ctx.beginPath();ctx.arc(n.x,n.y,2.5,0,Math.PI*2);ctx.fill();const rr=rd+rd*2.5*p;ctx.strokeStyle=`rgba(${r},${g},${b},${0.25*op*(1-p)})`;ctx.lineWidth=0.5;ctx.beginPath();ctx.arc(n.x,n.y,rr,0,Math.PI*2);ctx.stroke();return true}
+  let lastV=0,lastH=0;
+  function loop(){ctx.clearRect(0,0,W,H);const now=Date.now();if(now-lastV>1800+Math.random()*2000){if(vT.length<VM)spawnV();lastV=now}if(now-lastH>2400+Math.random()*2500){if(hT.length<HM)spawnH();lastH=now}for(let i=vT.length-1;i>=0;i--){vT[i].y+=vT[i].s;if(vT[i].y-TL>H){vT.splice(i,1);continue}drawTrace(vT[i],true)}for(let i=hT.length-1;i>=0;i--){hT[i].x+=hT[i].s;if(hT[i].x-TL>W){hT.splice(i,1);continue}drawTrace(hT[i],false)}checkX();for(let i=iN.length-1;i>=0;i--){if(!drawNode(iN[i]))iN.splice(i,1)}requestAnimationFrame(loop)}
+  loop();
+})();
 </script>
 </body>
 </html>
