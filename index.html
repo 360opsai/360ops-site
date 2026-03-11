@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>360ops — AI-Edge Operations Platform</title>
+  <title>360ops — The AI Business Operating System</title>
+  <meta name="description" content="360ops gives your entire business a fleet of AI agents — each one trained on your data, connected to your tools, and operating within your compliance rules." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -14,6 +15,8 @@
       --cyan-glow: rgba(0,229,255,0.35);
       --cyan-soft: rgba(0,229,255,0.12);
       --cyan-line: rgba(0,229,255,0.22);
+      --orange:    #FF6B35;
+      --orange-glow: rgba(255,107,53,0.4);
       --dark-bg:   #07090F;
       --panel-bg:  rgba(10,14,26,0.88);
       --panel-border: rgba(0,229,255,0.14);
@@ -21,7 +24,7 @@
       --text-secondary: #8FA3BF;
       --text-dim:       #4E6070;
     }
-    html,body{font-family:'Rajdhani',sans-serif;background:var(--dark-bg);color:var(--text-primary);overflow-x:hidden}
+    html,body{font-family:'Rajdhani',sans-serif;background:var(--dark-bg);color:var(--text-primary);overflow-x:hidden;font-size:14px}
     .bg-layer{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 20% 40%,rgba(0,229,255,0.04) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 78% 55%,rgba(180,79,255,0.025) 0%,transparent 55%),radial-gradient(ellipse 50% 50% at 50% 100%,rgba(0,255,157,0.015) 0%,transparent 50%),linear-gradient(180deg,#07090F 0%,#0A0D18 50%,#07090F 100%)}
     .grid-overlay{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.025) 1px,transparent 1px);background-size:60px 60px;animation:gridDrift 28s linear infinite}
     @keyframes gridDrift{0%{transform:translate(0,0)}100%{transform:translate(60px,60px)}}
@@ -49,59 +52,62 @@
     .logo-primary{font-family:'Orbitron',sans-serif;font-weight:700;font-size:18px;letter-spacing:0.08em;color:var(--text-primary)}
     .logo-primary span{color:var(--cyan)}
     .logo-tagline{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-top:3px}
-    nav ul{display:flex;gap:40px;list-style:none}
+    nav ul{display:flex;gap:32px;list-style:none;align-items:center}
     nav ul a{color:var(--text-secondary);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;font-family:'Rajdhani',sans-serif}
     nav ul a:hover{color:var(--text-primary)}
-    .nav-cta{background:var(--cyan)!important;color:#07090F!important;padding:9px 22px;border-radius:5px;font-family:'Orbitron',sans-serif!important;font-size:10.5px!important;font-weight:700!important;letter-spacing:0.12em!important;transition:all 0.3s!important;box-shadow:0 0 20px var(--cyan-glow)}
-    .nav-cta:hover{background:#33EEFF!important;box-shadow:0 0 40px var(--cyan-glow)!important;transform:translateY(-1px)}
+    .nav-signin{color:var(--text-secondary)!important;font-family:'Rajdhani',sans-serif!important;font-size:14px!important;font-weight:500!important;letter-spacing:0.04em!important;transition:color 0.2s!important}
+    .nav-signin:hover{color:var(--text-primary)!important}
+    .nav-cta{background:var(--orange)!important;color:#fff!important;padding:9px 22px;border-radius:5px;font-family:'Orbitron',sans-serif!important;font-size:10.5px!important;font-weight:700!important;letter-spacing:0.12em!important;transition:all 0.3s!important;box-shadow:0 0 20px var(--orange-glow);white-space:nowrap}
+    .nav-cta:hover{background:#ff8255!important;box-shadow:0 0 40px var(--orange-glow)!important;transform:translateY(-1px)}
     .hero{min-height:100vh;display:flex;align-items:center;padding:150px 72px 100px;position:relative;overflow:hidden}
     .hero-radial{position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle at center,rgba(0,229,255,0.07) 0%,rgba(180,79,255,0.03) 40%,transparent 70%);top:50%;right:-200px;transform:translateY(-50%);pointer-events:none;animation:breathe 7s ease-in-out infinite}
     @keyframes breathe{0%,100%{transform:translateY(-50%) scale(1);opacity:1}50%{transform:translateY(-50%) scale(1.08);opacity:0.65}}
-    .hero-content{max-width:720px;animation:rise 1s cubic-bezier(.16,1,.3,1) both}
+    .hero-content{max-width:760px;animation:rise 1s cubic-bezier(.16,1,.3,1) both}
     @keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-    .badge{display:inline-flex;align-items:center;gap:9px;background:var(--cyan-soft);border:1px solid var(--cyan-line);border-radius:100px;padding:6px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:30px}
-    .badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--cyan);position:relative}
+    .badge{display:inline-flex;align-items:center;gap:9px;background:var(--cyan-soft);border:1px solid var(--cyan-line);border-radius:100px;padding:6px 18px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:30px}
+    .badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--cyan);position:relative;flex-shrink:0}
     .badge-pulse::after{content:'';position:absolute;inset:-3px;border-radius:50%;background:var(--cyan-glow);animation:ripple 2s ease-out infinite}
     @keyframes ripple{0%{transform:scale(1);opacity:1}100%{transform:scale(2.5);opacity:0}}
-    h1{font-family:'Orbitron',sans-serif;font-size:clamp(36px,5.5vw,66px);font-weight:800;line-height:1.1;letter-spacing:0.01em;color:var(--text-primary);margin-bottom:28px}
+    h1{font-family:'Orbitron',sans-serif;font-size:clamp(32px,5vw,62px);font-weight:800;line-height:1.1;letter-spacing:0.01em;color:var(--text-primary);margin-bottom:20px}
     h1 .hi-cyan{color:var(--cyan)}
-    h1 .hi-violet{color:#B44FFF}
-    h1 .hi-outline{color:transparent;-webkit-text-stroke:1.5px var(--cyan)}
-    .hero-sub{font-size:17px;color:var(--text-secondary);line-height:1.8;max-width:540px;margin-bottom:48px;font-weight:400}
+    .hero-sub{font-family:'Orbitron',sans-serif;font-size:clamp(14px,2vw,20px);font-weight:500;color:var(--text-secondary);line-height:1.5;margin-bottom:20px;letter-spacing:0.02em}
+    .hero-body{font-size:16px;color:var(--text-secondary);line-height:1.8;max-width:580px;margin-bottom:44px;font-weight:400}
     .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px}
-    .btn-primary{background:var(--cyan);color:#07090F;padding:14px 32px;border-radius:6px;font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;letter-spacing:0.1em;text-transform:uppercase;box-shadow:0 4px 28px var(--cyan-glow)}
-    .btn-primary:hover{background:#33EEFF;transform:translateY(-2px);box-shadow:0 8px 40px var(--cyan-glow)}
+    .btn-primary{background:var(--orange);color:#fff;padding:14px 32px;border-radius:6px;font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;letter-spacing:0.1em;text-transform:uppercase;box-shadow:0 4px 28px var(--orange-glow)}
+    .btn-primary:hover{background:#ff8255;transform:translateY(-2px);box-shadow:0 8px 40px var(--orange-glow)}
     .btn-ghost{background:var(--panel-bg);color:var(--text-secondary);padding:14px 32px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:500;text-decoration:none;border:1px solid var(--panel-border);cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(20px);letter-spacing:0.04em}
     .btn-ghost:hover{border-color:var(--cyan-line);color:var(--text-primary)}
     .hero-metrics{display:flex;gap:48px;padding-top:40px;border-top:1px solid var(--panel-border);animation:rise 1s 0.25s cubic-bezier(.16,1,.3,1) both}
     .metric-val{font-family:'Orbitron',sans-serif;font-size:28px;font-weight:800;color:var(--text-primary);letter-spacing:0.04em}
     .metric-val sup{color:var(--cyan);font-size:16px}
-    .metric-label{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-secondary);margin-top:5px;letter-spacing:0.08em;text-transform:uppercase}
-    .status-bar{display:flex;gap:2rem;margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.08em;color:var(--text-secondary)}
+    .metric-label{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-secondary);margin-top:5px;letter-spacing:0.08em;text-transform:uppercase}
+    .status-bar{display:flex;gap:2rem;margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;color:var(--text-secondary)}
     .status-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:6px;vertical-align:middle;animation:statusPulse 2s ease-in-out infinite}
     .sd-green{background:#00E676;box-shadow:0 0 8px rgba(0,230,118,0.5)}
     .sd-cyan{background:var(--cyan);box-shadow:0 0 8px var(--cyan-glow)}
     @keyframes statusPulse{0%,100%{opacity:1}50%{opacity:0.4}}
     .logos-bar{padding:40px 72px;border-top:1px solid var(--panel-border);border-bottom:1px solid var(--panel-border);background:rgba(7,9,15,0.5)}
-    .logos-label{text-align:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:28px}
+    .logos-label{text-align:center;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:28px}
     .logos-row{display:flex;justify-content:center;gap:52px;flex-wrap:wrap}
-    .industry-pill{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
-    .industry-pill:hover{color:var(--text-secondary)}
-    .industry-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);opacity:0.6}
+    .integration-pill{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+    .integration-pill:hover{color:var(--cyan)}
+    .integration-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);opacity:0.6}
     section{padding:100px 72px}
     .eyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:10px}
     .eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--cyan)}
-    h2{font-family:'Orbitron',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:0.02em;line-height:1.15;color:var(--text-primary);margin-bottom:18px}
+    h2{font-family:'Orbitron',sans-serif;font-size:clamp(26px,3.5vw,44px);font-weight:700;letter-spacing:0.02em;line-height:1.15;color:var(--text-primary);margin-bottom:18px}
     .sub{font-size:15px;color:var(--text-secondary);max-width:520px;line-height:1.8;margin-bottom:60px;font-weight:400}
+    /* FEATURES */
     #features{background:rgba(7,9,15,0.4)}
-    .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--panel-border);border-radius:12px;border:1px solid var(--panel-border);overflow:hidden}
-    .feat-card{background:rgba(10,14,26,0.75);padding:40px 32px;transition:background 0.3s;position:relative;overflow:hidden;backdrop-filter:blur(12px)}
+    .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--panel-border);border-radius:12px;border:1px solid var(--panel-border);overflow:hidden}
+    .feat-card{background:rgba(10,14,26,0.75);padding:36px 28px;transition:background 0.3s;position:relative;overflow:hidden;backdrop-filter:blur(12px)}
     .feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);transform:scaleX(0);transition:transform 0.4s}
     .feat-card:hover::before{transform:scaleX(1)}
     .feat-card:hover{background:rgba(0,229,255,0.04)}
-    .feat-icon-wrap{width:46px;height:46px;border-radius:9px;background:var(--cyan-soft);border:1px solid var(--cyan-line);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px}
+    .feat-icon-wrap{width:46px;height:46px;border-radius:9px;background:var(--cyan-soft);border:1px solid var(--cyan-line);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
     .feat-title{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:10px;letter-spacing:0.04em}
     .feat-desc{font-size:14px;color:var(--text-secondary);line-height:1.75;font-weight:400}
+    /* HOW IT WORKS */
     #how{background:rgba(5,7,12,0.6)}
     .how-portal{display:grid;grid-template-columns:1fr 260px 1fr;gap:0;position:relative}
     .how-portal::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--cyan-line) 20%,var(--cyan-line) 80%,transparent);transform:translateX(-50%);z-index:0}
@@ -118,13 +124,37 @@
     .orb-inner small{display:block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;margin-top:5px}
     .how-step{padding:28px 0;border-bottom:1px solid rgba(0,229,255,0.07);position:relative}
     .how-step:last-child{border-bottom:none}
-    .how-step-num{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.12em;color:var(--cyan);margin-bottom:8px;opacity:0.8}
+    .how-step-num{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.12em;color:var(--cyan);margin-bottom:8px;opacity:0.8}
     .how-step-title{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:7px;letter-spacing:0.04em}
     .how-step-desc{font-size:14px;color:var(--text-secondary);line-height:1.7;font-weight:400}
     .conn-wrap-right{position:absolute;right:-64px;top:34px;display:flex;align-items:center}
     .conn-wrap-left{position:absolute;left:-64px;top:34px;display:flex;align-items:center}
     .conn-line{width:44px;height:1px;background:var(--cyan-line)}
     .conn-dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);border:2px solid var(--dark-bg);box-shadow:0 0 8px var(--cyan);flex-shrink:0}
+    /* PRICING */
+    #pricing{background:rgba(7,9,15,0.5)}
+    .pricing-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+    .pricing-card{background:rgba(10,14,26,0.82);border:1px solid var(--panel-border);border-radius:12px;padding:32px 24px;display:flex;flex-direction:column;gap:0;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(14px);position:relative;overflow:hidden}
+    .pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan-line),transparent);transition:background 0.3s}
+    .pricing-card:hover{border-color:rgba(0,229,255,0.3);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.6),0 0 24px rgba(0,229,255,0.07)}
+    .pricing-card.featured{border-color:rgba(0,229,255,0.4)}
+    .pricing-card.featured::before{background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+    .pricing-tier-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+    .pricing-name{font-family:'Orbitron',sans-serif;font-size:14px;font-weight:700;color:var(--text-primary);letter-spacing:0.04em;margin-bottom:6px}
+    .pricing-for{font-size:13px;color:var(--text-secondary);margin-bottom:20px;line-height:1.5}
+    .pricing-price{font-family:'Orbitron',sans-serif;font-size:30px;font-weight:800;color:var(--text-primary);letter-spacing:0.02em;margin-bottom:4px}
+    .pricing-price span{font-size:14px;color:var(--text-secondary);font-family:'Rajdhani',sans-serif;font-weight:400}
+    .pricing-price.free-price{color:var(--cyan);font-size:22px}
+    .pricing-divider{height:1px;background:var(--panel-border);margin:20px 0}
+    .pricing-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;flex:1}
+    .pricing-features li{font-size:13px;color:var(--text-secondary);line-height:1.5;display:flex;align-items:flex-start;gap:8px}
+    .pricing-features li::before{content:'✓';color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:12px;flex-shrink:0;margin-top:1px}
+    .btn-pricing{background:var(--orange);color:#fff;padding:12px 20px;border-radius:6px;font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;text-decoration:none;text-align:center;transition:all 0.3s;letter-spacing:0.1em;text-transform:uppercase;box-shadow:0 4px 20px var(--orange-glow);display:block}
+    .btn-pricing:hover{background:#ff8255;transform:translateY(-1px);box-shadow:0 6px 30px var(--orange-glow)}
+    .btn-pricing.ghost{background:transparent;color:var(--cyan);border:1px solid var(--cyan-line);box-shadow:none}
+    .btn-pricing.ghost:hover{background:var(--cyan-soft);box-shadow:0 0 20px rgba(0,229,255,0.12)}
+    .pricing-note{text-align:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);letter-spacing:0.08em;margin-top:36px}
+    /* INDUSTRIES */
     #industries{background:rgba(7,9,15,0.3)}
     .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .ind-card{background:rgba(10,14,26,0.7);border:1px solid var(--panel-border);border-radius:10px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(10px)}
@@ -133,19 +163,27 @@
     .ind-name{font-family:'Orbitron',sans-serif;font-size:15px;font-weight:600;color:var(--text-primary);letter-spacing:0.06em}
     .ind-desc{font-size:13px;color:var(--text-secondary);line-height:1.7;font-weight:400}
     .ind-tag{display:inline-block;background:var(--cyan-soft);border:1px solid var(--cyan-line);border-radius:100px;padding:4px 12px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);align-self:flex-start;margin-top:auto;letter-spacing:0.07em;text-transform:uppercase}
+    .ind-tagline{text-align:center;font-size:16px;color:var(--text-secondary);margin-top:48px;font-style:italic;line-height:1.7}
+    /* CTA */
     .cta-section{text-align:center;background:rgba(5,7,12,0.8);border-top:1px solid var(--panel-border)}
     .cta-section h2{max-width:580px;margin:0 auto 16px}
     .cta-sub{font-size:16px;color:var(--text-secondary);max-width:440px;margin:0 auto 44px;line-height:1.8;font-weight:400}
     .cta-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+    /* FOOTER */
     footer{padding:36px 72px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--panel-border)}
-    .footer-copy{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-secondary);margin-top:4px;letter-spacing:0.05em}
+    .footer-copy{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-secondary);margin-top:4px;letter-spacing:0.05em}
     .footer-links{display:flex;gap:28px}
     .footer-links a{font-family:'Rajdhani',sans-serif;font-size:14px;color:var(--text-secondary);text-decoration:none;transition:color 0.2s;letter-spacing:0.04em;font-weight:500}
     .footer-links a:hover{color:var(--cyan)}
+    @media(max-width:1200px){
+      .pricing-grid{grid-template-columns:repeat(3,1fr)}
+      .feat-grid{grid-template-columns:repeat(2,1fr)}
+    }
     @media(max-width:960px){
       nav{padding:18px 24px}nav ul{display:none}
       .hero,section{padding-left:24px;padding-right:24px}.hero{padding-top:120px}
       .feat-grid,.ind-grid{grid-template-columns:1fr}
+      .pricing-grid{grid-template-columns:1fr}
       .how-portal{grid-template-columns:1fr}
       .how-portal::before,.how-h-top,.how-h-bot{display:none}
       .how-left,.how-right{padding:0}
@@ -155,6 +193,10 @@
       footer{flex-direction:column;gap:20px;padding:32px 24px}
       .hero-metrics{gap:28px;flex-wrap:wrap}
       .data-legend,.corner-accent{display:none}
+    }
+    @media(max-width:600px){
+      h1{font-size:28px}
+      .hero-sub{font-size:15px}
     }
   </style>
 </head>
@@ -174,6 +216,8 @@
   <div class="legend-item"><div class="legend-dot ld-ppl"></div>People</div>
   <div class="legend-item"><div class="legend-dot ld-cus"></div>Customers</div>
 </div>
+
+<!-- NAV -->
 <nav>
   <a href="#" class="logo-wrap">
     <svg class="logo-svg-mark" viewBox="0 0 46 46" fill="none">
@@ -189,74 +233,94 @@
     </svg>
     <div class="logo-wordmark">
       <div class="logo-primary">360<span>ops</span></div>
-      <div class="logo-tagline">AI-Edge Operations</div>
+      <div class="logo-tagline">AI Business Operating System</div>
     </div>
   </a>
   <ul>
-    <li><a href="#features">Platform</a></li>
-    <li><a href="#how">How It Works</a></li>
-    <li><a href="#industries">Industries</a></li>
-    <li><a href="https://portal.360ops.ai" style="color:var(--text-secondary);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;font-family:'Rajdhani',sans-serif;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Sign In</a></li>
-    <li><a href="https://portal.360ops.ai" class="nav-cta">Get Started</a></li>
+    <li><a href="#">Home</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="security.html">Security</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="https://portal.360ops.ai" class="nav-signin">Sign In</a></li>
+    <li><a href="https://portal.360ops.ai/signup" class="nav-cta">Get Started</a></li>
   </ul>
 </nav>
+
+<!-- HERO -->
 <section class="hero">
   <div class="hero-radial"></div>
   <div class="hero-content">
-    <div class="badge"><div class="badge-pulse"></div>AI-Edge Compliant Technology</div>
-    <h1>
-      <span class="hi-cyan">Optimize.</span><br>
-      <span class="hi-violet">Operate.</span><br>
-      <span class="hi-outline">Securely</span> — 360°.
-    </h1>
-    <p class="hero-sub">360ops is the AI integration layer for every business — automating operations, connecting systems, and delivering edge-compliant AI that works across any industry, any size.</p>
+    <div class="badge"><div class="badge-pulse"></div>Now Live — AI Business Operating System</div>
+    <h1>The <span class="hi-cyan">AI Business</span><br>Operating System</h1>
+    <p class="hero-sub">Every department. Every employee. One intelligent platform.</p>
+    <p class="hero-body">360ops gives your entire business a fleet of AI agents — each one trained on your data, connected to your tools, and operating within your compliance rules. No technical setup. No data risk. Just results.</p>
     <div class="hero-actions">
-      <a href="https://portal.360ops.ai" class="btn-primary">
-        Start Free Assessment
+      <a href="https://portal.360ops.ai/signup" class="btn-primary">
+        Start Free Trial
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="#how" class="btn-ghost">See the Platform</a>
+      <a href="#features" class="btn-ghost">See How It Works</a>
     </div>
     <div class="hero-metrics">
-      <div><div class="metric-val">360<sup>°</sup></div><div class="metric-label">Operational Coverage</div></div>
-      <div><div class="metric-val">AI<sup>+</sup></div><div class="metric-label">Edge Compliant</div></div>
+      <div><div class="metric-val">360<sup>°</sup></div><div class="metric-label">Business Coverage</div></div>
+      <div><div class="metric-val">12<sup>+</sup></div><div class="metric-label">Compliance Stages</div></div>
       <div><div class="metric-val">Any<sup>∞</sup></div><div class="metric-label">Industry. Any Scale.</div></div>
     </div>
     <div class="status-bar">
       <span><span class="status-dot sd-green"></span>SYSTEMS ONLINE</span>
-      <span><span class="status-dot sd-cyan"></span>AI CORE ACTIVE</span>
+      <span><span class="status-dot sd-cyan"></span>AI AGENTS ACTIVE</span>
     </div>
   </div>
 </section>
+
+<!-- INTEGRATIONS BAR -->
 <div class="logos-bar">
-  <div class="logos-label">Serving businesses across every sector</div>
+  <div class="logos-label">Agents work inside tools you already use</div>
   <div class="logos-row">
-    <div class="industry-pill"><span class="dot"></span>Healthcare</div>
-    <div class="industry-pill"><span class="dot"></span>Manufacturing</div>
-    <div class="industry-pill"><span class="dot"></span>MSP &amp; IT</div>
-    <div class="industry-pill"><span class="dot"></span>Legal &amp; CPA</div>
-    <div class="industry-pill"><span class="dot"></span>Retail &amp; SMB</div>
-    <div class="industry-pill"><span class="dot"></span>Finance</div>
-    <div class="industry-pill"><span class="dot"></span>Construction</div>
+    <div class="integration-pill"><span class="dot"></span>Microsoft 365</div>
+    <div class="integration-pill"><span class="dot"></span>QuickBooks</div>
+    <div class="integration-pill"><span class="dot"></span>Atera</div>
+    <div class="integration-pill"><span class="dot"></span>Slack</div>
+    <div class="integration-pill"><span class="dot"></span>Google Workspace</div>
+    <div class="integration-pill"><span class="dot"></span>OneDrive</div>
+    <div class="integration-pill"><span class="dot"></span>Outlook</div>
   </div>
 </div>
+
+<!-- FEATURES -->
 <section id="features">
-  <div class="eyebrow">Core Platform</div>
-  <h2>AI capabilities built<br>for real operations.</h2>
-  <p class="sub">360ops layers intelligent automation, compliance, and integration on top of what you already have — no rip-and-replace required.</p>
+  <div class="eyebrow">Core Capabilities</div>
+  <h2>AI agents for every<br>corner of your business.</h2>
+  <p class="sub">360ops deploys intelligent agents across your organization — each scoped to a department, trained on your data, and built to produce real results from day one.</p>
   <div class="feat-grid">
-    <div class="feat-card"><div class="feat-icon-wrap">🤖</div><div class="feat-title">AI Integration Layer</div><p class="feat-desc">Connect AI directly to your existing tools, workflows, and data sources. We integrate — you accelerate.</p></div>
-    <div class="feat-card"><div class="feat-icon-wrap">🛡️</div><div class="feat-title">Edge-Compliant AI</div><p class="feat-desc">AI processing at the edge — on-prem, cloud, or hybrid — fully compliant with HIPAA, CMMC, SOC 2, and your industry's requirements.</p></div>
-    <div class="feat-card"><div class="feat-icon-wrap">⚡</div><div class="feat-title">Process Automation</div><p class="feat-desc">Identify and eliminate manual bottlenecks across every department. Free your team to focus on what only humans can do.</p></div>
-    <div class="feat-card"><div class="feat-icon-wrap">📊</div><div class="feat-title">Operational Intelligence</div><p class="feat-desc">Real-time AI-driven dashboards that surface insights at the right moment — so every decision is faster and smarter.</p></div>
-    <div class="feat-card"><div class="feat-icon-wrap">🔗</div><div class="feat-title">Multi-Brand Management</div><p class="feat-desc">Running multiple brands or subsidiaries? 360ops unifies AI operations across your entire portfolio from one control plane.</p></div>
-    <div class="feat-card"><div class="feat-icon-wrap">🔄</div><div class="feat-title">Continuous Optimization</div><p class="feat-desc">360ops monitors, learns, and evolves with your business. Ongoing AI refinement that compounds ROI over time.</p></div>
+    <div class="feat-card">
+      <div class="feat-icon-wrap">🏢</div>
+      <div class="feat-title">Every Department, Covered</div>
+      <p class="feat-desc">Sales agents close deals. Finance agents reconcile books. Marketing agents write content. Your entire org runs on AI.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon-wrap">🔒</div>
+      <div class="feat-title">Compliance Built In</div>
+      <p class="feat-desc">12-stage gatekeeper. PII never sent to AI raw. RBAC scoped per connector. Your data never leaves your control.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon-wrap">🔌</div>
+      <div class="feat-title">Connect What You Already Use</div>
+      <p class="feat-desc">Microsoft 365, QuickBooks, Atera, Slack, Google Workspace — agents work inside your existing tools.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon-wrap">🧠</div>
+      <div class="feat-title">Agents That Actually Learn</div>
+      <p class="feat-desc">Every conversation updates agent memory. Agents remember your preferences, ongoing projects, and past decisions.</p>
+    </div>
   </div>
 </section>
+
+<!-- HOW IT WORKS -->
 <section id="how">
   <div style="text-align:center;margin-bottom:64px">
-    <div class="eyebrow" style="justify-content:center">The Process</div>
-    <h2>From assessment<br>to transformation.</h2>
+    <div class="eyebrow" style="justify-content:center">The Platform</div>
+    <h2>From zero to a fully<br>AI-powered business.</h2>
     <p class="sub" style="margin:0 auto;text-align:center">A structured path from where you are to where AI takes you — full visibility at every step.</p>
   </div>
   <div class="how-portal">
@@ -264,14 +328,14 @@
     <div class="how-left">
       <div class="how-step">
         <div class="how-step-num">STEP 01</div>
-        <div class="how-step-title">Operations Assessment</div>
-        <p class="how-step-desc">We map your workflows, tools, and pain points to find exactly where AI delivers the highest immediate impact.</p>
+        <div class="how-step-title">Connect Your Tools</div>
+        <p class="how-step-desc">Link your existing systems in minutes. 360ops reads your data through secure, read-only connectors — no migration required.</p>
         <div class="conn-wrap-right"><div class="conn-line"></div><div class="conn-dot"></div></div>
       </div>
       <div class="how-step">
         <div class="how-step-num">STEP 03</div>
-        <div class="how-step-title">Edge Deployment</div>
-        <p class="how-step-desc">We deploy AI at the edge — on-site, cloud, or hybrid — with zero disruption to your existing operations.</p>
+        <div class="how-step-title">Deploy Agents Per Department</div>
+        <p class="how-step-desc">Sales, finance, HR, marketing — each department gets dedicated AI agents trained on their specific workflows and data.</p>
         <div class="conn-wrap-right"><div class="conn-line"></div><div class="conn-dot"></div></div>
       </div>
     </div>
@@ -284,45 +348,172 @@
     <div class="how-right">
       <div class="how-step">
         <div class="how-step-num">STEP 02</div>
-        <div class="how-step-title">Custom AI Blueprint</div>
-        <p class="how-step-desc">Our team designs a tailored AI integration roadmap aligned to your business size, industry, and compliance needs.</p>
+        <div class="how-step-title">Configure Compliance Rules</div>
+        <p class="how-step-desc">Set your RBAC policies, PII handling rules, and regulatory requirements. Every AI query runs through a 12-stage gatekeeper.</p>
         <div class="conn-wrap-left"><div class="conn-dot"></div><div class="conn-line"></div></div>
       </div>
       <div class="how-step">
         <div class="how-step-num">STEP 04</div>
-        <div class="how-step-title">Continuous Optimization</div>
-        <p class="how-step-desc">360ops monitors performance, learns from your data, and continuously improves — ensuring your AI investment compounds over time.</p>
+        <div class="how-step-title">Watch Your Business Run on AI</div>
+        <p class="how-step-desc">Agents learn from every interaction. Your entire organization becomes more intelligent, responsive, and efficient over time.</p>
         <div class="conn-wrap-left"><div class="conn-dot"></div><div class="conn-line"></div></div>
       </div>
     </div>
     <div class="how-h-bot"></div>
   </div>
 </section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="eyebrow">Pricing</div>
+  <h2>One platform.<br>Every scale.</h2>
+  <p class="sub">Start free and grow into the full business OS. Every tier includes compliance-ready AI with your own isolated database.</p>
+  <div class="pricing-grid">
+    <!-- Trial -->
+    <div class="pricing-card">
+      <div class="pricing-tier-label">Trial</div>
+      <div class="pricing-name">Try 360ops</div>
+      <div class="pricing-for">Small teams testing AI</div>
+      <div class="pricing-price free-price">Free<span> / 30 days</span></div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>Up to 3 AI agents</li>
+        <li>1 connected integration</li>
+        <li>Compliance gatekeeper included</li>
+        <li>Dedicated database instance</li>
+        <li>Email support</li>
+      </ul>
+      <a href="https://portal.360ops.ai/signup" class="btn-pricing ghost">Get Started →</a>
+    </div>
+    <!-- Tier 1 -->
+    <div class="pricing-card">
+      <div class="pricing-tier-label">Tier 1</div>
+      <div class="pricing-name">AI Personal Workspace</div>
+      <div class="pricing-for">Compliant AI for every employee</div>
+      <div class="pricing-price">$97<span>/mo</span></div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>Unlimited personal AI agents</li>
+        <li>3 connected integrations</li>
+        <li>Full 12-stage compliance gatekeeper</li>
+        <li>Agent memory & learning</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="https://portal.360ops.ai/signup" class="btn-pricing">Get Started →</a>
+    </div>
+    <!-- Tier 2 -->
+    <div class="pricing-card featured">
+      <div class="pricing-tier-label">Tier 2 · Most Popular</div>
+      <div class="pricing-name">AI Integrator</div>
+      <div class="pricing-for">One agent per connected system</div>
+      <div class="pricing-price">$297<span>/mo</span></div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>Dedicated agent per integration</li>
+        <li>Up to 10 connected systems</li>
+        <li>RBAC per connector</li>
+        <li>Cross-system agent memory</li>
+        <li>Audit log + compliance reports</li>
+      </ul>
+      <a href="https://portal.360ops.ai/signup" class="btn-pricing">Get Started →</a>
+    </div>
+    <!-- Tier 3 -->
+    <div class="pricing-card">
+      <div class="pricing-tier-label">Tier 3</div>
+      <div class="pricing-name">AI Team</div>
+      <div class="pricing-for">Full AI department</div>
+      <div class="pricing-price">$497<span>/mo</span></div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>Department-level agent squads</li>
+        <li>Unlimited integrations</li>
+        <li>Multi-user RBAC & roles</li>
+        <li>Cross-department intelligence</li>
+        <li>Dedicated onboarding engineer</li>
+      </ul>
+      <a href="https://portal.360ops.ai/signup" class="btn-pricing">Get Started →</a>
+    </div>
+    <!-- Tier 4 -->
+    <div class="pricing-card">
+      <div class="pricing-tier-label">Tier 4 · FoundersOS</div>
+      <div class="pricing-name">AI Company</div>
+      <div class="pricing-for">Full business OS — FoundersOS</div>
+      <div class="pricing-price">$997<span>/mo</span></div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>Entire business runs on AI</li>
+        <li>Unlimited agents, unlimited users</li>
+        <li>White-glove setup & migration</li>
+        <li>Custom compliance configuration</li>
+        <li>Dedicated account team + SLA</li>
+      </ul>
+      <a href="https://portal.360ops.ai/signup" class="btn-pricing">Get Started →</a>
+    </div>
+  </div>
+  <p class="pricing-note">AI usage billed separately via prepaid credits wallet.</p>
+</section>
+
+<!-- INDUSTRIES -->
 <section id="industries">
   <div class="eyebrow">Industries</div>
-  <h2>Built for every<br>vertical. Any size.</h2>
-  <p class="sub">Whether you're a 10-person CPA firm or a multi-site manufacturer, 360ops scales to meet you exactly where you operate.</p>
+  <h2>Built for every<br>industry.</h2>
+  <p class="sub">360ops is industry-agnostic infrastructure. Drop it into any sector and agents immediately adapt to your workflows, regulations, and data.</p>
   <div class="ind-grid">
-    <div class="ind-card"><div class="ind-icon">🏥</div><div class="ind-name">Healthcare</div><p class="ind-desc">HIPAA-compliant AI for clinical workflows, patient data management, and administrative automation.</p><span class="ind-tag">HIPAA Ready</span></div>
-    <div class="ind-card"><div class="ind-icon">🏭</div><div class="ind-name">Manufacturing</div><p class="ind-desc">Edge AI for floor operations, predictive maintenance, supply chain visibility, and quality control.</p><span class="ind-tag">Edge Compute</span></div>
-    <div class="ind-card"><div class="ind-icon">💼</div><div class="ind-name">MSPs &amp; IT Firms</div><p class="ind-desc">White-label AI operations stack — deliver next-gen AI services to your own client base under your brand.</p><span class="ind-tag">White Label</span></div>
-    <div class="ind-card"><div class="ind-icon">📋</div><div class="ind-name">Legal &amp; CPA Firms</div><p class="ind-desc">Document intelligence, billing automation, compliance tracking, and client workflow automation.</p><span class="ind-tag">Compliance Focused</span></div>
-    <div class="ind-card"><div class="ind-icon">🏪</div><div class="ind-name">Retail &amp; SMB</div><p class="ind-desc">Inventory intelligence, customer analytics, and automated marketing operations scaled for growth.</p><span class="ind-tag">Growth Ready</span></div>
-    <div class="ind-card"><div class="ind-icon">🏗️</div><div class="ind-name">Construction &amp; Real Estate</div><p class="ind-desc">Project operations, subcontractor management, compliance documentation, and AI cost forecasting.</p><span class="ind-tag">Project Ops</span></div>
+    <div class="ind-card">
+      <div class="ind-icon">🏥</div>
+      <div class="ind-name">Healthcare</div>
+      <p class="ind-desc">HIPAA-aware agents for clinical workflows, patient data management, and administrative automation.</p>
+      <span class="ind-tag">HIPAA-Aware</span>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon">⚖️</div>
+      <div class="ind-name">Legal</div>
+      <p class="ind-desc">Compliance-first AI for document intelligence, billing automation, and client workflow management.</p>
+      <span class="ind-tag">Compliance-First</span>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon">🏗️</div>
+      <div class="ind-name">Construction</div>
+      <p class="ind-desc">Field and office operations: subcontractor management, compliance documentation, and AI cost forecasting.</p>
+      <span class="ind-tag">Field + Office</span>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon">💰</div>
+      <div class="ind-name">Finance</div>
+      <p class="ind-desc">Audit-ready AI workflows for reconciliation, reporting, and regulatory compliance at every level.</p>
+      <span class="ind-tag">Audit-Ready</span>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon">🛒</div>
+      <div class="ind-name">E-Commerce</div>
+      <p class="ind-desc">Customer and inventory AI that personalizes experiences, predicts demand, and automates support.</p>
+      <span class="ind-tag">Customer + Inventory</span>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon">🏢</div>
+      <div class="ind-name">Professional Services</div>
+      <p class="ind-desc">Client-serving agents that handle proposals, project tracking, and knowledge management for your firm.</p>
+      <span class="ind-tag">Client-Serving</span>
+    </div>
   </div>
+  <p class="ind-tagline">Industry-agnostic infrastructure. You bring the business — we bring the intelligence.</p>
 </section>
+
+<!-- CTA -->
 <section class="cta-section" id="contact">
   <div class="eyebrow" style="justify-content:center">Get Started</div>
-  <h2>Ready to operate<br>at 360°?</h2>
-  <p class="cta-sub">Get a free AI readiness assessment from a 360ops specialist — tailored to your industry and current operations.</p>
+  <h2>Ready to run your<br>entire business on AI?</h2>
+  <p class="cta-sub">Start your free 30-day trial. No credit card required. Your data stays in your own isolated environment.</p>
   <div class="cta-actions">
-    <a href="mailto:hello@360ops.ai" class="btn-primary">
-      Request Free Assessment
+    <a href="https://portal.360ops.ai/signup" class="btn-primary">
+      Start Free Trial
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
-    <a href="tel:+18003600000" class="btn-ghost">Call a Specialist</a>
+    <a href="security.html" class="btn-ghost">View Security →</a>
   </div>
 </section>
+
+<!-- FOOTER -->
 <footer>
   <div>
     <div style="display:flex;align-items:center;gap:10px">
@@ -333,14 +524,16 @@
       </svg>
       <span style="font-family:'Orbitron',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.08em;color:var(--text-primary)">360<span style="color:var(--cyan)">ops</span></span>
     </div>
-    <div class="footer-copy">© 2025 360ops. All rights reserved.</div>
+    <div class="footer-copy">© 2026 360ops.ai — AI Business Operating System</div>
   </div>
   <div class="footer-links">
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
-    <a href="#">Contact</a>
+    <a href="security.html">Security</a>
+    <a href="mailto:hello@360ops.ai">Contact</a>
   </div>
 </footer>
+
 <script>
 (function(){
   const cv=document.getElementById('traceCanvas');
