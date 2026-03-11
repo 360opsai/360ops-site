@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>360ops vs The Alternatives — Why AI Agents Beat Automation Tools</title>
+  <meta name="description" content="See how 360ops compares to Zapier, Microsoft Copilot, and ChatGPT. Dedicated AI agents, compliance-first, client-owned data — built for real business operations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --cyan:      #00E5FF;
+      --cyan-dim:  #00B8CC;
+      --cyan-glow: rgba(0,229,255,0.35);
+      --cyan-soft: rgba(0,229,255,0.12);
+      --cyan-line: rgba(0,229,255,0.22);
+      --dark-bg:   #07090F;
+      --panel-bg:  rgba(10,14,26,0.88);
+      --panel-border: rgba(0,229,255,0.14);
+      --text-primary:   #EEF2FF;
+      --text-secondary: #8FA3BF;
+      --text-dim:       #4E6070;
+      --green: #00E676;
+      --red:   #FF4757;
+      --amber: #FFB300;
+      --orange: #FF6B35;
+    }
+    html,body{font-family:'Rajdhani',sans-serif;background:var(--dark-bg);color:var(--text-primary);overflow-x:hidden}
+
+    /* ── Background ── */
+    .bg-layer{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 20% 40%,rgba(0,229,255,0.04) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 78% 55%,rgba(180,79,255,0.025) 0%,transparent 55%),radial-gradient(ellipse 50% 50% at 50% 100%,rgba(0,255,157,0.015) 0%,transparent 50%),linear-gradient(180deg,#07090F 0%,#0A0D18 50%,#07090F 100%)}
+    .grid-overlay{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.025) 1px,transparent 1px);background-size:60px 60px;animation:gridDrift 28s linear infinite}
+    @keyframes gridDrift{0%{transform:translate(0,0)}100%{transform:translate(60px,60px)}}
+    .scanline{position:fixed;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,229,255,0.006) 2px,rgba(0,229,255,0.006) 4px)}
+    .corner-accent{position:fixed;width:56px;height:56px;z-index:3;pointer-events:none}
+    .corner-accent.tl{top:16px;left:16px;border-top:1px solid rgba(0,229,255,0.3);border-left:1px solid rgba(0,229,255,0.3)}
+    .corner-accent.tr{top:16px;right:16px;border-top:1px solid rgba(180,79,255,0.2);border-right:1px solid rgba(180,79,255,0.2)}
+    .corner-accent.bl{bottom:16px;left:16px;border-bottom:1px solid rgba(0,255,157,0.18);border-left:1px solid rgba(0,255,157,0.18)}
+    .corner-accent.br{bottom:16px;right:16px;border-bottom:1px solid rgba(255,60,172,0.15);border-right:1px solid rgba(255,60,172,0.15)}
+
+    /* ── Nav ── */
+    nav,section,footer{position:relative;z-index:2}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:20px 72px;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,9,15,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--panel-border)}
+    .logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .logo-svg-mark{width:44px;height:44px}
+    .logo-wordmark{display:flex;flex-direction:column;line-height:1}
+    .logo-primary{font-family:'Orbitron',sans-serif;font-weight:700;font-size:18px;letter-spacing:0.08em;color:var(--text-primary)}
+    .logo-primary span{color:var(--cyan)}
+    .logo-tagline{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-top:3px}
+    nav ul{display:flex;gap:40px;list-style:none}
+    nav ul a{color:var(--text-secondary);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;font-family:'Rajdhani',sans-serif}
+    nav ul a:hover{color:var(--text-primary)}
+    nav ul a.active{color:var(--cyan)}
+    .nav-cta{background:var(--cyan)!important;color:#07090F!important;padding:9px 22px;border-radius:5px;font-family:'Orbitron',sans-serif!important;font-size:10.5px!important;font-weight:700!important;letter-spacing:0.12em!important;transition:all 0.3s!important;box-shadow:0 0 20px var(--cyan-glow)}
+    .nav-cta:hover{background:#33EEFF!important;box-shadow:0 0 40px var(--cyan-glow)!important;transform:translateY(-1px)}
+
+    /* ── Section base ── */
+    section{padding:100px 72px}
+    .eyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+    .eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--cyan)}
+    h2{font-family:'Orbitron',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:0.02em;line-height:1.15;color:var(--text-primary);margin-bottom:18px}
+    .sub{font-size:15px;color:var(--text-secondary);max-width:560px;line-height:1.8;margin-bottom:60px;font-weight:400}
+
+    /* ── Hero ── */
+    .compare-hero{min-height:60vh;display:flex;align-items:center;padding:160px 72px 80px;position:relative;overflow:hidden}
+    .hero-radial{position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle at center,rgba(0,229,255,0.06) 0%,rgba(180,79,255,0.02) 40%,transparent 70%);top:50%;right:-260px;transform:translateY(-50%);pointer-events:none;animation:breathe 7s ease-in-out infinite}
+    @keyframes breathe{0%,100%{transform:translateY(-50%) scale(1);opacity:1}50%{transform:translateY(-50%) scale(1.08);opacity:0.65}}
+    .hero-content{max-width:760px;animation:rise 1s cubic-bezier(.16,1,.3,1) both}
+    @keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+    .badge{display:inline-flex;align-items:center;gap:9px;background:var(--cyan-soft);border:1px solid var(--cyan-line);border-radius:100px;padding:6px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:30px}
+    .badge-pulse{width:7px;height:7px;border-radius:50%;background:var(--cyan);position:relative}
+    .badge-pulse::after{content:'';position:absolute;inset:-3px;border-radius:50%;background:var(--cyan-glow);animation:ripple 2s ease-out infinite}
+    @keyframes ripple{0%{transform:scale(1);opacity:1}100%{transform:scale(2.5);opacity:0}}
+    h1{font-family:'Orbitron',sans-serif;font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.1;letter-spacing:0.01em;color:var(--text-primary);margin-bottom:24px}
+    h1 .hi-cyan{color:var(--cyan)}
+    .hero-tagline{font-size:18px;color:var(--text-secondary);line-height:1.75;max-width:560px;margin-bottom:0;font-weight:400}
+
+    /* ── Comparison table ── */
+    #compare-table{background:rgba(7,9,15,0.5);padding-top:80px}
+    .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px;border:1px solid var(--panel-border)}
+    table{width:100%;border-collapse:collapse;min-width:700px}
+    thead th{padding:20px 24px;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;text-align:left;background:rgba(10,14,26,0.95);border-bottom:1px solid var(--panel-border);white-space:nowrap;position:sticky;top:0;z-index:5}
+    thead th:first-child{color:var(--text-secondary);min-width:220px}
+    thead th.col-360ops{color:var(--cyan);background:rgba(0,229,255,0.07);border-left:2px solid var(--cyan);border-right:2px solid var(--cyan);box-shadow:0 0 28px rgba(0,229,255,0.12);text-align:center}
+    thead th.col-alt{color:var(--text-secondary);text-align:center}
+    tbody tr{border-bottom:1px solid rgba(0,229,255,0.06);transition:background 0.2s}
+    tbody tr:hover{background:rgba(0,229,255,0.025)}
+    tbody tr:last-child{border-bottom:none}
+    tbody td{padding:18px 24px;font-size:14px;line-height:1.5;color:var(--text-secondary);vertical-align:middle}
+    tbody td:first-child{color:var(--text-primary);font-weight:500;font-family:'Rajdhani',sans-serif;font-size:15px}
+    tbody td.col-360ops{background:rgba(0,229,255,0.045);border-left:2px solid rgba(0,229,255,0.4);border-right:2px solid rgba(0,229,255,0.4);text-align:center;font-weight:600}
+    tbody td.col-alt{text-align:center}
+    .icon-yes{color:var(--green);font-size:16px}
+    .icon-no{color:var(--red);font-size:16px}
+    .icon-warn{color:var(--amber);font-size:16px}
+    .cell-label{display:block;font-size:12px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;margin-top:4px;font-weight:400}
+    .price-val{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--text-primary)}
+
+    /* ── Why not ChatGPT ── */
+    #why-not{background:rgba(5,7,12,0.6)}
+    .problems-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .problem-card{background:rgba(10,14,26,0.75);border:1px solid var(--panel-border);border-radius:12px;padding:36px 28px;position:relative;overflow:hidden;backdrop-filter:blur(12px);transition:border-color 0.3s,transform 0.3s}
+    .problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(255,71,87,0.5),transparent)}
+    .problem-card:hover{border-color:rgba(255,71,87,0.3);transform:translateY(-3px)}
+    .problem-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin-bottom:12px;opacity:0.85}
+    .problem-title{font-family:'Orbitron',sans-serif;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:12px;letter-spacing:0.04em}
+    .problem-desc{font-size:14px;color:var(--text-secondary);line-height:1.75;margin-bottom:20px}
+    .solution-wrap{display:flex;gap:10px;padding:16px;background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.14);border-radius:8px}
+    .solution-icon{flex-shrink:0;font-size:16px;margin-top:1px}
+    .solution-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px;opacity:0.8}
+    .solution-text{font-size:13px;color:var(--text-secondary);line-height:1.6}
+
+    /* ── Persona cards ── */
+    #who-switches{background:rgba(7,9,15,0.3)}
+    .persona-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .persona-card{background:rgba(10,14,26,0.8);border:1px solid var(--panel-border);border-radius:12px;padding:36px 28px;display:flex;flex-direction:column;gap:16px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(12px)}
+    .persona-card:hover{border-color:rgba(0,229,255,0.3);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.5),0 0 24px rgba(0,229,255,0.07)}
+    .persona-from{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);margin-bottom:4px}
+    .persona-quote{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:600;color:var(--cyan);line-height:1.5;letter-spacing:0.02em}
+    .persona-body{font-size:14px;color:var(--text-secondary);line-height:1.75}
+    .persona-body strong{color:var(--text-primary)}
+    .persona-divider{height:1px;background:var(--panel-border)}
+    .persona-tag{display:inline-block;background:var(--cyan-soft);border:1px solid var(--cyan-line);border-radius:100px;padding:4px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:0.08em;text-transform:uppercase;align-self:flex-start;margin-top:auto}
+
+    /* ── CTA ── */
+    .cta-section{text-align:center;background:rgba(5,7,12,0.8);border-top:1px solid var(--panel-border);padding:100px 72px}
+    .cta-section h2{max-width:640px;margin:0 auto 16px}
+    .cta-sub{font-size:16px;color:var(--text-secondary);max-width:460px;margin:0 auto 44px;line-height:1.8;font-weight:400}
+    .btn-primary{background:var(--cyan);color:#07090F;padding:14px 32px;border-radius:6px;font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;letter-spacing:0.1em;text-transform:uppercase;box-shadow:0 4px 28px var(--cyan-glow)}
+    .btn-primary:hover{background:#33EEFF;transform:translateY(-2px);box-shadow:0 8px 40px var(--cyan-glow)}
+    .btn-cta-orange{background:var(--orange);color:#fff;padding:16px 40px;border-radius:6px;font-family:'Orbitron',sans-serif;font-size:14px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:10px;letter-spacing:0.1em;text-transform:uppercase;box-shadow:0 4px 28px rgba(255,107,53,0.4)}
+    .btn-cta-orange:hover{background:#FF8255;transform:translateY(-2px);box-shadow:0 8px 40px rgba(255,107,53,0.6)}
+
+    /* ── Footer ── */
+    footer{padding:36px 72px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--panel-border)}
+    .footer-copy{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-secondary);margin-top:4px;letter-spacing:0.05em}
+    .footer-links{display:flex;gap:28px}
+    .footer-links a{font-family:'Rajdhani',sans-serif;font-size:14px;color:var(--text-secondary);text-decoration:none;transition:color 0.2s;letter-spacing:0.04em;font-weight:500}
+    .footer-links a:hover{color:var(--cyan)}
+
+    /* ── Mobile ── */
+    @media(max-width:960px){
+      nav{padding:18px 24px}
+      nav ul{display:none}
+      .compare-hero,section,.cta-section{padding-left:24px;padding-right:24px}
+      .compare-hero{padding-top:120px}
+      .problems-grid,.persona-grid{grid-template-columns:1fr}
+      footer{flex-direction:column;gap:20px;padding:32px 24px}
+      .corner-accent{display:none}
+      table{font-size:13px}
+      thead th,tbody td{padding:14px 16px}
+    }
+    @media(max-width:600px){
+      .compare-hero{padding-top:100px;min-height:auto;padding-bottom:60px}
+    }
+  </style>
+</head>
+<body>
+<div class="bg-layer"></div>
+<div class="grid-overlay"></div>
+<div class="scanline"></div>
+<div class="corner-accent tl"></div>
+<div class="corner-accent tr"></div>
+<div class="corner-accent bl"></div>
+<div class="corner-accent br"></div>
+
+<!-- ── Navigation ── -->
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <svg class="logo-svg-mark" viewBox="0 0 46 46" fill="none">
+      <circle cx="23" cy="23" r="21" stroke="rgba(0,229,255,0.25)" stroke-width="1" stroke-dasharray="5 3"/>
+      <path d="M23 4 L38 13.5 L38 32.5 L23 42 L8 32.5 L8 13.5 Z" fill="url(#lgrad)"/>
+      <circle cx="23" cy="23" r="13" stroke="rgba(0,229,255,0.18)" stroke-width="0.8"/>
+      <text x="23" y="27" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="800" font-size="9" fill="#00E5FF">360</text>
+      <defs>
+        <linearGradient id="lgrad" x1="8" y1="4" x2="38" y2="42" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#0D1A2A"/><stop offset="100%" stop-color="#001C26"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div class="logo-wordmark">
+      <div class="logo-primary">360<span>ops</span></div>
+      <div class="logo-tagline">AI-Edge Operations</div>
+    </div>
+  </a>
+  <ul>
+    <li><a href="index.html#features">Platform</a></li>
+    <li><a href="index.html#how">How It Works</a></li>
+    <li><a href="index.html#industries">Industries</a></li>
+    <li><a href="compare.html" class="active">Compare</a></li>
+    <li><a href="https://portal.360ops.ai" style="color:var(--text-secondary);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;font-family:'Rajdhani',sans-serif;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Sign In</a></li>
+    <li><a href="https://portal.360ops.ai/signup" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="compare-hero">
+  <div class="hero-radial"></div>
+  <div class="hero-content">
+    <div class="badge"><div class="badge-pulse"></div>Competitive Analysis</div>
+    <h1>360ops vs<br><span class="hi-cyan">The Alternatives</span></h1>
+    <p class="hero-tagline">Why AI agents beat automation tools, copilots, and chatbots — and why it matters for your business, your data, and your compliance.</p>
+  </div>
+</section>
+
+<!-- ── Comparison Table ── -->
+<section id="compare-table">
+  <div class="eyebrow">Feature Breakdown</div>
+  <h2>The full picture,<br>side by side.</h2>
+  <p class="sub">Not all AI tools are created equal. Here's what you're actually comparing when you evaluate your options.</p>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="col-360ops">⚡ 360ops</th>
+          <th class="col-alt">Zapier / Make</th>
+          <th class="col-alt">Microsoft Copilot</th>
+          <th class="col-alt">ChatGPT Teams</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dedicated AI agents per role</td>
+          <td class="col-360ops"><span class="icon-yes">✅</span><span class="cell-label">Built-in</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span><span class="cell-label">No agents</span></td>
+          <td class="col-alt"><span class="icon-warn">⚠️</span><span class="cell-label">One generic Copilot</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span><span class="cell-label">No role context</span></td>
+        </tr>
+        <tr>
+          <td>Dedicated database per client</td>
+          <td class="col-360ops"><span class="icon-yes">✅</span><span class="cell-label">Always</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span><span class="cell-label">Shared</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span><span class="cell-label">Microsoft cloud</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span><span class="cell-label">OpenAI cloud</span></td>
+        </tr>
+        <tr>
+          <td>12-stage compliance gatekeeper</td>
+          <td class="col-360ops"><span class="icon-yes">✅</span><span class="cell-label">Every query</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span><span class="cell-label">None</span></td>
+          <td class="col-alt"><span class="icon-warn">⚠️</span><span class="cell-label">Basic filters</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span><span class="cell-label">None</span></td>
+        </tr>
+        <tr>
+          <td>Industry-agnostic</td>
+          <td class="col-360ops"><span class="icon-yes">✅</span><span class="cell-label">Any industry</span></td>
+          <td class="col-alt"><span class="icon-yes">✅</span><span class="cell-label">Any industry</span></td>
+          <td class="col-alt"><span class="icon-warn">⚠️</span><span class="cell-label">Microsoft-focused</span></td>
+          <td class="col-alt"><span class="icon-yes">✅</span><span class="cell-label">Any</span></td>
+        </tr>
+        <tr>
+          <td>Agent memory (learns over time)</td>
+          <td class="col-360ops"><span class="icon-yes">✅</span><span class="cell-label">Growing memory</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span><span class="cell-label">No memory</span></td>
+          <td class="col-alt"><span class="icon-warn">⚠️</span><span class="cell-label">Limited context</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span><span class="cell-label">Resets every chat</span></td>
+        </tr>
+        <tr>
+          <td>Works with your existing tools</td>
+          <td class="col-360ops"><span class="icon-yes">✅</span><span class="cell-label">M365, QB, Atera+</span></td>
+          <td class="col-alt"><span class="icon-yes">✅</span><span class="cell-label">5,000+ apps</span></td>
+          <td class="col-alt"><span class="icon-yes">✅</span><span class="cell-label">Microsoft only</span></td>
+          <td class="col-alt"><span class="icon-warn">⚠️</span><span class="cell-label">Plugins only</span></td>
+        </tr>
+        <tr>
+          <td>Agent-to-agent collaboration</td>
+          <td class="col-360ops"><span class="icon-yes">✅</span><span class="cell-label">Built-in</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span></td>
+        </tr>
+        <tr>
+          <td>PII never sent to AI raw</td>
+          <td class="col-360ops"><span class="icon-yes">✅</span><span class="cell-label">Enforced</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span><span class="cell-label">You manage</span></td>
+          <td class="col-alt"><span class="icon-warn">⚠️</span><span class="cell-label">Microsoft manages</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span><span class="cell-label">You manage</span></td>
+        </tr>
+        <tr>
+          <td>ROI reporting</td>
+          <td class="col-360ops"><span class="icon-yes">✅</span><span class="cell-label">Automated 2-week reports</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span></td>
+          <td class="col-alt"><span class="icon-no">❌</span></td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <td class="col-360ops"><span class="price-val">$97–$997/mo</span><span class="cell-label">Per org</span></td>
+          <td class="col-alt"><span class="price-val">$20–$599/mo</span></td>
+          <td class="col-alt"><span class="price-val">$30/user/mo</span></td>
+          <td class="col-alt"><span class="price-val">$30/user/mo</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── Why Not ChatGPT ── -->
+<section id="why-not">
+  <div class="eyebrow">The Problem With Raw AI</div>
+  <h2>Why raw AI tools aren't<br>enough for business.</h2>
+  <p class="sub">Pasting sensitive data into a chat window isn't a strategy. It's a liability. Here's what you're actually risking — and how 360ops solves it.</p>
+  <div class="problems-grid">
+
+    <div class="problem-card">
+      <div class="problem-num">Problem 01</div>
+      <div class="problem-title">No Compliance</div>
+      <p class="problem-desc">ChatGPT, Copilot, and raw AI tools see your <em>actual</em> data — PII, financials, client records, internal documents. You're one paste away from a HIPAA, SOC 2, or GDPR violation you don't even know about.</p>
+      <div class="solution-wrap">
+        <div class="solution-icon">🛡️</div>
+        <div>
+          <div class="solution-label">360ops Fix</div>
+          <div class="solution-text">Every query passes through a 12-stage compliance gatekeeper. PII is masked, sanitised, and never sent raw to any AI model.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-num">Problem 02</div>
+      <div class="problem-title">No Memory</div>
+      <p class="problem-desc">Every ChatGPT conversation starts at zero. Your AI doesn't know your org structure, your clients, your processes, or your history. You're re-explaining context every single time — and burning hours doing it.</p>
+      <div class="solution-wrap">
+        <div class="solution-icon">🧠</div>
+        <div>
+          <div class="solution-label">360ops Fix</div>
+          <div class="solution-text">Agents maintain a persistent, growing memory of your business. They learn over time — your workflows, your clients, your preferences.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-num">Problem 03</div>
+      <div class="problem-title">No Role Context</div>
+      <p class="problem-desc">One AI for everything means expert-at-nothing. A generic chatbot can't act as your Ops Lead, your Finance Analyst, and your Customer Success Manager simultaneously — with the right context, authority, and guardrails for each.</p>
+      <div class="solution-wrap">
+        <div class="solution-icon">🤖</div>
+        <div>
+          <div class="solution-label">360ops Fix</div>
+          <div class="solution-text">360ops provisions a dedicated agent per role — each trained on your org's data, scoped to its function, and operating within defined compliance bounds.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Who Switches ── -->
+<section id="who-switches">
+  <div class="eyebrow">Customer Stories</div>
+  <h2>Who switches<br>to 360ops.</h2>
+  <p class="sub">Three different starting points. One destination: an AI that actually runs your business.</p>
+  <div class="persona-grid">
+
+    <div class="persona-card">
+      <div>
+        <div class="persona-from">Switching from Zapier / Make</div>
+        <div class="persona-quote">"We used Zapier but our agents don't have brains."</div>
+      </div>
+      <div class="persona-divider"></div>
+      <p class="persona-body">
+        <strong>Automation ≠ Intelligence.</strong> Zapier moves data from A to B on a trigger. It doesn't think. It doesn't understand context. It doesn't flag an anomaly or make a judgment call.<br><br>
+        360ops agents don't just move data — they <strong>reason about it</strong>, surface insights, and take action the way a smart employee would.
+      </p>
+      <span class="persona-tag">Automation → Intelligence</span>
+    </div>
+
+    <div class="persona-card">
+      <div>
+        <div class="persona-from">Switching from Microsoft Copilot</div>
+        <div class="persona-quote">"Microsoft Copilot felt generic — not built for our business."</div>
+      </div>
+      <div class="persona-divider"></div>
+      <p class="persona-body">
+        Copilot is <strong>one assistant for everyone</strong> — trained on generic Microsoft data, with no knowledge of your org's quirks, clients, or workflows.<br><br>
+        360ops provisions a <strong>fleet of agents trained specifically on YOUR org</strong> — your data, your processes, your compliance requirements. No two deployments look the same.
+      </p>
+      <span class="persona-tag">Generic → Purpose-Built</span>
+    </div>
+
+    <div class="persona-card">
+      <div>
+        <div class="persona-from">Switching from manual ChatGPT usage</div>
+        <div class="persona-quote">"We were pasting stuff into ChatGPT manually."</div>
+      </div>
+      <div class="persona-divider"></div>
+      <p class="persona-body">
+        That's a <strong>compliance nightmare and a time sink</strong>. Copy-pasting client data, financials, or employee records into a public AI chat is not a workflow — it's a liability that compounds daily.<br><br>
+        360ops <strong>connects, secures, and automates</strong> the entire pipeline. Your data never touches a raw AI endpoint. Your team stops wasting hours on manual prompt work.
+      </p>
+      <span class="persona-tag">Manual → Automated</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section" id="cta">
+  <div class="eyebrow" style="justify-content:center">Get Started</div>
+  <h2>Ready to upgrade to a real<br>AI Business Operating System?</h2>
+  <p class="cta-sub">30-day free trial. No credit card required. Your data stays yours.</p>
+  <a href="https://portal.360ops.ai/signup" class="btn-cta-orange">
+    Start Free Trial
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg width="30" height="30" viewBox="0 0 46 46" fill="none">
+        <path d="M23 4 L38 13.5 L38 32.5 L23 42 L8 32.5 L8 13.5 Z" fill="url(#fgrad)"/>
+        <text x="23" y="27" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="800" font-size="9" fill="#00E5FF">360</text>
+        <defs><linearGradient id="fgrad" x1="8" y1="4" x2="38" y2="42" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0D1A2A"/><stop offset="100%" stop-color="#001C26"/></linearGradient></defs>
+      </svg>
+      <span style="font-family:'Orbitron',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.08em;color:var(--text-primary)">360<span style="color:var(--cyan)">ops</span></span>
+    </div>
+    <div class="footer-copy">© 2025 360ops. All rights reserved.</div>
+  </div>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="index.html">Home</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+</body>
+</html>
