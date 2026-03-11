@@ -49,9 +49,18 @@
     .logo-primary{font-family:'Orbitron',sans-serif;font-weight:700;font-size:18px;letter-spacing:0.08em;color:var(--text-primary)}
     .logo-primary span{color:var(--cyan)}
     .logo-tagline{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-top:3px}
-    nav ul{display:flex;gap:40px;list-style:none}
+    nav ul{display:flex;gap:40px;list-style:none;align-items:center}
+    nav ul li{position:relative}
     nav ul a{color:var(--text-secondary);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;font-family:'Rajdhani',sans-serif}
     nav ul a:hover{color:var(--text-primary)}
+    .nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:rgba(7,9,15,0.97);border:1px solid var(--panel-border);border-radius:8px;padding:8px 0;min-width:170px;backdrop-filter:blur(20px);z-index:200;list-style:none}
+    .nav-dropdown-menu::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid var(--panel-border)}
+    .nav-dropdown-menu li a{display:block;padding:10px 20px;font-size:13px;color:var(--text-secondary);text-decoration:none;font-family:'Rajdhani',sans-serif;font-weight:500;letter-spacing:0.04em;transition:color 0.2s,background 0.2s;white-space:nowrap}
+    .nav-dropdown-menu li a:hover{color:var(--cyan);background:var(--cyan-soft)}
+    li.has-dropdown:hover .nav-dropdown-menu{display:block}
+    .drop-trigger{display:flex;align-items:center;gap:5px;cursor:default}
+    .drop-arrow{font-size:10px;opacity:0.6;transition:transform 0.2s}
+    li.has-dropdown:hover .drop-arrow{transform:rotate(180deg)}
     .nav-cta{background:var(--cyan)!important;color:#07090F!important;padding:9px 22px;border-radius:5px;font-family:'Orbitron',sans-serif!important;font-size:10.5px!important;font-weight:700!important;letter-spacing:0.12em!important;transition:all 0.3s!important;box-shadow:0 0 20px var(--cyan-glow)}
     .nav-cta:hover{background:#33EEFF!important;box-shadow:0 0 40px var(--cyan-glow)!important;transform:translateY(-1px)}
     .hero{min-height:100vh;display:flex;align-items:center;padding:150px 72px 100px;position:relative;overflow:hidden}
@@ -195,7 +204,14 @@
   <ul>
     <li><a href="#features">Platform</a></li>
     <li><a href="#how">How It Works</a></li>
-    <li><a href="#industries">Industries</a></li>
+    <li class="has-dropdown">
+      <a href="#industries" class="drop-trigger">Industries <span class="drop-arrow">▾</span></a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="/healthcare.html">🏥 Healthcare</a></li>
+        <li><a href="/legal.html">⚖️ Legal</a></li>
+        <li><a href="/construction.html">🏗️ Construction</a></li>
+      </ul>
+    </li>
     <li><a href="https://portal.360ops.ai" style="color:var(--text-secondary);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;font-family:'Rajdhani',sans-serif;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Sign In</a></li>
     <li><a href="https://portal.360ops.ai" class="nav-cta">Get Started</a></li>
   </ul>
