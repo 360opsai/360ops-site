@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What's New — 360ops Changelog</title>
+  <meta name="description" content="Track every new feature, improvement, and fix shipped to the 360ops AI Business Operating System." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --cyan:#00E5FF;--cyan-dim:#00B8CC;--cyan-glow:rgba(0,229,255,0.35);--cyan-soft:rgba(0,229,255,0.12);--cyan-line:rgba(0,229,255,0.22);
+      --orange:#FF6B35;--orange-glow:rgba(255,107,53,0.4);
+      --dark-bg:#07090F;--panel-bg:rgba(10,14,26,0.88);--panel-border:rgba(0,229,255,0.14);
+      --text-primary:#EEF2FF;--text-secondary:#8FA3BF;--text-dim:#4E6070;
+    }
+    html,body{font-family:'Rajdhani',sans-serif;background:var(--dark-bg);color:var(--text-primary);overflow-x:hidden;font-size:14px}
+    .bg-layer{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 20% 40%,rgba(0,229,255,0.04) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 78% 55%,rgba(180,79,255,0.025) 0%,transparent 55%),linear-gradient(180deg,#07090F 0%,#0A0D18 50%,#07090F 100%)}
+    .grid-overlay{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.025) 1px,transparent 1px);background-size:60px 60px;animation:gridDrift 28s linear infinite}
+    @keyframes gridDrift{0%{transform:translate(0,0)}100%{transform:translate(60px,60px)}}
+    .scanline{position:fixed;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,229,255,0.006) 2px,rgba(0,229,255,0.006) 4px)}
+    #traceCanvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 40px;border-bottom:1px solid var(--cyan-line);background:rgba(7,9,15,0.92);backdrop-filter:blur(12px)}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo span{font-family:'Orbitron',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.08em;color:var(--text-primary)}
+    .nav-logo span em{color:var(--cyan);font-style:normal}
+    .nav-links{display:flex;align-items:center;gap:28px}
+    .nav-links a{color:var(--text-secondary);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.04em;transition:color 0.2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--cyan)}
+    .nav-cta{background:var(--cyan-soft);border:1px solid var(--cyan-line);color:var(--cyan)!important;padding:7px 18px;border-radius:8px;font-weight:700!important}
+    .nav-cta:hover{background:rgba(0,229,255,0.2)!important}
+
+    /* MAIN */
+    .page-wrapper{position:relative;z-index:2;max-width:800px;margin:0 auto;padding:60px 24px 100px}
+
+    /* Header section */
+    .page-header{text-align:center;margin-bottom:56px}
+    .page-header h1{font-family:'Orbitron',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:0.04em;color:var(--text-primary);line-height:1.15;margin-bottom:14px}
+    .page-header h1 span{color:var(--cyan)}
+    .page-header p{font-size:15px;color:var(--text-secondary);max-width:480px;margin:0 auto;line-height:1.6}
+
+    /* Filter tabs */
+    .filter-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:48px}
+    .filter-tab{padding:6px 18px;border-radius:8px;border:1px solid var(--panel-border);background:var(--panel-bg);color:var(--text-secondary);font-size:12px;font-weight:600;font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;cursor:pointer;transition:all 0.15s}
+    .filter-tab:hover{border-color:var(--cyan-line);color:var(--cyan)}
+    .filter-tab.active{border-color:var(--cyan-line);background:var(--cyan-soft);color:var(--cyan)}
+
+    /* Timeline */
+    .timeline{position:relative}
+    .timeline::before{content:'';position:absolute;left:16px;top:0;bottom:0;width:1px;background:var(--panel-border)}
+
+    .version-group{margin-bottom:40px}
+    .version-header{display:flex;align-items:center;gap:14px;margin-bottom:18px;padding-left:40px}
+    .version-badge{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;letter-spacing:0.1em;color:var(--orange);background:rgba(255,107,53,0.1);border:1px solid rgba(255,107,53,0.25);border-radius:6px;padding:3px 12px}
+    .version-line{flex:1;height:1px;background:var(--panel-border)}
+
+    .entry-row{display:flex;gap:16px;align-items:flex-start;margin-bottom:12px}
+    .entry-dot-wrap{width:33px;flex-shrink:0;display:flex;justify-content:center;padding-top:16px}
+    .entry-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+    .dot-feature   {background:#60a5fa;box-shadow:0 0 6px rgba(96,165,250,0.5);border:1px solid rgba(96,165,250,0.4)}
+    .dot-improvement{background:#34d399;box-shadow:0 0 6px rgba(52,211,153,0.5);border:1px solid rgba(52,211,153,0.4)}
+    .dot-fix       {background:#fbbf24;box-shadow:0 0 6px rgba(251,191,36,0.5);border:1px solid rgba(251,191,36,0.4)}
+    .dot-security  {background:#f87171;box-shadow:0 0 6px rgba(248,113,113,0.5);border:1px solid rgba(248,113,113,0.4)}
+
+    .entry-card{flex:1;background:var(--panel-bg);border:1px solid var(--panel-border);border-radius:12px;padding:14px 18px;transition:border-color 0.15s,transform 0.15s}
+    .entry-card:hover{border-color:var(--cyan-line);transform:translateX(2px)}
+
+    .entry-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+    .cat-badge{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:2px 9px;border-radius:4px}
+    .cat-feature   {background:rgba(96,165,250,0.12);color:#60a5fa;border:1px solid rgba(96,165,250,0.25)}
+    .cat-improvement{background:rgba(52,211,153,0.12);color:#34d399;border:1px solid rgba(52,211,153,0.25)}
+    .cat-fix       {background:rgba(251,191,36,0.12);color:#fbbf24;border:1px solid rgba(251,191,36,0.25)}
+    .cat-security  {background:rgba(248,113,113,0.12);color:#f87171;border:1px solid rgba(248,113,113,0.25)}
+    .entry-date{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim)}
+
+    .entry-title{font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:5px;letter-spacing:0.01em}
+    .entry-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
+
+    /* Footer */
+    footer{position:relative;z-index:2;padding:32px 40px;border-top:1px solid var(--cyan-line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .footer-copy{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:0.06em;margin-top:6px}
+    .footer-links{display:flex;gap:20px;flex-wrap:wrap}
+    .footer-links a{color:var(--text-dim);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.04em;transition:color 0.2s}
+    .footer-links a:hover,.footer-links a.active{color:var(--cyan)}
+
+    @media(max-width:640px){nav{padding:12px 20px}.nav-links{gap:16px}footer{flex-direction:column;padding:24px 20px}}
+
+    /* Hide entries that don't match active filter */
+    .entry-row.hidden{display:none}
+  </style>
+</head>
+<body>
+<div class="bg-layer"></div>
+<div class="grid-overlay"></div>
+<div class="scanline"></div>
+<canvas id="traceCanvas"></canvas>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 46 46" fill="none">
+      <path d="M23 4 L38 13.5 L38 32.5 L23 42 L8 32.5 L8 13.5 Z" fill="url(#ngrad)"/>
+      <text x="23" y="27" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="800" font-size="9" fill="#00E5FF">360</text>
+      <defs><linearGradient id="ngrad" x1="8" y1="4" x2="38" y2="42" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0D1A2A"/><stop offset="100%" stop-color="#001C26"/></linearGradient></defs>
+    </svg>
+    <span>360<em>ops</em></span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Platform</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="changelog.html" class="active">Changelog</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://portal.360ops.ai" class="nav-cta">Sign In →</a>
+  </div>
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="page-wrapper">
+  <div class="page-header">
+    <h1>What&apos;s New in <span>360ops</span> ✨</h1>
+    <p>Every feature, improvement, and fix shipped to the AI Business Operating System — in one place.</p>
+  </div>
+
+  <!-- Filter tabs -->
+  <div class="filter-tabs">
+    <button class="filter-tab active" data-filter="all">All</button>
+    <button class="filter-tab" data-filter="feature">Features</button>
+    <button class="filter-tab" data-filter="improvement">Improvements</button>
+    <button class="filter-tab" data-filter="fix">Fixes</button>
+    <button class="filter-tab" data-filter="security">Security</button>
+  </div>
+
+  <!-- Timeline -->
+  <div class="timeline" id="timeline">
+
+    <!-- v2.8 -->
+    <div class="version-group" data-version="v2.8">
+      <div class="version-header">
+        <span class="version-badge">v2.8</span>
+        <div class="version-line"></div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">1 day ago</span></div>
+          <p class="entry-title">Agent Knowledge Base</p>
+          <p class="entry-desc">Upload SOPs, FAQs, and policies. Agents automatically reference your org knowledge in every conversation.</p>
+        </div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">1 day ago</span></div>
+          <p class="entry-title">Slack Integration</p>
+          <p class="entry-desc">Connect Slack to let agents read channel messages and send updates (with your approval).</p>
+        </div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">1 day ago</span></div>
+          <p class="entry-title">HubSpot CRM Integration</p>
+          <p class="entry-desc">Sales agents can now access contacts, deals, and pipeline data directly from HubSpot.</p>
+        </div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">1 day ago</span></div>
+          <p class="entry-title">Google Workspace Integration</p>
+          <p class="entry-desc">Connect Gmail and Google Drive. Agents can read emails and documents to help with tasks.</p>
+        </div>
+      </div>
+    </div><!-- /v2.8 -->
+
+    <!-- v2.7 -->
+    <div class="version-group" data-version="v2.7">
+      <div class="version-header">
+        <span class="version-badge">v2.7</span>
+        <div class="version-line"></div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">2 days ago</span></div>
+          <p class="entry-title">Chat History &amp; Export</p>
+          <p class="entry-desc">Review all past conversations with agents. Export to markdown for your records.</p>
+        </div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">2 days ago</span></div>
+          <p class="entry-title">Agent Performance Metrics</p>
+          <p class="entry-desc">7-day and 30-day KPI tracking per agent. See tasks completed, response time, and trend.</p>
+        </div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">2 days ago</span></div>
+          <p class="entry-title">Agent Satisfaction Ratings</p>
+          <p class="entry-desc">Rate agent responses with 1–5 stars. Helps identify which agents need improvement.</p>
+        </div>
+      </div>
+    </div><!-- /v2.7 -->
+
+    <!-- v2.6 -->
+    <div class="version-group" data-version="v2.6">
+      <div class="version-header">
+        <span class="version-badge">v2.6</span>
+        <div class="version-line"></div>
+      </div>
+
+      <div class="entry-row" data-category="improvement">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-improvement"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-improvement">Improvement</span><span class="entry-date">3 days ago</span></div>
+          <p class="entry-title">ISTN Operator Support View</p>
+          <p class="entry-desc">ISTN support staff can view any client dashboard in read-only mode for troubleshooting.</p>
+        </div>
+      </div>
+
+      <div class="entry-row" data-category="improvement">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-improvement"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-improvement">Improvement</span><span class="entry-date">3 days ago</span></div>
+          <p class="entry-title">Console Analytics Dashboard</p>
+          <p class="entry-desc">Platform-wide stats, MRR tracking, and tenant management for ISTN operators.</p>
+        </div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">3 days ago</span></div>
+          <p class="entry-title">Public Status Page</p>
+          <p class="entry-desc">Check platform health at portal.360ops.ai/status — no login required.</p>
+        </div>
+      </div>
+    </div><!-- /v2.6 -->
+
+    <!-- v2.5 -->
+    <div class="version-group" data-version="v2.5">
+      <div class="version-header">
+        <span class="version-badge">v2.5</span>
+        <div class="version-line"></div>
+      </div>
+
+      <div class="entry-row" data-category="improvement">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-improvement"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-improvement">Improvement</span><span class="entry-date">4 days ago</span></div>
+          <p class="entry-title">Getting Started Checklist</p>
+          <p class="entry-desc">New orgs see a guided checklist that auto-detects completed steps.</p>
+        </div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">4 days ago</span></div>
+          <p class="entry-title">Mobile PWA Support</p>
+          <p class="entry-desc">Install 360ops on your phone. Full mobile-responsive design across all pages.</p>
+        </div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">4 days ago</span></div>
+          <p class="entry-title">Global Search</p>
+          <p class="entry-desc">Press ⌘K anywhere to search agents, tasks, employees, and notifications.</p>
+        </div>
+      </div>
+    </div><!-- /v2.5 -->
+
+    <!-- v2.4 -->
+    <div class="version-group" data-version="v2.4">
+      <div class="version-header">
+        <span class="version-badge">v2.4</span>
+        <div class="version-line"></div>
+      </div>
+
+      <div class="entry-row" data-category="improvement">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-improvement"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-improvement">Improvement</span><span class="entry-date">5 days ago</span></div>
+          <p class="entry-title">QuickBooks Deep Integration</p>
+          <p class="entry-desc">Finance agents now access P&amp;L, unpaid invoices, cash flow, and expenses.</p>
+        </div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">5 days ago</span></div>
+          <p class="entry-title">Weekly Email Digest</p>
+          <p class="entry-desc">Receive a weekly summary of agent activity, tasks completed, and insights.</p>
+        </div>
+      </div>
+    </div><!-- /v2.4 -->
+
+    <!-- v2.3 -->
+    <div class="version-group" data-version="v2.3">
+      <div class="version-header">
+        <span class="version-badge">v2.3</span>
+        <div class="version-line"></div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">6 days ago</span></div>
+          <p class="entry-title">API Keys for Developers</p>
+          <p class="entry-desc">Generate Bearer token API keys to integrate 360ops agents into your own tools.</p>
+        </div>
+      </div>
+
+      <div class="entry-row" data-category="improvement">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-improvement"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-improvement">Improvement</span><span class="entry-date">6 days ago</span></div>
+          <p class="entry-title">Tier 3 AI Team Onboarding</p>
+          <p class="entry-desc">AI Team tier now has a guided 4-step onboarding with department-aware agent souls.</p>
+        </div>
+      </div>
+    </div><!-- /v2.3 -->
+
+    <!-- v2.2 -->
+    <div class="version-group" data-version="v2.2">
+      <div class="version-header">
+        <span class="version-badge">v2.2</span>
+        <div class="version-line"></div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">7 days ago</span></div>
+          <p class="entry-title">Agent Notifications Bell</p>
+          <p class="entry-desc">Real-time notifications from agents — approvals needed, tasks completed, alerts.</p>
+        </div>
+      </div>
+
+      <div class="entry-row" data-category="feature">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-feature"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-feature">Feature</span><span class="entry-date">7 days ago</span></div>
+          <p class="entry-title">Connector Management</p>
+          <p class="entry-desc">Connect QuickBooks, Microsoft 365, Slack, HubSpot, Google Workspace, and Atera from one settings page.</p>
+        </div>
+      </div>
+    </div><!-- /v2.2 -->
+
+    <!-- v2.1 -->
+    <div class="version-group" data-version="v2.1">
+      <div class="version-header">
+        <span class="version-badge">v2.1</span>
+        <div class="version-line"></div>
+      </div>
+
+      <div class="entry-row" data-category="security">
+        <div class="entry-dot-wrap"><div class="entry-dot dot-security"></div></div>
+        <div class="entry-card">
+          <div class="entry-meta"><span class="cat-badge cat-security">Security</span><span class="entry-date">8 days ago</span></div>
+          <p class="entry-title">Audit Log</p>
+          <p class="entry-desc">Tamper-evident audit trail of all AI queries (SHA256 hashed). Available to Tier 2+.</p>
+        </div>
+      </div>
+    </div><!-- /v2.1 -->
+
+  </div><!-- /timeline -->
+</div><!-- /page-wrapper -->
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg width="30" height="30" viewBox="0 0 46 46" fill="none">
+        <path d="M23 4 L38 13.5 L38 32.5 L23 42 L8 32.5 L8 13.5 Z" fill="url(#fgrad)"/>
+        <text x="23" y="27" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="800" font-size="9" fill="#00E5FF">360</text>
+        <defs><linearGradient id="fgrad" x1="8" y1="4" x2="38" y2="42" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0D1A2A"/><stop offset="100%" stop-color="#001C26"/></linearGradient></defs>
+      </svg>
+      <span style="font-family:'Orbitron',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.08em;color:var(--text-primary)">360<span style="color:var(--cyan)">ops</span></span>
+    </div>
+    <div class="footer-copy">&copy; 2026 360ops.ai — AI Business Operating System</div>
+  </div>
+  <div class="footer-links">
+    <a href="legal.html">Privacy</a>
+    <a href="legal.html">Terms</a>
+    <a href="security.html">Security</a>
+    <a href="https://portal.360ops.ai/status">Status</a>
+    <a href="changelog.html" class="active">Changelog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Filter tabs
+(function(){
+  const tabs = document.querySelectorAll('.filter-tab');
+  const rows = document.querySelectorAll('.entry-row');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function(){
+      const f = this.dataset.filter;
+      tabs.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+
+      rows.forEach(row => {
+        if(f === 'all' || row.dataset.category === f){
+          row.classList.remove('hidden');
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+
+      // Hide version groups that have no visible entries
+      document.querySelectorAll('.version-group').forEach(group => {
+        const visible = group.querySelectorAll('.entry-row:not(.hidden)').length;
+        group.style.display = visible ? '' : 'none';
+      });
+    });
+  });
+})();
+
+// Trace canvas animation (matching site style)
+(function(){
+  const cv = document.getElementById('traceCanvas');
+  const ctx = cv.getContext('2d');
+  let W, H;
+  function resize(){ W = cv.width = innerWidth; H = cv.height = innerHeight; }
+  resize(); addEventListener('resize', resize);
+  const COLORS = [{r:0,g:229,b:255},{r:180,g:79,b:255},{r:0,g:255,b:157}];
+  function rCol(){ return COLORS[Math.floor(Math.random()*COLORS.length)]; }
+  const TL=120, SMN=0.25, SMX=0.7, vT=[], hT=[];
+  for(let i=0;i<5;i++) vT.push({x:Math.random()*1400,y:Math.random()*900,s:SMN+Math.random()*(SMX-SMN),o:0.08+Math.random()*0.15,c:rCol()});
+  for(let i=0;i<3;i++) hT.push({x:Math.random()*1400,y:Math.random()*900,s:SMN+Math.random()*(SMX-SMN),o:0.08+Math.random()*0.15,c:rCol()});
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    vT.forEach(t=>{
+      t.y+=t.s;
+      if(t.y>H+TL){t.y=-TL;t.x=Math.random()*W;t.c=rCol();}
+      ctx.beginPath();ctx.moveTo(t.x,t.y-TL);ctx.lineTo(t.x,t.y);
+      const g=ctx.createLinearGradient(0,t.y-TL,0,t.y);
+      g.addColorStop(0,`rgba(${t.c.r},${t.c.g},${t.c.b},0)`);
+      g.addColorStop(1,`rgba(${t.c.r},${t.c.g},${t.c.b},${t.o})`);
+      ctx.strokeStyle=g;ctx.lineWidth=1;ctx.stroke();
+    });
+    hT.forEach(t=>{
+      t.x+=t.s;
+      if(t.x>W+TL){t.x=-TL;t.y=Math.random()*H;t.c=rCol();}
+      ctx.beginPath();ctx.moveTo(t.x-TL,t.y);ctx.lineTo(t.x,t.y);
+      const g=ctx.createLinearGradient(t.x-TL,0,t.x,0);
+      g.addColorStop(0,`rgba(${t.c.r},${t.c.g},${t.c.b},0)`);
+      g.addColorStop(1,`rgba(${t.c.r},${t.c.g},${t.c.b},${t.o})`);
+      ctx.strokeStyle=g;ctx.lineWidth=1;ctx.stroke();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
