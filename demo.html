@@ -114,6 +114,11 @@
   </a>
   <ul>
     <li><a href="/index.html">Home</a></li>
+    <li class="has-dropdown"><a href="/pricing.html" class="drop-trigger">Products <span class="drop-arrow">▾</span></a>      <ul class="nav-dropdown-menu">
+        <li><a href="/pricing.html?tab=pwa">📱 Personal (PWA)</a></li>
+        <li><a href="/pricing.html?tab=atlas">☁️ Cloud (Atlas)</a></li>
+        <li><a href="/pricing.html?tab=spartan">🏛️ On-Prem (Spartan)</a></li>
+      </ul></li>
     <li><a href="/index.html#features">Features</a></li>
     <li><a href="/security.html">Security</a></li>
     <li><a href="/compare.html">Compare</a></li>
@@ -220,6 +225,17 @@
       </div>
 
       <div class="form-divider"></div>
+
+      <!-- Product Interest -->
+      <div class="form-group">
+        <label for="product">Which product are you interested in? <span class="req">*</span></label>
+        <select id="product" name="product" required>
+          <option value="" disabled selected>Select a product</option>
+          <option value="pwa">📱 360ops Personal (PWA) — $29–$99/mo</option>
+          <option value="atlas">☁️ 360ops Cloud (Atlas) — $97–$997/mo</option>
+          <option value="spartan">🏛️ 360ops On-Prem (Spartan) — Custom / Regulated Industries</option>
+        </select>
+      </div>
 
       <!-- Operational Challenge -->
       <div class="form-group">

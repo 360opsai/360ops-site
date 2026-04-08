@@ -115,11 +115,6 @@
   </a>
   <ul>
     <li><a href="/index.html">Home</a></li>
-    <li class="has-dropdown"><a href="/pricing.html" class="drop-trigger">Products <span class="drop-arrow">▾</span></a>      <ul class="nav-dropdown-menu">
-        <li><a href="/pricing.html?tab=pwa">📱 Personal (PWA)</a></li>
-        <li><a href="/pricing.html?tab=atlas">☁️ Cloud (Atlas)</a></li>
-        <li><a href="/pricing.html?tab=spartan">🏛️ On-Prem (Spartan)</a></li>
-      </ul></li>
     <li><a href="/index.html#features">Features</a></li>
     <li><a href="/security.html">Security</a></li>
     <li><a href="/compare.html">Compare</a></li>
@@ -144,7 +139,7 @@
         <div class="method-icon">✉️</div>
         <div>
           <div class="method-label">Email</div>
-          <div class="method-value"><a href="/cdn-cgi/l/email-protection#a5cdc0c9c9cae5969395cad5d68bc4cc"><span class="__cf_email__" data-cfemail="3159545d5d5e710207015e41421f5058">[email&#160;protected]</span></a></div>
+          <div class="method-value"><a href="mailto:hello@360ops.ai">hello@360ops.ai</a></div>
         </div>
       </div>
       <div class="contact-method">
@@ -158,7 +153,7 @@
         <div class="method-icon">🔐</div>
         <div>
           <div class="method-label">Security Inquiries</div>
-          <div class="method-value"><a href="/cdn-cgi/l/email-protection#c0b3a5a3b5b2a9b4b980f3f6f0afb0b3eea1a9"><span class="__cf_email__" data-cfemail="dcafb9bfa9aeb5a8a59cefeaecb3acaff2bdb5">[email&#160;protected]</span></a></div>
+          <div class="method-value"><a href="mailto:security@360ops.ai">security@360ops.ai</a></div>
         </div>
       </div>
     </div>
@@ -173,7 +168,7 @@
   <!-- FORM CARD -->
   <div class="form-card">
     <div class="form-title">Send a Message</div>
-    <p class="form-sub">Fill out the form and we'll get back to you within 1 business day. Or email us directly at <a href="/cdn-cgi/l/email-protection#345c5158585b740702045b44471a555d" style="color:var(--cyan);text-decoration:none"><span class="__cf_email__" data-cfemail="e78f828b8b88a7d4d1d7889794c9868e">[email&#160;protected]</span></a>.</p>
+    <p class="form-sub">Fill out the form and we'll get back to you within 1 business day. Or email us directly at <a href="mailto:hello@360ops.ai" style="color:var(--cyan);text-decoration:none">hello@360ops.ai</a>.</p>
 
     <form id="contactForm" action="https://formspree.io/f/xpwzknpv" method="POST" novalidate>
       <input type="hidden" name="_subject" value="New Contact Message — 360ops" />
@@ -221,7 +216,7 @@
     <div class="success-state" id="successState">
       <div class="success-icon">✓</div>
       <div class="success-title">Message Sent!</div>
-      <p class="success-body">Thanks! We'll get back to you within 1 business day. In a hurry? Email us directly at <a href="/cdn-cgi/l/email-protection#0c64696060634c3f3a3c637c7f226d65" style="color:var(--cyan)"><span class="__cf_email__" data-cfemail="d3bbb6bfbfbc93e0e5e3bca3a0fdb2ba">[email&#160;protected]</span></a>.</p>
+      <p class="success-body">Thanks! We'll get back to you within 1 business day. In a hurry? Email us directly at <a href="mailto:hello@360ops.ai" style="color:var(--cyan)">hello@360ops.ai</a>.</p>
     </div>
 
     <p class="form-footer">We respond within 1 business day · Mon–Fri 9AM–6PM ET</p>
@@ -240,7 +235,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const form = document.getElementById('contactForm');
   const btn = document.getElementById('submitBtn');
   const submitText = document.getElementById('submitText');
@@ -268,4 +263,20 @@
     submitText.textContent = 'Sending...';
 
     try {
-      const response = await fetch(form.action, { method: 'POST', bo
+      const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+      if (response.ok) {
+        form.style.display = 'none';
+        successState.style.display = 'block';
+        setTimeout(() => { window.location.href = '/thank-you.html'; }, 3000);
+      } else {
+        submitText.textContent = 'Send Message'; btn.disabled = false;
+        alert('Something went wrong. Email us at hello@360ops.ai');
+      }
+    } catch (err) {
+      submitText.textContent = 'Send Message'; btn.disabled = false;
+      alert('Network error. Email us at hello@360ops.ai');
+    }
+  });
+</script>
+</body>
+</html>
