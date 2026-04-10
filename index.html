@@ -311,8 +311,8 @@
     <li class="has-dropdown">
       <a href="#products" class="drop-trigger">Products <span class="drop-arrow">▾</span></a>
       <ul class="nav-dropdown-menu">
-        <li><a href="#pricing" onclick="switchTab('pwa')">📱 Personal (PWA) <span class="nav-dropdown-menu" style="display:none"></span><span class="dd-label dd-pwa">$29/mo</span></a></li>
-        <li><a href="#pricing" onclick="switchTab('atlas')">☁️ Cloud (Atlas) <span class="dd-label dd-atlas">$97/mo+</span></a></li>
+        <li><a href="#pricing" onclick="switchTab('pwa')">📱 Personal (PWA) <span class="nav-dropdown-menu" style="display:none"></span><span class="dd-label dd-pwa">$3.99/mo</span></a></li>
+        <li><a href="#pricing" onclick="switchTab('atlas')">☁️ Cloud (Atlas) <span class="dd-label dd-atlas">$99/user/mo</span></a></li>
         <li><a href="#pricing" onclick="switchTab('spartan')">🏛️ On-Prem (Spartan) <span class="dd-label dd-spartan">Custom</span></a></li>
       </ul>
     </li>
@@ -379,17 +379,17 @@
       <div class="path-icon">📱</div>
       <h3>360ops Personal</h3>
       <p class="path-tagline">AI router + data scrubbing for individuals. Works on any device, with any AI model. No company required — pay it yourself.</p>
-      <div class="path-price">$29<span style="font-size:14px;font-weight:400"> /mo</span></div>
-      <div class="path-price-sub">Solo · Pro $49 · Team $99</div>
+      <div class="path-price">$3.99<span style="font-size:14px;font-weight:400"> /mo</span></div>
+      <div class="path-price-sub">Starter · Solo $29.99 · Pro $49.99</div>
       <ul class="path-features">
         <li>Data scrubbing on every prompt</li>
         <li>AI router — best model auto-selected</li>
-        <li>2M tokens/mo included</li>
-        <li>Personal integrations (M365 or Google)</li>
+        <li>1M tokens/mo included (Starter)</li>
+        <li>PDF & TXT upload</li>
         <li>Cross-session memory</li>
         <li>No company IT required</li>
       </ul>
-      <a href="https://portal.360ops.ai/signup?product=pwa" class="path-btn pb-btn-pwa">Start for $29/mo →</a>
+      <a href="https://portal.360ops.ai/chat/onboard?plan=starter" class="path-btn pb-btn-pwa">Start for $3.99/mo →</a>
     </div>
 
     <div class="path-card atlas">
@@ -397,17 +397,17 @@
       <div class="path-icon">☁️</div>
       <h3>360ops Cloud</h3>
       <p class="path-tagline">Full AI Business OS in the cloud. Every department. Every employee. Compliance gatekeeper and data scrubbing built in from day one.</p>
-      <div class="path-price">$97<span style="font-size:14px;font-weight:400"> /mo</span></div>
-      <div class="path-price-sub">Tier 1 · Scales to $997/mo</div>
+      <div class="path-price">$99<span style="font-size:14px;font-weight:400"> /user/mo</span></div>
+      <div class="path-price-sub">Business · Volume discounts available</div>
       <ul class="path-features">
-        <li>Unlimited AI agents per department</li>
+        <li>Unlimited AI agents</li>
+        <li>Unlimited connectors</li>
         <li>12-stage compliance gatekeeper</li>
-        <li>RBAC per connector</li>
         <li>Full integration suite</li>
         <li>Cross-system agent memory</li>
-        <li>Prepaid credits wallet</li>
+        <li>30-day free trial</li>
       </ul>
-      <a href="https://portal.360ops.ai/signup?product=atlas" class="path-btn pb-btn-atlas">Start Free Trial →</a>
+      <a href="https://portal.360ops.ai/signup/trial" class="path-btn pb-btn-atlas">Start Free Trial →</a>
     </div>
 
     <div class="path-card spartan">
@@ -434,28 +434,28 @@
 <!-- UPGRADE FUNNEL -->
 <section id="funnel" style="padding-top:0;padding-bottom:80px">
   <div class="eyebrow" style="margin-bottom:12px">The upgrade path</div>
-  <h2 style="margin-bottom:8px">Start at $29. Scale to enterprise.</h2>
+  <h2 style="margin-bottom:8px">Start at $3.99. Scale to enterprise.</h2>
   <p class="sub" style="margin-bottom:32px">Every step has a natural ceiling that leads to the next conversation — from personal productivity to a six-figure on-prem deployment.</p>
   <div class="funnel-row">
     <div class="funnel-step">
       <div class="f-tier">Entry · PWA</div>
+      <div class="f-name">Starter</div>
+      <div class="f-price fp-pwa">$3.99/mo</div>
+    </div>
+    <div class="funnel-step">
+      <div class="f-tier">Professional · PWA</div>
       <div class="f-name">Solo</div>
-      <div class="f-price fp-pwa">$29/mo</div>
+      <div class="f-price fp-pwa">$29.99/mo</div>
     </div>
     <div class="funnel-step">
       <div class="f-tier">Power User · PWA</div>
       <div class="f-name">Pro</div>
-      <div class="f-price fp-pwa">$49/mo</div>
-    </div>
-    <div class="funnel-step">
-      <div class="f-tier">Team hits wall · PWA</div>
-      <div class="f-name">Team (5 users)</div>
-      <div class="f-price fp-pwa">$99/mo</div>
+      <div class="f-price fp-pwa">$49.99/mo</div>
     </div>
     <div class="funnel-step">
       <div class="f-tier">Company move · Atlas</div>
-      <div class="f-name">Cloud Tier 1+</div>
-      <div class="f-price fp-atlas">$97+/mo</div>
+      <div class="f-name">Business</div>
+      <div class="f-price fp-atlas">$99/user/mo</div>
     </div>
     <div class="funnel-step">
       <div class="f-tier">Regulated · Spartan</div>
@@ -510,50 +510,52 @@
   <div class="pricing-panel active" id="panel-pwa">
     <div class="pwa-grid">
       <div class="pwa-card">
-        <div class="pc-tier">PWA · Solo</div>
+        <div class="pc-tier">PWA · Starter</div>
         <div class="pc-name">Personal</div>
-        <div class="pc-for">Individual professional, out-of-pocket</div>
-        <div class="pc-price">$29<span>/mo</span></div>
+        <div class="pc-for">Anyone who wants private AI</div>
+        <div class="pc-price">$3.99<span>/mo</span></div>
         <div class="pc-divider"></div>
         <ul class="pc-features">
           <li>Data scrubbing on every prompt</li>
-          <li>AI router — auto model selection</li>
-          <li>2M tokens/mo included</li>
-          <li>2 personal integrations</li>
+          <li>1M tokens/mo included</li>
+          <li>GPT-4o Mini</li>
+          <li>PDF & TXT upload</li>
           <li>Session memory</li>
         </ul>
-        <a href="https://portal.360ops.ai/signup?plan=pwa-solo" class="btn-pc btn-pc-ghost">Get Started →</a>
+        <a href="https://portal.360ops.ai/chat/onboard?plan=starter" class="btn-pc btn-pc-ghost">Get Started →</a>
       </div>
       <div class="pwa-card featured">
         <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px">MOST POPULAR</div>
-        <div class="pc-tier">PWA · Pro</div>
+        <div class="pc-tier">PWA · Solo</div>
         <div class="pc-name">Professional</div>
         <div class="pc-for">Consultant, freelancer, power user</div>
-        <div class="pc-price">$49<span>/mo</span></div>
+        <div class="pc-price">$29.99<span>/mo</span></div>
+        <div class="pc-divider"></div>
+        <ul class="pc-features">
+          <li>Everything in Starter</li>
+          <li>5M tokens/mo included</li>
+          <li>All AI models (auto-routed)</li>
+          <li>All file types + batch upload</li>
+          <li>Cross-session memory</li>
+          <li>Voice input + full scrub report</li>
+        </ul>
+        <a href="https://portal.360ops.ai/chat/onboard?plan=solo" class="btn-pc btn-pc-solid">Get Started →</a>
+      </div>
+      <div class="pwa-card">
+        <div class="pc-tier">PWA · Pro</div>
+        <div class="pc-name">Power User</div>
+        <div class="pc-for">Daily document processing, OCR, export</div>
+        <div class="pc-price">$49.99<span>/mo</span></div>
         <div class="pc-divider"></div>
         <ul class="pc-features">
           <li>Everything in Solo</li>
-          <li>5M tokens/mo included</li>
-          <li>5 integrations</li>
-          <li>Cross-session memory</li>
-          <li>Priority model routing</li>
-          <li>Audit log export</li>
+          <li>10M tokens/mo included</li>
+          <li>Pick your AI model per chat</li>
+          <li>OCR for scanned documents</li>
+          <li>Export to PDF, DOCX, CSV</li>
+          <li>Custom personas</li>
         </ul>
-        <a href="https://portal.360ops.ai/signup?plan=pwa-pro" class="btn-pc btn-pc-solid">Get Started →</a>
-      </div>
-      <div class="pwa-card">
-        <div class="pc-tier">PWA · Team</div>
-        <div class="pc-name">Team</div>
-        <div class="pc-for">Up to 5 people — natural upgrade trigger</div>
-        <div class="pc-price">$99<span>/mo</span></div>
-        <div class="pc-divider"></div>
-        <ul class="pc-features">
-          <li>Everything in Pro × 5 users</li>
-          <li>Shared workspace memory</li>
-          <li>Admin view across team</li>
-          <li>Natural ceiling → Atlas upgrade</li>
-        </ul>
-        <a href="https://portal.360ops.ai/signup?plan=pwa-team" class="btn-pc btn-pc-ghost">Get Started →</a>
+        <a href="https://portal.360ops.ai/chat/onboard?plan=pro" class="btn-pc btn-pc-ghost">Get Started →</a>
       </div>
     </div>
     <p class="pricing-note">AI usage billed via prepaid token credits wallet · No free tier · Cancel anytime</p>
@@ -561,69 +563,31 @@
 
   <!-- ATLAS -->
   <div class="pricing-panel" id="panel-atlas">
-    <div class="atlas-grid">
+    <div class="atlas-grid" style="grid-template-columns:1fr;max-width:500px;margin:0 auto">
       <div class="atlas-card featured">
-        <div class="pc-tier">Atlas · Tier 1</div>
-        <div class="pc-name">AI Personal Workspace</div>
-        <div class="pc-for">Compliant AI for every employee</div>
-        <div class="ac-price">$97<span>/mo</span></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#5BA4E5;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px">EVERYTHING INCLUDED</div>
+        <div class="pc-tier">Atlas · Business</div>
+        <div class="pc-name">AI Business Platform</div>
+        <div class="pc-for">Full AI operating system for your company</div>
+        <div class="ac-price">$99<span>/user/mo</span></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);margin-bottom:16px;letter-spacing:0.06em">Volume: $89 (26+), $79 (76+), $69 (151+)</div>
         <div class="pc-divider"></div>
         <ul class="pc-features ac-features">
-          <li>Unlimited personal agents</li>
-          <li>3 connected integrations</li>
-          <li>12-stage compliance gatekeeper</li>
-          <li>Agent memory & learning</li>
-          <li>Priority support</li>
+          <li>Unlimited AI agents</li>
+          <li>Unlimited connectors (M365, Atera, QBO, Slack...)</li>
+          <li>Full 12-stage compliance gatekeeper</li>
+          <li>Data scrubbing + PII protection</li>
+          <li>Cross-session memory + agent learning</li>
+          <li>Multi-model AI routing (cost-optimized)</li>
+          <li>Full workspace: Email, Teams, SMS, Files, Finance</li>
+          <li>RBAC + department-level access control</li>
+          <li>30-day free trial</li>
         </ul>
-        <a href="https://portal.360ops.ai/signup?plan=atlas-t1" class="btn-pc btn-ac">Get Started →</a>
-      </div>
-      <div class="atlas-card">
-        <div class="pc-tier">Atlas · Tier 2 · Most Popular</div>
-        <div class="pc-name">AI Integrator</div>
-        <div class="pc-for">One agent per connected system</div>
-        <div class="ac-price">$297<span>/mo</span></div>
-        <div class="pc-divider"></div>
-        <ul class="pc-features ac-features">
-          <li>Dedicated agent per integration</li>
-          <li>Up to 10 connected systems</li>
-          <li>RBAC per connector</li>
-          <li>Audit log + compliance reports</li>
-          <li>Cross-system agent memory</li>
-        </ul>
-        <a href="https://portal.360ops.ai/signup?plan=atlas-t2" class="btn-pc btn-ac">Get Started →</a>
-      </div>
-      <div class="atlas-card">
-        <div class="pc-tier">Atlas · Tier 3</div>
-        <div class="pc-name">AI Team</div>
-        <div class="pc-for">Full AI department</div>
-        <div class="ac-price">$497<span>/mo</span></div>
-        <div class="pc-divider"></div>
-        <ul class="pc-features ac-features">
-          <li>Department-level agent squads</li>
-          <li>Unlimited integrations</li>
-          <li>Multi-user RBAC & roles</li>
-          <li>Cross-department intelligence</li>
-          <li>Dedicated onboarding engineer</li>
-        </ul>
-        <a href="/demo.html" class="btn-pc btn-ac">Book a Demo →</a>
-      </div>
-      <div class="atlas-card">
-        <div class="pc-tier">Atlas · Tier 4</div>
-        <div class="pc-name">AI Company</div>
-        <div class="pc-for">Full business operating system</div>
-        <div class="ac-price">$997<span>/mo</span></div>
-        <div class="pc-divider"></div>
-        <ul class="pc-features ac-features">
-          <li>Entire business runs on AI</li>
-          <li>Unlimited agents & users</li>
-          <li>White-glove setup & migration</li>
-          <li>Custom compliance configuration</li>
-          <li>Dedicated account team + SLA</li>
-        </ul>
-        <a href="/demo.html" class="btn-pc btn-ac-ghost">Book a Demo →</a>
+        <a href="https://portal.360ops.ai/signup/trial" class="btn-pc btn-ac">Start Free Trial →</a>
+        <a href="/demo.html" class="btn-pc btn-ac-ghost" style="margin-top:10px">Book a Demo →</a>
       </div>
     </div>
-    <p class="pricing-note">AI usage billed separately via prepaid credits wallet · 30-day free trial available</p>
+    <p class="pricing-note">AI usage billed separately via prepaid credits wallet · 30-day free trial · Annual pricing available</p>
   </div>
 
   <!-- SPARTAN -->
@@ -717,7 +681,7 @@
 <section class="cta-section" id="contact">
   <div class="eyebrow" style="justify-content:center">Get Started</div>
   <h2>Use any AI. Leak nothing.</h2>
-  <p class="cta-sub">Start personal at $29/mo. Bring your team to the cloud. Go on-prem when compliance demands it.</p>
+  <p class="cta-sub">Start personal at $3.99/mo. Bring your team to the cloud. Go on-prem when compliance demands it.</p>
   <div class="cta-actions">
     <a href="/get-started.html" class="btn-primary">
       Get Started

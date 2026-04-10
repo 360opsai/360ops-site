@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing — 360ops AI Business Operating System</title>
-  <meta name="description" content="360ops pricing — Personal PWA from $29/mo, Cloud Atlas from $97/mo, On-Prem Spartan custom. No free tier. Straightforward pricing for individuals, teams, and regulated enterprises." />
+  <meta name="description" content="360ops pricing — Personal PWA from $3.99/mo, Cloud Atlas $99/user/mo, On-Prem Spartan custom. AI routing + data scrubbing. No free tier." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -266,53 +266,56 @@
     <div class="pwa-grid">
 
       <div class="price-card">
-        <div class="card-tier">PWA · Solo</div>
+        <div class="card-tier">PWA · Starter</div>
         <div class="card-name">Personal</div>
-        <div class="card-for">Individual professional, paying themselves</div>
-        <div class="card-price">$29<span class="period">/mo</span></div>
+        <div class="card-for">Anyone who wants private AI</div>
+        <div class="card-price">$3.99<span class="period">/mo</span></div>
         <div class="card-divider"></div>
         <ul class="card-features cf-pwa">
           <li>Data scrubbing on every prompt</li>
-          <li>AI router — auto model selection</li>
-          <li>2M tokens/mo included</li>
-          <li>2 personal integrations (M365 or Google)</li>
+          <li>1M tokens/mo included</li>
+          <li>GPT-4o Mini</li>
+          <li>PDF & TXT upload</li>
           <li>Session memory</li>
           <li>PWA — installs on any device</li>
         </ul>
-        <a href="https://portal.360ops.ai/signup?plan=pwa-solo" class="btn-card bc-pwa-ghost">Get Started →</a>
+        <a href="https://portal.360ops.ai/chat/onboard?plan=starter" class="btn-card bc-pwa-ghost">Get Started →</a>
       </div>
 
       <div class="price-card featured-pwa">
         <div class="card-top-badge ctb-pwa">Most Popular</div>
-        <div class="card-tier">PWA · Pro</div>
+        <div class="card-tier">PWA · Solo</div>
         <div class="card-name">Professional</div>
         <div class="card-for">Consultant, freelancer, power user</div>
-        <div class="card-price">$49<span class="period">/mo</span></div>
+        <div class="card-price">$29.99<span class="period">/mo</span></div>
         <div class="card-divider"></div>
         <ul class="card-features cf-pwa">
-          <li>Everything in Personal</li>
+          <li>Everything in Starter</li>
           <li>5M tokens/mo included</li>
-          <li>5 integrations</li>
+          <li>All AI models (auto-routed)</li>
+          <li>All file types + batch upload</li>
           <li>Cross-session memory</li>
-          <li>Priority model routing</li>
-          <li>Audit log export</li>
+          <li>Voice input</li>
+          <li>Full scrub report</li>
         </ul>
-        <a href="https://portal.360ops.ai/signup?plan=pwa-pro" class="btn-card bc-pwa-solid">Get Started →</a>
+        <a href="https://portal.360ops.ai/chat/onboard?plan=solo" class="btn-card bc-pwa-solid">Get Started →</a>
       </div>
 
       <div class="price-card">
-        <div class="card-tier">PWA · Team</div>
-        <div class="card-name">Team</div>
-        <div class="card-for">Up to 5 people — natural upgrade trigger to Atlas</div>
-        <div class="card-price">$99<span class="period">/mo</span></div>
+        <div class="card-tier">PWA · Pro</div>
+        <div class="card-name">Power User</div>
+        <div class="card-for">Daily document processing, OCR, export</div>
+        <div class="card-price">$49.99<span class="period">/mo</span></div>
         <div class="card-divider"></div>
         <ul class="card-features cf-pwa">
-          <li>Everything in Pro × 5 users</li>
-          <li>Shared workspace memory</li>
-          <li>Admin view across team</li>
-          <li>History and integrations carry to Atlas</li>
+          <li>Everything in Solo</li>
+          <li>10M tokens/mo included</li>
+          <li>Pick your AI model per chat</li>
+          <li>OCR for scanned documents</li>
+          <li>Export to PDF, DOCX, CSV</li>
+          <li>Custom personas</li>
         </ul>
-        <a href="https://portal.360ops.ai/signup?plan=pwa-team" class="btn-card bc-pwa-ghost">Get Started →</a>
+        <a href="https://portal.360ops.ai/chat/onboard?plan=pro" class="btn-card bc-pwa-ghost">Get Started →</a>
       </div>
 
     </div>
@@ -321,76 +324,34 @@
 
   <!-- ATLAS PANEL -->
   <div class="pricing-panel" id="panel-atlas">
-    <div class="atlas-grid">
+    <div class="atlas-grid" style="grid-template-columns:1fr;max-width:600px;margin:0 auto">
 
       <div class="price-card featured-atlas">
-        <div class="card-top-badge ctb-atlas">Most Popular</div>
-        <div class="card-tier">Atlas · Tier 1</div>
-        <div class="card-name">AI Personal Workspace</div>
-        <div class="card-for">Compliant AI for every employee</div>
-        <div class="card-price">$97<span class="period">/mo</span></div>
+        <div class="card-top-badge ctb-atlas">Everything Included</div>
+        <div class="card-tier">Atlas · Business</div>
+        <div class="card-name">AI Business Platform</div>
+        <div class="card-for">Full AI operating system for your company</div>
+        <div class="card-price">$99<span class="period">/user/mo</span></div>
+        <div class="card-margin">Volume discounts: $89 (26+), $79 (76+), $69 (151+ seats)</div>
         <div class="card-divider"></div>
         <ul class="card-features cf-atlas">
-          <li>Unlimited personal AI agents</li>
-          <li>3 connected integrations</li>
+          <li>Unlimited AI agents</li>
+          <li>Unlimited connectors (M365, Atera, QBO, Slack, Salesforce...)</li>
           <li>Full 12-stage compliance gatekeeper</li>
-          <li>Agent memory & learning</li>
-          <li>Priority support</li>
-          <li>Dedicated database</li>
+          <li>Data scrubbing + PII protection</li>
+          <li>Cross-session memory + agent learning</li>
+          <li>Constellation governance</li>
+          <li>Multi-model AI routing (cost-optimized)</li>
+          <li>Full workspace: Email, Teams, SMS, Files, Finance, Phone</li>
+          <li>RBAC + department-level access control</li>
+          <li>30-day free trial</li>
         </ul>
-        <a href="https://portal.360ops.ai/signup?plan=atlas-t1" class="btn-card bc-atlas">Start Free Trial →</a>
-      </div>
-
-      <div class="price-card">
-        <div class="card-tier">Atlas · Tier 2</div>
-        <div class="card-name">AI Integrator</div>
-        <div class="card-for">One dedicated agent per connected system</div>
-        <div class="card-price">$297<span class="period">/mo</span></div>
-        <div class="card-divider"></div>
-        <ul class="card-features cf-atlas">
-          <li>Dedicated agent per integration</li>
-          <li>Up to 10 connected systems</li>
-          <li>RBAC per connector</li>
-          <li>Cross-system agent memory</li>
-          <li>Audit log + compliance reports</li>
-        </ul>
-        <a href="https://portal.360ops.ai/signup?plan=atlas-t2" class="btn-card bc-atlas">Get Started →</a>
-      </div>
-
-      <div class="price-card">
-        <div class="card-tier">Atlas · Tier 3</div>
-        <div class="card-name">AI Team</div>
-        <div class="card-for">Full AI department intelligence</div>
-        <div class="card-price">$497<span class="period">/mo</span></div>
-        <div class="card-divider"></div>
-        <ul class="card-features cf-atlas">
-          <li>Department-level agent squads</li>
-          <li>Unlimited integrations</li>
-          <li>Multi-user RBAC & roles</li>
-          <li>Cross-department intelligence</li>
-          <li>Dedicated onboarding engineer</li>
-        </ul>
-        <a href="/demo.html" class="btn-card bc-atlas">Book a Demo →</a>
-      </div>
-
-      <div class="price-card">
-        <div class="card-tier">Atlas · Tier 4</div>
-        <div class="card-name">AI Company</div>
-        <div class="card-for">Full business operating system</div>
-        <div class="card-price">$997<span class="period">/mo</span></div>
-        <div class="card-divider"></div>
-        <ul class="card-features cf-atlas">
-          <li>Entire business runs on AI</li>
-          <li>Unlimited agents & users</li>
-          <li>White-glove setup & migration</li>
-          <li>Custom compliance configuration</li>
-          <li>Dedicated account team + SLA</li>
-        </ul>
-        <a href="/demo.html" class="btn-card bc-atlas-ghost">Book a Demo →</a>
+        <a href="https://portal.360ops.ai/signup/trial" class="btn-card bc-atlas">Start Free Trial →</a>
+        <a href="/demo.html" class="btn-card bc-atlas-ghost" style="margin-top:10px">Book a Demo →</a>
       </div>
 
     </div>
-    <p class="pricing-note">AI usage billed separately via prepaid credits wallet · 30-day free trial on Tier 1 · Annual pricing available (save 20%)</p>
+    <p class="pricing-note">AI usage billed separately via prepaid credits wallet · 30-day free trial · Annual pricing available (save 20%)</p>
   </div>
 
   <!-- SPARTAN PANEL -->
@@ -520,7 +481,7 @@
 
     <details class="faq-item">
       <summary>Why is there no free tier?</summary>
-      <div class="faq-answer">Free tiers cost real money to support — API calls, infrastructure, and human time. Our starting price of $29/mo on PWA is low enough to be a no-brainer personal purchase, and it includes real margin that lets us support you properly. We'd rather charge you fairly and give you a great product than give you something free and unsupported.</div>
+      <div class="faq-answer">Free tiers cost real money to support — API calls, infrastructure, and human time. Our starting price of $3.99/mo on PWA Starter is low enough to be a no-brainer personal purchase, and it includes real margin that lets us support you properly. We'd rather charge you fairly and give you a great product than give you something free and unsupported.</div>
     </details>
 
     <details class="faq-item">
@@ -540,7 +501,7 @@
 
     <details class="faq-item">
       <summary>Can I upgrade from PWA to Atlas?</summary>
-      <div class="faq-answer">Yes — and it's designed to be seamless. Your integrations and memory carry over when you upgrade. PWA Team ($99/mo for 5 users) is specifically designed as the hand-off point where the conversation shifts to Atlas Tier 1 ($97/user). One button in your dashboard initiates the upgrade; you keep everything you've built.</div>
+      <div class="faq-answer">Yes — and it's designed to be seamless. Your integrations and memory carry over when you upgrade. When you're ready to bring your whole team onto a full business platform, one button in your dashboard initiates the upgrade to Atlas Business ($99/user/mo). You keep everything you've built.</div>
     </details>
 
     <details class="faq-item">
@@ -555,7 +516,7 @@
 <div class="pricing-cta">
   <div class="eyebrow" style="justify-content:center">Get Started</div>
   <h2>Use any AI. Leak nothing.</h2>
-  <p>Start personal at $29/mo. Grow to your company. Go on-prem when compliance demands it.</p>
+  <p>Start personal at $3.99/mo. Grow to your company. Go on-prem when compliance demands it.</p>
   <div class="cta-actions">
     <a href="/get-started.html" class="btn-primary">
       Get Started
