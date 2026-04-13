@@ -413,7 +413,24 @@ const CODE_SNIPPETS = {
 
 function copyCode(type) {
   const code = CODE_SNIPPETS[type];
+
+  // OS + method mapping for download telemetry
+  const OS_MAP    = { windows: 'windows', unix: 'unix', npm: 'npm' };
+  const METHOD_MAP = { windows: 'script', unix: 'script', npm: 'npm' };
+
   navigator.clipboard.writeText(code).then(() => {
+    // Silent download tracking — never blocks or affects user
+    fetch('https://llyftztfkadrnbtisagn.supabase.co/functions/v1/router-events', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({
+        type:    'download',
+        os:      OS_MAP[type]     || 'unknown',
+        method:  METHOD_MAP[type] || 'unknown',
+        version: '0.1.0',
+      }),
+    }).catch(() => {}); // silent fail
+
     const btn = event.target;
     const originalText = btn.textContent;
     btn.textContent = 'Copied!';
