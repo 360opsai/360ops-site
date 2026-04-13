@@ -122,9 +122,9 @@ footer{padding:36px 48px;border-top:.5px solid var(--border);display:flex;align-
 
 <!-- HERO -->
 <section class="hero">
-  <div class="badge">Free Tool — v0.1.0</div>
+  <div class="badge">Free Tool — v0.2.0 Proxy Mode</div>
   <h1>360<span>Router</span></h1>
-  <p class="hero-sub">Route any AI. Any provider. <em>Anywhere.</em></p>
+  <p class="hero-sub">One proxy. Every AI app. <em>Every LLM.</em> Local-first by default.</p>
   <div class="ht-wrap">
     <div class="terminal">
       <div class="tbar">
@@ -136,23 +136,135 @@ footer{padding:36px 48px;border-top:.5px solid var(--border);display:flex;align-
         <span class="t td">&nbsp;</span>
         <span class="t"><span class="tg">✓</span> <span class="tw">Ollama detected — localhost:11434</span></span>
         <span class="t"><span class="tg">✓</span> <span class="tw">OpenClaw detected — localhost:18789</span></span>
+        <span class="t"><span class="tg">✓</span> <span class="tw">Continue.dev reconfigured → localhost:3600</span></span>
+        <span class="t"><span class="tg">✓</span> <span class="tw">LM Studio reconfigured → localhost:3600</span></span>
         <span class="t td">&nbsp;</span>
-        <span class="t tw">? Add a remote AI endpoint?</span>
-        <span class="t tc">► Yes — I have a remote LLM box</span>
+        <span class="t"><span class="tg">✓</span> <span class="tw">360Router configured. All apps ready.</span></span>
         <span class="t td">&nbsp;</span>
-        <span class="t tw">? Remote URL &gt; <span class="tc">http://your-llm-box-ip:port</span></span>
-        <span class="t"><span class="tg">✓</span> <span class="tw">Connected — 3 models available</span></span>
-        <span class="t td">&nbsp;</span>
-        <span class="t"><span class="tg">✓</span> <span class="tw">360Router configured. 4 providers ready.</span></span>
-        <span class="t td">&nbsp;</span>
-        <span class="t"><span class="td">$ </span><span class="tc">360router route "Summarize this contract"</span></span>
-        <span class="t"><span class="ty">⚡</span> <span class="tw">Routing to local LLM box — auto selected</span></span>
-        <span class="t tw">&nbsp;&nbsp;"Key risk in section 4.2: unlimited liability..."</span>
-        <span class="t td">&nbsp;&nbsp;local | auto model | 1.8s | free</span>
+        <span class="t"><span class="td">$ </span><span class="tc">360router serve</span></span>
+        <span class="t"><span class="ty">⚡</span> <span class="tw">Proxy running at localhost:3600</span></span>
+        <span class="t tw">&nbsp;&nbsp;Point any OpenAI-compatible app here.</span>
+        <span class="t tw">&nbsp;&nbsp;Requests route automatically: local-first, cloud fallback.</span>
       </div>
     </div>
   </div>
 </section>
+
+<!-- V0.2.0 COMPARISON -->
+<div class="section">
+  <p class="slabel">What's New in v0.2.0</p>
+  <h2 class="stitle">From CLI to Proxy Server</h2>
+  <p class="sdesc">v0.2.0 transforms 360Router into a local proxy that intercepts traffic from all your AI apps automatically.</p>
+  <div style="overflow-x:auto;margin-top:40px;">
+    <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <thead>
+        <tr style="border-bottom:.5px solid var(--border);">
+          <th style="text-align:left;padding:12px 16px;font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:600;">Feature</th>
+          <th style="text-align:left;padding:12px 16px;font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:600;">v0.1.x (CLI)</th>
+          <th style="text-align:left;padding:12px 16px;font-family:var(--mono);font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:1px;font-weight:600;">v0.2.0 (Proxy)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:.5px solid var(--border);">
+          <td style="padding:12px 16px;color:var(--text);font-weight:600;">How you use it</td>
+          <td style="padding:12px 16px;color:var(--muted);">Type commands in terminal</td>
+          <td style="padding:12px 16px;color:var(--text);">Apps talk to it automatically</td>
+        </tr>
+        <tr style="border-bottom:.5px solid var(--border);">
+          <td style="padding:12px 16px;color:var(--text);font-weight:600;">What it routes</td>
+          <td style="padding:12px 16px;color:var(--muted);">Your manual messages only</td>
+          <td style="padding:12px 16px;color:var(--text);">ALL traffic from ALL apps</td>
+        </tr>
+        <tr style="border-bottom:.5px solid var(--border);">
+          <td style="padding:12px 16px;color:var(--text);font-weight:600;">App integration</td>
+          <td style="padding:12px 16px;color:var(--muted);">None</td>
+          <td style="padding:12px 16px;color:var(--text);">Auto-reconfigures OpenClaw, Continue.dev, LM Studio</td>
+        </tr>
+        <tr style="border-bottom:.5px solid var(--border);">
+          <td style="padding:12px 16px;color:var(--text);font-weight:600;">Init wizard</td>
+          <td style="padding:12px 16px;color:var(--muted);">Enter full URL manually</td>
+          <td style="padding:12px 16px;color:var(--text);">Enter IP → scans ports → picks server</td>
+        </tr>
+        <tr style="border-bottom:.5px solid var(--border);">
+          <td style="padding:12px 16px;color:var(--text);font-weight:600;">Start command</td>
+          <td style="padding:12px 16px;color:var(--muted);">n/a</td>
+          <td style="padding:12px 16px;color:var(--text);font-family:var(--mono);"><span style="color:var(--cyan);">360router serve</span></td>
+        </tr>
+        <tr>
+          <td style="padding:12px 16px;color:var(--text);font-weight:600;">Proxy port</td>
+          <td style="padding:12px 16px;color:var(--muted);">n/a</td>
+          <td style="padding:12px 16px;color:var(--text);font-family:var(--mono);"><span style="color:var(--cyan);">localhost:3600</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- VALUE PROPS BENTO -->
+<div class="sa">
+<div class="si">
+  <p class="slabel">Why Proxy Mode</p>
+  <h2 class="stitle">One endpoint for everything</h2>
+  <p class="sdesc">Point any OpenAI-compatible app at localhost:3600 and it just works.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px;">
+    <div style="padding:32px 28px;background:var(--bg);border:.5px solid var(--border);border-radius:12px;">
+      <div style="font-size:32px;margin-bottom:16px;">🔌</div>
+      <div style="font-size:16px;font-weight:700;margin-bottom:10px;">One endpoint for everything</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.6;">Point any OpenAI-compatible app at <span style="font-family:var(--mono);color:var(--cyan);">localhost:3600</span> and it just works. No per-app configuration.</div>
+    </div>
+    <div style="padding:32px 28px;background:var(--bg);border:.5px solid var(--border);border-radius:12px;">
+      <div style="font-size:32px;margin-bottom:16px;">🔍</div>
+      <div style="font-size:16px;font-weight:700;margin-bottom:10px;">Auto-detects your AI stack</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.6;">Init wizard finds OpenClaw, Continue.dev, LM Studio, and other apps — then reconfigures them to use the router automatically.</div>
+    </div>
+    <div style="padding:32px 28px;background:var(--bg);border:.5px solid var(--border);border-radius:12px;">
+      <div style="font-size:32px;margin-bottom:16px;">⚡</div>
+      <div style="font-size:16px;font-weight:700;margin-bottom:10px;">Smart routing, zero config</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.6;">Local-first by default. Falls back to cloud providers you've authorized. Switches on failure. You never pick a model.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- QUICK START -->
+<div class="section">
+  <p class="slabel">Quick Start</p>
+  <h2 class="stitle">Get running in 60 seconds</h2>
+  <p class="sdesc">Install, configure, start. Three commands.</p>
+  <div style="margin-top:40px;display:grid;gap:20px;">
+    <div style="display:flex;align-items:flex-start;gap:20px;">
+      <div style="flex-shrink:0;width:48px;height:48px;border-radius:50%;background:rgba(0,229,255,.08);border:.5px solid rgba(0,229,255,.25);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:18px;font-weight:700;color:var(--cyan);">1</div>
+      <div style="flex:1;">
+        <div style="font-size:15px;font-weight:700;margin-bottom:10px;">Install</div>
+        <div class="big-cmd" onclick="copy('npm install -g 360router','qs1')">
+          <span class="big-cmd-text">npm install -g 360router</span>
+          <button class="copy-btn" id="qs1">Copy</button>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:20px;">
+      <div style="flex-shrink:0;width:48px;height:48px;border-radius:50%;background:rgba(0,229,255,.08);border:.5px solid rgba(0,229,255,.25);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:18px;font-weight:700;color:var(--cyan);">2</div>
+      <div style="flex:1;">
+        <div style="font-size:15px;font-weight:700;margin-bottom:10px;">Configure (detects local LLMs + AI apps)</div>
+        <div class="big-cmd" onclick="copy('360router init','qs2')">
+          <span class="big-cmd-text">360router init</span>
+          <button class="copy-btn" id="qs2">Copy</button>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:20px;">
+      <div style="flex-shrink:0;width:48px;height:48px;border-radius:50%;background:rgba(0,229,255,.08);border:.5px solid rgba(0,229,255,.25);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:18px;font-weight:700;color:var(--cyan);">3</div>
+      <div style="flex:1;">
+        <div style="font-size:15px;font-weight:700;margin-bottom:10px;">Start the proxy</div>
+        <div class="big-cmd" onclick="copy('360router serve','qs3')">
+          <span class="big-cmd-text">360router serve</span>
+          <button class="copy-btn" id="qs3">Copy</button>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:10px;">Starts the proxy at <span style="font-family:var(--mono);color:var(--cyan);">localhost:3600</span>. All configured apps route through it automatically.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- INSTALL -->
 <div class="sa">
@@ -279,27 +391,27 @@ footer{padding:36px 48px;border-top:.5px solid var(--border);display:flex;align-
 <div class="section">
   <p class="slabel">How it works</p>
   <h2 class="stitle">Smart routing. Zero config.</h2>
-  <p class="sdesc">The router decides. You just ask.</p>
+  <p class="sdesc">One proxy. Every app. Every request.</p>
   <div class="steps">
     <div class="step">
-      <div class="step-num">01 — CONNECT</div>
-      <div class="step-title">Add your providers</div>
-      <div class="step-desc">Run <code style="color:var(--cyan);font-family:var(--mono);font-size:11px;">360router init</code>. Scans for local AI and lets you add remote boxes or cloud API keys.</div>
+      <div class="step-num">01 — INIT</div>
+      <div class="step-title">Auto-detect everything</div>
+      <div class="step-desc">Run <code style="color:var(--cyan);font-family:var(--mono);font-size:11px;">360router init</code>. Scans for Ollama, OpenClaw, LM Studio, Continue.dev — configures them to use localhost:3600.</div>
     </div>
     <div class="step">
-      <div class="step-num">02 — ROUTE</div>
-      <div class="step-title">The router decides</div>
-      <div class="step-desc">Analyzes your request, picks the best provider — local first, cloud when needed. You never pick a model.</div>
+      <div class="step-num">02 — SERVE</div>
+      <div class="step-title">Start the proxy</div>
+      <div class="step-desc">Run <code style="color:var(--cyan);font-family:var(--mono);font-size:11px;">360router serve</code>. Proxy runs at localhost:3600. All AI traffic from all apps routes through it automatically.</div>
     </div>
     <div class="step">
-      <div class="step-num">03 — FALLBACK</div>
-      <div class="step-title">Never goes down</div>
-      <div class="step-desc">Internet drops? Provider fails? Router warns you and keeps going on whatever is still available.</div>
+      <div class="step-num">03 — ROUTE</div>
+      <div class="step-title">Local-first, cloud fallback</div>
+      <div class="step-desc">The router analyzes every request — picks local LLMs first, falls back to cloud providers you've authorized. You never pick a model.</div>
     </div>
     <div class="step">
       <div class="step-num">04 — UPGRADE</div>
       <div class="step-title">Want more?</div>
-      <div class="step-desc">Managed cloud keys, data privacy, team access — <a href="https://360ops.ai" style="color:var(--cyan);">360ops PWA</a> from $3.99/mo.</div>
+      <div class="step-desc">Managed cloud keys, data privacy, team access — <a href="https://360ops.ai/pricing" style="color:var(--cyan);">360ops PWA</a> from $3.99/mo.</div>
     </div>
   </div>
 </div>
@@ -317,9 +429,9 @@ footer{padding:36px 48px;border-top:.5px solid var(--border);display:flex;align-
       <div class="cmd-row"><span class="cmd">360router config</span><span class="cmd-desc">Show config file location and settings</span></div>
     </div>
     <div class="cli-card">
-      <div class="cli-title">Routing</div>
-      <div class="cmd-row"><span class="cmd">360router route "..."</span><span class="cmd-desc">Route a message through the best provider</span></div>
-      <div class="cmd-row"><span class="cmd">--provider ollama</span><span class="cmd-desc">Force a specific provider for this request</span></div>
+      <div class="cli-title">Proxy Server</div>
+      <div class="cmd-row"><span class="cmd">360router serve</span><span class="cmd-desc">Start proxy at localhost:3600 (v0.2.0+)</span></div>
+      <div class="cmd-row"><span class="cmd">360router route "..."</span><span class="cmd-desc">Send a manual message via CLI (legacy)</span></div>
     </div>
     <div class="cli-card">
       <div class="cli-title">Telemetry</div>
