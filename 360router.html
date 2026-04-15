@@ -266,8 +266,68 @@ footer{padding:36px 48px;border-top:.5px solid var(--border);display:flex;align-
   </div>
 </div>
 
+<!-- PRICING -->
+<div class="sa" id="pricing" style="background:linear-gradient(180deg,transparent,rgba(0,229,255,0.02));">
+<div class="si">
+  <p class="slabel">Pricing</p>
+  <h2 class="stitle">Free is the whole router. Pro adds the business layer.</h2>
+  <p class="sdesc">Every router feature works on free. Pro adds compliance, persistence, and team operations.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;max-width:920px;margin-left:auto;margin-right:auto;">
+
+    <!-- FREE -->
+    <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:32px;">
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:8px;">
+        <h3 style="font-family:var(--display);font-size:24px;font-weight:700;">Free</h3>
+        <span style="color:var(--muted);font-size:13px;">forever</span>
+      </div>
+      <div style="font-family:var(--display);font-size:48px;font-weight:800;margin-bottom:4px;">$0</div>
+      <p style="color:var(--muted);font-size:13px;margin-bottom:24px;">The whole router. Every feature. Every provider.</p>
+      <ul style="list-style:none;padding:0;margin:0 0 28px;font-size:13px;line-height:1.9;color:var(--t1);">
+        <li>✓ Full Layer 3 mathematical routing</li>
+        <li>✓ Streaming, tool calls, embeddings</li>
+        <li>✓ Unlimited local + cloud providers</li>
+        <li>✓ All 200+ models across 12 providers</li>
+        <li>✓ Llama 3.2:1B classifier</li>
+        <li>✓ Sensitivity flag / warn</li>
+        <li>✓ Response cache (500 entries)</li>
+        <li>✓ 1000 requests/minute</li>
+        <li>✓ Live telemetry + admin endpoints</li>
+      </ul>
+      <a href="#install" class="btn-primary" style="display:block;text-align:center;padding:12px;border-radius:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--t1);text-decoration:none;font-weight:600;">Install Free →</a>
+    </div>
+
+    <!-- PRO -->
+    <div style="background:linear-gradient(180deg,rgba(0,229,255,0.04),rgba(0,229,255,0.01));border:1px solid rgba(0,229,255,0.4);border-radius:14px;padding:32px;position:relative;">
+      <div style="position:absolute;top:-12px;right:24px;background:var(--cyan);color:var(--bg);padding:4px 12px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:0.05em;">RECOMMENDED</div>
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:8px;">
+        <h3 style="font-family:var(--display);font-size:24px;font-weight:700;color:var(--cyan);">Pro</h3>
+        <span style="color:var(--muted);font-size:13px;">per user</span>
+      </div>
+      <div style="font-family:var(--display);font-size:48px;font-weight:800;margin-bottom:4px;">$19<span style="font-size:16px;color:var(--muted);font-weight:400;">/mo</span></div>
+      <p style="color:var(--muted);font-size:13px;margin-bottom:24px;">Compliance, persistence, audit — everything free, plus:</p>
+      <ul style="list-style:none;padding:0;margin:0 0 28px;font-size:13px;line-height:1.9;color:var(--t1);">
+        <li>✓ <strong>Sensitivity scrub + block</strong> (not just warn)</li>
+        <li>✓ <strong>MI output validator</strong> (post-gen quality)</li>
+        <li>✓ Quality auto-escalation (bad answer → bigger model)</li>
+        <li>✓ Routing table persistence (learns over time)</li>
+        <li>✓ Persistent SQLite request log</li>
+        <li>✓ Historical analytics (30/60/90 days)</li>
+        <li>✓ Audit logging (compliance-grade)</li>
+        <li>✓ Phi-4-mini classifier (CMMC-aligned)</li>
+        <li>✓ Custom optimizer weights</li>
+        <li>✓ Config profiles (dev/staging/prod)</li>
+        <li>✓ Unlimited rate limits · Priority support</li>
+      </ul>
+      <button onclick="upgradePro()" id="upgrade-btn" class="btn-primary" style="display:block;width:100%;text-align:center;padding:14px;border-radius:8px;background:var(--cyan);border:none;color:var(--bg);font-weight:700;font-size:14px;cursor:pointer;transition:all .15s;">Start Pro — $19/mo</button>
+      <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:12px;">Cancel anytime · Secure payment via Stripe</p>
+    </div>
+  </div>
+</div>
+</div>
+
 <!-- INSTALL -->
-<div class="sa">
+<div class="sa" id="install">
 <div class="si">
   <p class="slabel">Install</p>
   <h2 class="stitle">Copy. Paste. Done.</h2>
@@ -521,6 +581,39 @@ function copy(text, btnId) {
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2000);
   });
+}
+
+// 360Router Pro Stripe Checkout
+async function upgradePro() {
+  const btn = document.getElementById('upgrade-btn');
+  const orig = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Loading Stripe…';
+
+  try {
+    const res = await fetch('https://llyftztfkadrnbtisagn.supabase.co/functions/v1/router-license-checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': 'sb_publishable_i2PkHuKmU3qTR7t7OwX3lg_zvRNiJUa',
+        'Authorization': 'Bearer sb_publishable_i2PkHuKmU3qTR7t7OwX3lg_zvRNiJUa'
+      },
+      body: JSON.stringify({})
+    });
+    const data = await res.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      btn.textContent = 'Error: ' + (data.error || 'Could not start checkout');
+      btn.disabled = false;
+      setTimeout(() => { btn.textContent = orig; }, 4000);
+    }
+  } catch (e) {
+    btn.textContent = 'Error: ' + e.message;
+    btn.disabled = false;
+    setTimeout(() => { btn.textContent = orig; }, 4000);
+  }
 }
 </script>
 </body>
