@@ -583,9 +583,15 @@ function copy(text, btnId) {
   });
 }
 
-// 360Router Pro Stripe Checkout
-async function upgradePro() {
-  const btn = document.getElementById('upgrade-btn');
+// Primary: portal account flow (unified billing + account management)
+function upgradePro() {
+  window.location.href = 'https://portal.360ops.ai/router/upgrade';
+}
+
+// Fallback: guest checkout via Supabase edge fn (no portal account needed)
+async function upgradeProGuest() {
+  const btn = document.getElementById('guest-btn');
+  if (!btn) return;
   const orig = btn.textContent;
   btn.disabled = true;
   btn.textContent = 'Loading Stripe…';
