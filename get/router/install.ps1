@@ -26,6 +26,14 @@ $isUpgrade = Test-Path $INSTALL_EXE
 $CONFIG_PATH = "$env:APPDATA\360router-nodejs\Config\config.json"
 $hasConfig = Test-Path $CONFIG_PATH
 
+# Step 0: Remove old npm install if present (conflicts with binary)
+$npmBin = "$env:APPDATA\npm\360router.cmd"
+if (Test-Path $npmBin) {
+    Write-Host "  Removing old npm installation..." -ForegroundColor Yellow
+    try { npm uninstall -g 360router 2>$null } catch {}
+    Write-Host "  Old npm version removed ✓" -ForegroundColor Green
+}
+
 # Step 1: Ensure install dir exists
 Write-Host "  [1/3] Preparing install directory..." -ForegroundColor Yellow
 New-Item -ItemType Directory -Force -Path $INSTALL_DIR | Out-Null
