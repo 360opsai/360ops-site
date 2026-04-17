@@ -1,12 +1,12 @@
 # 360router Installer for Windows — Binary distribution
-# Usage: irm https://get.360ops.ai/router | iex
-# ──────────────────────────────────────────────────
+# Usage: irm https://www.360ops.ai/get/router/install.ps1 | iex
+# ──────────────────────────────────────────────────────────
 #
-# Downloads the signed 360router binary from GitHub Releases.
+# Downloads the 360router binary from GitHub Releases.
 # No Node.js required. No source code shipped.
 # Existing configuration is preserved across upgrades.
 
-$ErrorActionPreference = "Stop"
+try {
 
 Write-Host ""
 Write-Host "  ╔══════════════════════════════════════╗" -ForegroundColor Cyan
@@ -36,27 +36,40 @@ Write-Host ""
 if ($isUpgrade) {
     Write-Host "  [2/3] Upgrading 360router..." -ForegroundColor Yellow
 } else {
-    Write-Host "  [2/3] Downloading 360router..." -ForegroundColor Yellow
+    Write-Host "  [2/3] Downloading 360router (~45 MB)..." -ForegroundColor Yellow
 }
+
+Write-Host "  Source: $RELEASE_URL" -ForegroundColor Gray
+Write-Host ""
 
 try {
     $ProgressPreference = 'Continue'
     Invoke-WebRequest -Uri $RELEASE_URL -OutFile $INSTALL_EXE -UseBasicParsing
 } catch {
-    Write-Host "  Download failed: $_" -ForegroundColor Red
-    Write-Host "  URL: $RELEASE_URL" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "  ✗ Download failed." -ForegroundColor Red
+    Write-Host "  Error: $_" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "  Try downloading manually:" -ForegroundColor Yellow
+    Write-Host "  $RELEASE_URL" -ForegroundColor Cyan
+    Write-Host ""
+    Write-Host "  Save to: $INSTALL_EXE" -ForegroundColor Gray
+    Write-Host ""
+    Read-Host "  Press Enter to close"
     exit 1
 }
 
-Write-Host "  Downloaded $([math]::Round((Get-Item $INSTALL_EXE).Length / 1MB, 1)) MB" -ForegroundColor Green
+$fileSize = [math]::Round((Get-Item $INSTALL_EXE).Length / 1MB, 1)
+Write-Host "  Downloaded $fileSize MB" -ForegroundColor Green
 
 # Step 3: Add to PATH
 $currentPath = [Environment]::GetEnvironmentVariable("PATH", "User")
 if ($currentPath -notlike "*360Router*") {
     [Environment]::SetEnvironmentVariable("PATH", "$currentPath;$INSTALL_DIR", "User")
-    # Update current session
     $env:PATH = "$env:PATH;$INSTALL_DIR"
     Write-Host "  Added to PATH" -ForegroundColor Green
+} else {
+    Write-Host "  Already in PATH" -ForegroundColor Green
 }
 
 # Step 4: Verify
@@ -64,10 +77,19 @@ $version = $null
 try { $version = (& $INSTALL_EXE --version 2>$null) } catch {}
 
 if (-not $version) {
-    Write-Host "  Installation incomplete. Try: $INSTALL_EXE --version" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "  ✗ Binary downloaded but failed to run." -ForegroundColor Red
+    Write-Host "  File: $INSTALL_EXE" -ForegroundColor Gray
+    Write-Host ""
+    Write-Host "  Windows Defender may have blocked it." -ForegroundColor Yellow
+    Write-Host "  Open Windows Security > Virus & Threat Protection > Protection History" -ForegroundColor Yellow
+    Write-Host "  and allow 360router.exe if it was quarantined." -ForegroundColor Yellow
+    Write-Host ""
+    Read-Host "  Press Enter to close"
     exit 1
 }
-Write-Host "  360router v$version" -ForegroundColor Green
+
+Write-Host "  360router v$version ✓" -ForegroundColor Green
 
 # Step 5: Configuration
 Write-Host ""
@@ -78,21 +100,48 @@ if ($hasConfig) {
     Write-Host ""
     Write-Host "  ════════════════════════════════════════" -ForegroundColor Cyan
     Write-Host ""
+    Write-Host "  ✓ 360Router installed successfully!" -ForegroundColor Green
+    Write-Host ""
     Write-Host "  Your API keys, providers, and preferences are intact." -ForegroundColor White
     Write-Host ""
-    Write-Host "  To reconfigure:      360router init" -ForegroundColor Gray
-    Write-Host "  To edit a setting:   360router config set" -ForegroundColor Gray
-    Write-Host "  To start the proxy:  360router serve" -ForegroundColor Gray
+    Write-Host "  Next steps:" -ForegroundColor White
+    Write-Host "    360router serve        Start the proxy" -ForegroundColor Gray
+    Write-Host "    360router config       View settings" -ForegroundColor Gray
+    Write-Host "    360router init         Reconfigure" -ForegroundColor Gray
     Write-Host ""
-    Write-Host "  Restart your terminal if '360router' is not recognized." -ForegroundColor Gray
+    Write-Host "  Close this window and open a NEW terminal" -ForegroundColor Yellow
+    Write-Host "  (PATH update requires a fresh terminal)" -ForegroundColor Yellow
     Write-Host ""
+    Read-Host "  Press Enter to close"
     exit 0
 }
 
 # First-time install
-Write-Host "  First-time install — launching setup wizard..." -ForegroundColor Yellow
 Write-Host ""
 Write-Host "  ════════════════════════════════════════" -ForegroundColor Cyan
 Write-Host ""
+Write-Host "  ✓ 360Router installed!" -ForegroundColor Green
+Write-Host ""
+Write-Host "  To set up your providers, open a NEW terminal and run:" -ForegroundColor White
+Write-Host ""
+Write-Host "    360router init" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "  Then start the proxy:" -ForegroundColor White
+Write-Host ""
+Write-Host "    360router serve" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "  Close this window and open a NEW terminal." -ForegroundColor Yellow
+Write-Host ""
+Read-Host "  Press Enter to close"
 
-& $INSTALL_EXE init
+} catch {
+    Write-Host ""
+    Write-Host "  ═══ INSTALLER ERROR ═══" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "  $($_.Exception.Message)" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "  If this keeps happening, download manually:" -ForegroundColor Yellow
+    Write-Host "  https://github.com/istninc/360ops-portal/releases" -ForegroundColor Cyan
+    Write-Host ""
+    Read-Host "  Press Enter to close"
+}
