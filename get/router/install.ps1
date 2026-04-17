@@ -56,7 +56,7 @@ try {
     Write-Host "  Save to: $INSTALL_EXE" -ForegroundColor Gray
     Write-Host ""
     Read-Host "  Press Enter to close"
-    exit 1
+    return
 }
 
 $fileSize = [math]::Round((Get-Item $INSTALL_EXE).Length / 1MB, 1)
@@ -86,7 +86,7 @@ if (-not $version) {
     Write-Host "  and allow 360router.exe if it was quarantined." -ForegroundColor Yellow
     Write-Host ""
     Read-Host "  Press Enter to close"
-    exit 1
+    return
 }
 
 Write-Host "  360router v$version ✓" -ForegroundColor Green
@@ -115,7 +115,7 @@ if ($hasConfig) {
     Write-Host "    360router config       View settings" -ForegroundColor Cyan
     Write-Host "    360router init         Reconfigure" -ForegroundColor Cyan
     Write-Host ""
-    exit 0
+    return
 }
 
 # First-time install — run the wizard right here
