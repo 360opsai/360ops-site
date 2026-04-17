@@ -104,35 +104,28 @@ if ($hasConfig) {
     Write-Host ""
     Write-Host "  Your API keys, providers, and preferences are intact." -ForegroundColor White
     Write-Host ""
-    Write-Host "  Next steps:" -ForegroundColor White
-    Write-Host "    360router serve        Start the proxy" -ForegroundColor Gray
-    Write-Host "    360router config       View settings" -ForegroundColor Gray
-    Write-Host "    360router init         Reconfigure" -ForegroundColor Gray
+
+    # Show status right here — no need to open new terminal
+    Write-Host "  Checking providers..." -ForegroundColor Yellow
     Write-Host ""
-    Write-Host "  Close this window and open a NEW terminal" -ForegroundColor Yellow
-    Write-Host "  (PATH update requires a fresh terminal)" -ForegroundColor Yellow
+    & $INSTALL_EXE status
     Write-Host ""
-    Read-Host "  Press Enter to close"
+    Write-Host "  Ready to go:" -ForegroundColor Green
+    Write-Host "    360router serve        Start the proxy" -ForegroundColor Cyan
+    Write-Host "    360router config       View settings" -ForegroundColor Cyan
+    Write-Host "    360router init         Reconfigure" -ForegroundColor Cyan
+    Write-Host ""
     exit 0
 }
 
-# First-time install
+# First-time install — run the wizard right here
 Write-Host ""
 Write-Host "  ════════════════════════════════════════" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "  ✓ 360Router installed!" -ForegroundColor Green
+Write-Host "  ✓ 360Router installed! Starting setup..." -ForegroundColor Green
 Write-Host ""
-Write-Host "  To set up your providers, open a NEW terminal and run:" -ForegroundColor White
-Write-Host ""
-Write-Host "    360router init" -ForegroundColor Cyan
-Write-Host ""
-Write-Host "  Then start the proxy:" -ForegroundColor White
-Write-Host ""
-Write-Host "    360router serve" -ForegroundColor Cyan
-Write-Host ""
-Write-Host "  Close this window and open a NEW terminal." -ForegroundColor Yellow
-Write-Host ""
-Read-Host "  Press Enter to close"
+
+& $INSTALL_EXE init
 
 } catch {
     Write-Host ""
