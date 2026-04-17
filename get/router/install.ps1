@@ -15,7 +15,7 @@ Write-Host "  ║   Smart AI Router - Local First      ║" -ForegroundColor Cya
 Write-Host "  ╚══════════════════════════════════════╝" -ForegroundColor Cyan
 Write-Host ""
 
-$RELEASE_URL = "https://github.com/istninc/360ops-portal/releases/latest/download/360router-win.exe"
+$RELEASE_URL = "https://github.com/istninc/360ops-releases/releases/download/360router-v2.3.1/360router-win.exe"
 $INSTALL_DIR = "$env:LOCALAPPDATA\360Router"
 $INSTALL_EXE = "$INSTALL_DIR\360router.exe"
 
