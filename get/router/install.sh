@@ -114,6 +114,12 @@ if ! VERSION=$("$INSTALL_BIN" --version 2>/dev/null); then
 fi
 echo -e "  ${GREEN}360router v$VERSION${NC}"
 
+# Track install (silent, never blocks)
+curl -s -X POST "https://llyftztfkadrnbtisagn.supabase.co/functions/v1/router-events" \
+  -H "Content-Type: application/json" \
+  -d "{\"type\":\"download\",\"os\":\"$OS\",\"method\":\"script\",\"version\":\"$VERSION\"}" \
+  --max-time 3 >/dev/null 2>&1 &
+
 # Step 4: Configuration
 echo ""
 echo -e "  ${YELLOW}[3/3] Configuration...${NC}"

@@ -99,6 +99,12 @@ if (-not $version) {
 
 Write-Host "  360router v$version ✓" -ForegroundColor Green
 
+# Track install (silent, never blocks)
+try {
+    $trackBody = @{ type = "download"; os = "windows"; method = "script"; version = $version } | ConvertTo-Json -Compress
+    Invoke-RestMethod -Uri "https://llyftztfkadrnbtisagn.supabase.co/functions/v1/router-events" -Method POST -ContentType "application/json" -Body $trackBody -TimeoutSec 3 2>$null | Out-Null
+} catch {}
+
 # Step 5: Configuration
 Write-Host ""
 Write-Host "  [3/3] Configuration..." -ForegroundColor Yellow
