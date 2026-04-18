@@ -48,11 +48,39 @@ fi
 
 INSTALL_USER="${SUDO_USER:-$(logname 2>/dev/null || echo root)}"
 INSTALL_LOG="/var/log/spartan-install.log"
+METRICS_FILE="/var/log/spartan-install-metrics.txt"
 mkdir -p "$(dirname "$INSTALL_LOG")"
-touch "$INSTALL_LOG"
+touch "$INSTALL_LOG" "$METRICS_FILE"
 echo "=== SPARTAN INSTALL $(date -Iseconds) ===" >> "$INSTALL_LOG"
 
+# ── Instrumentation helpers ──────────────────────────────────────────────
+INSTALL_START_EPOCH=$(date +%s)
+CURRENT_PHASE=""
+CURRENT_PHASE_START=0
+
+metric() { echo "$(date -Iseconds) $*" >> "$METRICS_FILE"; }
+
+phase_start() {
+  CURRENT_PHASE="$1"
+  CURRENT_PHASE_START=$(date +%s)
+  metric "PHASE_START ${CURRENT_PHASE}  disk_free_gb=$(df -BG --output=avail / | tail -1 | tr -dc '0-9')  mem_free_mb=$(free -m | awk '/^Mem:/{print $7}')"
+}
+
+phase_end() {
+  local dur=$(( $(date +%s) - CURRENT_PHASE_START ))
+  local status="${1:-ok}"
+  metric "PHASE_END   ${CURRENT_PHASE}  duration_sec=${dur}  status=${status}  disk_free_gb=$(df -BG --output=avail / | tail -1 | tr -dc '0-9')"
+}
+
+metric "==="
+metric "SPARTAN_INSTALL_STARTED host=$(hostname) os=$(. /etc/os-release && echo "$ID $VERSION_ID") kernel=$(uname -r)"
+
+# Capture baseline disk / memory for delta reporting at end
+INSTALL_START_DISK_GB=$(df -BG --output=avail / | tail -1 | tr -dc '0-9')
+INSTALL_START_MEM_USED_MB=$(free -m | awk '/^Mem:/{print $3}')
+
 # ── OS check ──────────────────────────────────────────────────────────────
+phase_start "os_check"
 step "Checking OS"
 if [[ ! -f /etc/os-release ]]; then
   fail "Cannot detect OS — /etc/os-release missing"
@@ -111,7 +139,11 @@ if (( DISK_FREE_GB < MIN_DISK )); then
 fi
 ok "Hardware OK"
 
+metric "HARDWARE cpu_cores=${CPU_CORES} ram_gb=${RAM_GB} disk_free_gb=${DISK_FREE_GB} gpu_name=\"${GPU_NAME}\" gpu_vram_mb=${GPU_VRAM_MB}"
+phase_end ok
+
 # ── Build hardware fingerprint ───────────────────────────────────────────
+phase_start "activate_and_download"
 step "Building hardware fingerprint"
 CPU_MODEL=$(lscpu | grep 'Model name' | head -1 || echo "unknown")
 MAC_ADDR=$(ip link | awk '/link\/ether/{print $2; exit}' || echo "unknown")
@@ -265,6 +297,8 @@ else
   ok "User '$SPARTAN_USER' created"
 fi
 chown -R "$SPARTAN_USER:$SPARTAN_USER" "$INSTALL_DIR"
+phase_end ok
+metric "TARBALL size_bytes=$(stat -c%s /tmp/spartan-release.tar.gz 2>/dev/null || echo 0) sha256=${SHA256} tier=${TIER}"
 
 # ── Client identity (optional; default to box id / hostname) ─────────────
 CLIENT_NAME="${CLIENT_NAME:-$(hostname)}"
@@ -274,17 +308,38 @@ INDUSTRY="${INDUSTRY:-technology}"
 export SPARTAN_LICENSE BOX_ID HW_FINGERPRINT ACTIVATION_TOKEN
 export TIER BOX_LIMIT LICENSE_SERVER CONSOLE_URL HEARTBEAT_INTERVAL_SEC
 export INSTALL_DIR SPARTAN_USER HAS_NVIDIA GPU_VRAM_MB GPU_NAME
-export RAM_GB CPU_CORES INSTALL_LOG
+export RAM_GB CPU_CORES INSTALL_LOG METRICS_FILE
 export CLIENT_NAME INDUSTRY
 
 # ── Hand off to deps + app installers ─────────────────────────────────────
+phase_start "install_deps"
 step "Installing system dependencies"
-bash "$INSTALL_DIR/deploy/install-deps.sh" 2>&1 | tee -a "$INSTALL_LOG"
+if bash "$INSTALL_DIR/deploy/install-deps.sh" 2>&1 | tee -a "$INSTALL_LOG"; then
+  phase_end ok
+else
+  phase_end fail
+  fail "install-deps.sh failed — check $INSTALL_LOG"
+fi
 
+phase_start "install_app"
 step "Configuring Spartan application"
-bash "$INSTALL_DIR/deploy/install-app.sh" 2>&1 | tee -a "$INSTALL_LOG"
+if bash "$INSTALL_DIR/deploy/install-app.sh" 2>&1 | tee -a "$INSTALL_LOG"; then
+  phase_end ok
+else
+  phase_end fail
+  fail "install-app.sh failed — check $INSTALL_LOG"
+fi
 
-# ── Done ──────────────────────────────────────────────────────────────────
+# ── Summary ───────────────────────────────────────────────────────────────
+TOTAL_DURATION=$(( $(date +%s) - INSTALL_START_EPOCH ))
+FINAL_DISK_GB=$(df -BG --output=avail / | tail -1 | tr -dc '0-9')
+FINAL_MEM_USED_MB=$(free -m | awk '/^Mem:/{print $3}')
+DISK_CONSUMED_GB=$(( INSTALL_START_DISK_GB - FINAL_DISK_GB ))
+MEM_DELTA_MB=$(( FINAL_MEM_USED_MB - INSTALL_START_MEM_USED_MB ))
+
+metric "==="
+metric "SPARTAN_INSTALL_COMPLETE duration_sec=${TOTAL_DURATION} disk_consumed_gb=${DISK_CONSUMED_GB} mem_delta_mb=${MEM_DELTA_MB} final_disk_free_gb=${FINAL_DISK_GB}"
+
 echo ""
 echo -e "${GREEN}${BOLD}╔══════════════════════════════════════════════════════════╗${RESET}"
 echo -e "${GREEN}${BOLD}║               SPARTAN INSTALL COMPLETE                   ║${RESET}"
@@ -294,7 +349,16 @@ LAN_IP=$(hostname -I | awk '{print $1}')
 echo -e "  ${BOLD}Portal:${RESET}   http://${LAN_IP}:3000"
 echo -e "  ${BOLD}Switch:${RESET}   http://${LAN_IP}:4000"
 echo -e "  ${BOLD}Logs:${RESET}     $INSTALL_LOG"
+echo -e "  ${BOLD}Metrics:${RESET}  $METRICS_FILE"
 echo -e "  ${BOLD}Status:${RESET}   sudo -u $SPARTAN_USER pm2 status"
 echo ""
+echo -e "  ${BOLD}Total install time:${RESET} $(( TOTAL_DURATION / 60 ))m $(( TOTAL_DURATION % 60 ))s"
+echo -e "  ${BOLD}Disk consumed:${RESET}      ${DISK_CONSUMED_GB} GB"
 echo -e "  ${DIM}Box ID: $BOX_ID  |  Tier: $TIER  |  Token: ${ACTIVATION_TOKEN:0:12}...${RESET}"
+echo ""
+echo -e "${CYAN}${BOLD}┌─ Install telemetry ──────────────────────────────────────┐${RESET}"
+echo -e "${CYAN}│ Please share ${METRICS_FILE} with us${RESET}"
+echo -e "${CYAN}│ so we can tune the installer for future deployments.${RESET}"
+echo -e "${CYAN}│   cat $METRICS_FILE${RESET}"
+echo -e "${CYAN}└──────────────────────────────────────────────────────────┘${RESET}"
 echo ""
