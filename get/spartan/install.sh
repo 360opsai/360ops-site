@@ -266,11 +266,16 @@ else
 fi
 chown -R "$SPARTAN_USER:$SPARTAN_USER" "$INSTALL_DIR"
 
+# ── Client identity (optional; default to box id / hostname) ─────────────
+CLIENT_NAME="${CLIENT_NAME:-$(hostname)}"
+INDUSTRY="${INDUSTRY:-technology}"
+
 # ── Export vars for child scripts ─────────────────────────────────────────
 export SPARTAN_LICENSE BOX_ID HW_FINGERPRINT ACTIVATION_TOKEN
 export TIER BOX_LIMIT LICENSE_SERVER CONSOLE_URL HEARTBEAT_INTERVAL_SEC
-export INSTALL_DIR SPARTAN_USER HAS_NVIDIA GPU_VRAM_MB
+export INSTALL_DIR SPARTAN_USER HAS_NVIDIA GPU_VRAM_MB GPU_NAME
 export RAM_GB CPU_CORES INSTALL_LOG
+export CLIENT_NAME INDUSTRY
 
 # ── Hand off to deps + app installers ─────────────────────────────────────
 step "Installing system dependencies"
