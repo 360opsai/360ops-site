@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Security & Compliance — 360ops AI Business Operating System</title>
-  <meta name="description" content="360ops is built security-first. Dedicated databases per client, 12-stage compliance gatekeeper, read-only connectors, and zero data storage." />
+  <title>Security &amp; Compliance — 360ops Sovereign AI Operating System</title>
+  <meta name="description" content="360ops is built security-first. Tenant-isolated databases, 12-layer STRATA architecture, read-only connectors, and zero data storage. HIPAA · CMMC L1/L2 · Attorney-client · Air-gap ready." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -118,7 +118,7 @@
     </svg>
     <div class="logo-wordmark">
       <div class="logo-primary">360<span>ops</span></div>
-      <div class="logo-tagline">AI Business Operating System</div>
+      <div class="logo-tagline">Sovereign AI Operating System</div>
     </div>
   </a>
   <ul>
@@ -137,33 +137,42 @@
   <div class="page-hero">
     <div class="eyebrow">Trust & Safety</div>
     <h1>Security &amp; <span class="hi-cyan">Compliance</span></h1>
-    <p class="page-sub">360ops is built security-first — isolated databases, compliance gatekeepers, and read-only connectors ensure your data is always protected, always in your control.</p>
+    <p class="page-sub">360ops is built security-first — tenant-isolated databases, the 12-layer STRATA architecture, and read-only connectors ensure your data is always protected, always in your control.</p>
   </div>
 
   <div class="security-content">
+
+    <!-- COMPLIANCE BADGES -->
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:48px">
+      <span style="background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.25);border-radius:100px;padding:8px 18px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase">HIPAA</span>
+      <span style="background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.25);border-radius:100px;padding:8px 18px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase">CMMC L1/L2</span>
+      <span style="background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.25);border-radius:100px;padding:8px 18px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase">Attorney-Client</span>
+      <span style="background:rgba(229,133,91,0.08);border:1px solid rgba(229,133,91,0.3);border-radius:100px;padding:8px 18px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#E5855B;letter-spacing:0.1em;text-transform:uppercase">Air-Gap (Spartan)</span>
+      <span style="background:rgba(229,133,91,0.08);border:1px solid rgba(229,133,91,0.3);border-radius:100px;padding:8px 18px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#E5855B;letter-spacing:0.1em;text-transform:uppercase">DFARS / CUI</span>
+    </div>
 
     <!-- MAIN SECURITY CARDS -->
     <div class="security-grid">
 
       <div class="sec-card">
         <span class="sec-icon">🗄️</span>
-        <div class="sec-title"><span>Dedicated Database</span> per Client</div>
-        <p class="sec-desc">Your data lives in an isolated Supabase instance provisioned exclusively for your organization. No shared databases. No row-level security workarounds. No risk of cross-tenant data exposure.</p>
+        <div class="sec-title"><span>Tenant-Isolated</span> Database</div>
+        <p class="sec-desc">Your data lives in a row-level-secured tenant boundary on Atlas — or on your own hardware on Spartan. No shared databases. Per-tenant isolation enforced at the data layer, not just the UI.</p>
         <div class="sec-badge">✓ Fully Isolated</div>
       </div>
 
       <div class="sec-card">
         <span class="sec-icon">🛡️</span>
-        <div class="sec-title"><span>12-Stage Compliance</span> Gatekeeper</div>
-        <p class="sec-desc">Every AI query passes through a multi-stage compliance pipeline: authentication check, RBAC validation, PII detection, content classification, regulatory screening, output filtering, and more — before any response reaches the user.</p>
+        <div class="sec-title"><span>12-Layer STRATA</span> Architecture</div>
+        <p class="sec-desc">Every AI query passes through 12 layers of compliance: gatekeeper, data scrubber, AI router, governance, verification, output gatekeeper, memory, anticipatory, legibility, and more — before any response reaches the user.</p>
         <div class="sec-badge">✓ Every Query Checked</div>
       </div>
 
       <div class="sec-card">
         <span class="sec-icon">🔌</span>
-        <div class="sec-title"><span>Read-Only</span> Connectors</div>
-        <p class="sec-desc">We never write to your connected systems. OneDrive, Outlook, QuickBooks — all connectors are strictly read-only. Agents read and analyze your data; they never modify, delete, or transmit it externally.</p>
-        <div class="sec-badge">✓ Zero Write Access</div>
+        <div class="sec-title"><span>Scoped</span> Connectors</div>
+        <p class="sec-desc">M365, Google Workspace, Atera, QuickBooks, Twilio — every connector is RBAC-scoped per user and tenant. Write actions require explicit approval gates (T2 confirm, T3 multi-party). Nothing leaves without a signed audit trail.</p>
+        <div class="sec-badge">✓ RBAC + Approval Gates</div>
       </div>
 
       <div class="sec-card">
@@ -189,11 +198,11 @@
 
     </div>
 
-    <!-- 12-STAGE GATEKEEPER DETAIL -->
+    <!-- 12-LAYER STRATA DETAIL -->
     <div class="gatekeeper-section">
       <div class="eyebrow" style="justify-content:flex-start">Compliance Pipeline</div>
-      <h2>The 12-Stage Gatekeeper</h2>
-      <p class="sub">Every single AI query — regardless of agent, user, or connector — runs through this compliance pipeline before any response is generated.</p>
+      <h2>The 12-Layer STRATA Pipeline</h2>
+      <p class="sub">Every single AI query — regardless of agent, user, or connector, on Atlas or Spartan — runs through this compliance pipeline before any response is generated.</p>
       <div class="stages-grid">
         <div class="stage-item">
           <div class="stage-num">Stage 01</div>
@@ -273,7 +282,7 @@
       </svg>
       <span style="font-family:'Orbitron',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.08em;color:var(--text-primary)">360<span style="color:var(--cyan)">ops</span></span>
     </div>
-    <div class="footer-copy">© 2026 360ops.ai — AI Business Operating System</div>
+    <div class="footer-copy">© 2026 360ops.ai — Sovereign AI Operating System</div>
   </div>
   <div class="footer-links">
     <a href="index.html">Home</a>

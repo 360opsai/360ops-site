@@ -1,2 +1,6 @@
 node_modules/
 .DS_Store
+
+# Claude Code personal overrides (not team-shared)
+.claude/settings.local.json
+.claude/worktrees/

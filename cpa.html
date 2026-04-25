@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>360ops for Healthcare — Sovereign AI Operating System</title>
-  <meta name="description" content="HIPAA-aware AI agents for healthcare operations. Patient scheduling, billing reconciliation, compliance monitoring — AI that knows what it can and can't touch." />
-  <meta property="og:title" content="360ops for Healthcare — Sovereign AI Operating System" />
-  <meta property="og:description" content="HIPAA-aware AI agents for healthcare operations. Zero PHI storage. EMR fusion (Epic, eCW) on Spartan. 12-layer STRATA architecture." />
+  <title>360ops for CPA &amp; Accounting — Sovereign AI Operating System</title>
+  <meta name="description" content="AI agents for CPA firms and accounting practices. Tax-season-aware, audit-ready, privilege-aware. Drake Tax fusion on Spartan, QuickBooks on Atlas. PII never sent raw." />
+  <meta property="og:title" content="360ops for CPA &amp; Accounting — Sovereign AI Operating System" />
+  <meta property="og:description" content="AI agents that understand tax season, audit prep, and accountant-client communications. Drake Tax + QuickBooks · HIPAA-grade controls for sensitive financial data." />
   <meta property="og:image" content="/og-image.png" />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,7 +57,6 @@
     .eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--cyan)}
     h2{font-family:'Orbitron',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:0.02em;line-height:1.15;color:var(--text-primary);margin-bottom:18px}
     .sub{font-size:15px;color:var(--text-secondary);max-width:520px;line-height:1.8;margin-bottom:60px;font-weight:400}
-    /* Hero */
     .hero{min-height:100vh;display:flex;align-items:center;padding:150px 72px 100px;position:relative;overflow:hidden}
     .hero-radial{position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle at center,rgba(0,229,255,0.07) 0%,rgba(180,79,255,0.03) 40%,transparent 70%);top:50%;right:-200px;transform:translateY(-50%);pointer-events:none;animation:breathe 7s ease-in-out infinite}
     @keyframes breathe{0%,100%{transform:translateY(-50%) scale(1);opacity:1}50%{transform:translateY(-50%) scale(1.08);opacity:0.65}}
@@ -74,7 +73,6 @@
     .btn-primary:hover{background:#FF8C33;transform:translateY(-2px);box-shadow:0 8px 40px var(--orange-glow)}
     .btn-ghost{background:var(--panel-bg);color:var(--text-secondary);padding:14px 32px;border-radius:6px;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:500;text-decoration:none;border:1px solid var(--panel-border);cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(20px);letter-spacing:0.04em}
     .btn-ghost:hover{border-color:var(--cyan-line);color:var(--text-primary)}
-    /* Fleet */
     #fleet{background:rgba(7,9,15,0.4)}
     .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .fleet-card{background:rgba(10,14,26,0.75);border:1px solid var(--panel-border);border-radius:10px;padding:32px 24px;display:flex;flex-direction:column;gap:12px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(10px);position:relative;overflow:hidden}
@@ -84,7 +82,6 @@
     .fleet-icon{width:48px;height:48px;border-radius:10px;background:var(--cyan-soft);border:1px solid var(--cyan-line);display:flex;align-items:center;justify-content:center;font-size:22px}
     .fleet-name{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:600;color:var(--text-primary);letter-spacing:0.04em}
     .fleet-desc{font-size:14px;color:var(--text-secondary);line-height:1.75;font-weight:400}
-    /* How it works */
     #how-it-works{background:rgba(5,7,12,0.6)}
     .steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--panel-border);border-radius:12px;border:1px solid var(--panel-border);overflow:hidden;margin-top:20px}
     .step-card{background:rgba(10,14,26,0.75);padding:40px 32px;text-align:center;position:relative;backdrop-filter:blur(12px)}
@@ -93,7 +90,6 @@
     .step-title{font-family:'Orbitron',sans-serif;font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:12px;letter-spacing:0.06em}
     .step-desc{font-size:14px;color:var(--text-secondary);line-height:1.75}
     .step-connector{position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:2px;height:40px;background:linear-gradient(to bottom,transparent,var(--cyan),transparent)}
-    /* Compliance */
     #compliance{background:rgba(7,9,15,0.3)}
     .compliance-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
     .compliance-list{display:flex;flex-direction:column;gap:16px;margin-top:8px}
@@ -102,7 +98,6 @@
     .comp-check{width:24px;height:24px;border-radius:50%;background:var(--cyan-soft);border:1px solid var(--cyan-line);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--cyan);font-size:12px;margin-top:1px}
     .comp-text{font-size:14px;color:var(--text-secondary);line-height:1.7}
     .comp-text strong{color:var(--text-primary);font-weight:600}
-    .comp-note{margin-top:24px;padding:16px 20px;background:rgba(0,229,255,0.04);border:1px solid var(--cyan-line);border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);line-height:1.7;letter-spacing:0.04em}
     .comp-visual{display:flex;flex-direction:column;gap:16px}
     .comp-badge-large{background:rgba(10,14,26,0.9);border:1px solid var(--panel-border);border-radius:12px;padding:32px;text-align:center}
     .comp-badge-icon{font-size:48px;margin-bottom:16px}
@@ -110,19 +105,16 @@
     .comp-badge-sub{font-size:13px;color:var(--text-secondary);line-height:1.7}
     .comp-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;justify-content:center}
     .comp-tag{background:var(--cyan-soft);border:1px solid var(--cyan-line);border-radius:100px;padding:5px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:0.08em;text-transform:uppercase}
-    /* Pricing */
     #pricing-reminder{background:rgba(5,7,12,0.7);text-align:center}
     .pricing-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:820px;margin:0 auto 40px}
     .tier-card{background:rgba(10,14,26,0.75);border:1px solid var(--panel-border);border-radius:10px;padding:28px 20px;text-align:center;transition:border-color 0.3s}
     .tier-card:hover{border-color:var(--cyan-line)}
     .tier-name{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px}
     .tier-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
-    /* CTA */
     .cta-section{text-align:center;background:rgba(5,7,12,0.8);border-top:1px solid var(--panel-border)}
     .cta-section h2{max-width:580px;margin:0 auto 16px}
     .cta-sub{font-size:16px;color:var(--text-secondary);max-width:440px;margin:0 auto 44px;line-height:1.8;font-weight:400}
     .cta-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
-    /* Footer */
     footer{padding:36px 72px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--panel-border)}
     .footer-copy{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-secondary);margin-top:4px;letter-spacing:0.05em}
     .footer-links{display:flex;gap:28px}
@@ -177,7 +169,6 @@
         <li><a href="/cpa.html">📊 CPA &amp; Accounting</a></li>
       </ul>
     </li>
-    <li><a href="/pricing.html">Pricing</a></li>
     <li><a href="https://portal.360ops.ai" style="color:var(--text-secondary);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;font-family:'Rajdhani',sans-serif;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Sign In</a></li>
     <li><a href="/demo.html">Book a Demo</a></li>
     <li><a href="/get-started.html" class="nav-cta">Get Started</a></li>
@@ -188,15 +179,15 @@
 <section class="hero">
   <div class="hero-radial"></div>
   <div class="hero-content">
-    <div class="badge"><div class="badge-pulse"></div>HIPAA-Aware · Read-Only Access · Zero PHI Storage</div>
-    <h1>HIPAA-Aware AI Agents for Healthcare Operations</h1>
-    <p class="hero-sub">From patient scheduling to billing reconciliation — AI that knows what it can and can't touch.</p>
+    <div class="badge"><div class="badge-pulse"></div>Tax-Season-Aware · Audit-Ready · PII-Scrubbed</div>
+    <h1>AI Operations for CPA Firms and Accounting Practices</h1>
+    <p class="hero-sub">From tax season to year-end — AI agents that understand filing deadlines, client books, and the sensitivity of financial data.</p>
     <div class="hero-actions">
       <a href="https://portal.360ops.ai/signup" class="btn-primary">
         Start Free Trial
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="#compliance" class="btn-ghost">View Compliance Details</a>
+      <a href="#compliance" class="btn-ghost">View Compliance Controls</a>
     </div>
   </div>
 </section>
@@ -204,38 +195,38 @@
 <!-- YOUR AI FLEET -->
 <section id="fleet">
   <div class="eyebrow">Your AI Fleet</div>
-  <h2>Six agents built<br>for healthcare operations.</h2>
-  <p class="sub">Each agent is purpose-built for a specific healthcare workflow — deployed to your environment, connected to your systems, operating within your compliance boundaries.</p>
+  <h2>Six agents built<br>for accounting operations.</h2>
+  <p class="sub">Purpose-built for the realities of running a CPA practice — from January engagement letters through April 15 chaos to year-end close. AI that respects financial data.</p>
   <div class="fleet-grid">
     <div class="fleet-card">
-      <div class="fleet-icon">📋</div>
-      <div class="fleet-name">Patient Coordination Agent</div>
-      <p class="fleet-desc">Handles scheduling, follow-ups, and appointment summaries. Reduces no-shows and keeps your care coordination running without manual overhead.</p>
+      <div class="fleet-icon">📅</div>
+      <div class="fleet-name">Tax Season Coordinator</div>
+      <p class="fleet-desc">Tracks return progress per client, flags missing source docs, and surfaces extension candidates. Your team stays ahead of deadlines instead of reacting to them.</p>
     </div>
     <div class="fleet-card">
-      <div class="fleet-icon">💊</div>
-      <div class="fleet-name">Prior Auth Agent</div>
-      <p class="fleet-desc">Tracks prior authorization status and drafts appeal letters. Never miss a PA deadline or lose revenue to administrative delays again.</p>
-    </div>
-    <div class="fleet-card">
-      <div class="fleet-icon">🧾</div>
-      <div class="fleet-name">Medical Billing Agent</div>
-      <p class="fleet-desc">Reconciles insurance claims and flags billing discrepancies. Catches underpayments, denials, and coding errors before they hit your bottom line.</p>
+      <div class="fleet-icon">📥</div>
+      <div class="fleet-name">Document Intake Agent</div>
+      <p class="fleet-desc">Monitors client portals and email, classifies incoming source docs (W-2, 1099, K-1), and routes them to the right engagement file. Never lose another receipt.</p>
     </div>
     <div class="fleet-card">
       <div class="fleet-icon">📊</div>
-      <div class="fleet-name">Practice Analytics Agent</div>
-      <p class="fleet-desc">Tracks KPIs, patient volumes, and revenue cycle metrics. Real-time visibility into the operational health of your practice.</p>
+      <div class="fleet-name">Reconciliation Agent</div>
+      <p class="fleet-desc">Real-time reconciliation across QuickBooks engagements with anomaly flagging. Catches misclassified transactions and duplicate entries before they hit a return.</p>
     </div>
     <div class="fleet-card">
-      <div class="fleet-icon">🗂️</div>
-      <div class="fleet-name">Compliance Monitor Agent</div>
-      <p class="fleet-desc">Monitors workflows for HIPAA compliance issues. Flags anomalies, access patterns, and documentation gaps before they become audit findings.</p>
+      <div class="fleet-icon">🔍</div>
+      <div class="fleet-name">Audit Prep Agent</div>
+      <p class="fleet-desc">Compiles workpapers, cross-references support documents, and drafts audit responses. Audit-ready files without the late-night scramble.</p>
     </div>
     <div class="fleet-card">
-      <div class="fleet-icon">📞</div>
-      <div class="fleet-name">Patient Communication Agent</div>
-      <p class="fleet-desc">Drafts compliant patient communications and recalls. Personalized, professionally worded — reviewed by your staff before it ever goes out.</p>
+      <div class="fleet-icon">💼</div>
+      <div class="fleet-name">Client Communications Agent</div>
+      <p class="fleet-desc">Drafts client emails, summarizes engagement status, and schedules check-ins. Privilege-aware language for sensitive financial conversations.</p>
+    </div>
+    <div class="fleet-card">
+      <div class="fleet-icon">🧾</div>
+      <div class="fleet-name">Filing &amp; Compliance Agent</div>
+      <p class="fleet-desc">Tracks federal and state filing requirements, generates Drake Tax workflows on Spartan, and flags multi-state nexus exposure. Compliance without the spreadsheet.</p>
     </div>
   </div>
 </section>
@@ -245,28 +236,28 @@
   <div style="text-align:center;margin-bottom:56px">
     <div class="eyebrow" style="justify-content:center">How It Works</div>
     <h2>Connect. Deploy. Operate.</h2>
-    <p class="sub" style="margin:0 auto;text-align:center">Three steps from your existing healthcare systems to a fully operational AI fleet.</p>
+    <p class="sub" style="margin:0 auto;text-align:center">From QuickBooks and Drake Tax to a fully operational AI practice — ready before tax season, ready year-round.</p>
   </div>
   <div class="steps-row">
     <div class="step-card">
       <div class="step-num">STEP 01</div>
       <div class="step-icon">🔗</div>
       <div class="step-title">Connect</div>
-      <p class="step-desc">We connect read-only to your EHR, practice management system, and billing platform. No write access. No data stored. Your systems stay in control.</p>
+      <p class="step-desc">We integrate with QuickBooks, M365, and Drake Tax (on Spartan). Read-only access — agents read books and returns, they never modify them. No disruption to active engagements.</p>
       <div class="step-connector"></div>
     </div>
     <div class="step-card">
       <div class="step-num">STEP 02</div>
       <div class="step-icon">🚀</div>
       <div class="step-title">Deploy</div>
-      <p class="step-desc">Your AI fleet is configured for your specific workflows and compliance requirements. Each agent is scoped to its role — nothing more.</p>
+      <p class="step-desc">Your AI fleet is configured to your client mix, filing types (1040, 1120, 1065, 990), and state nexus footprint. Each agent is scoped to its role across the engagement lifecycle.</p>
       <div class="step-connector"></div>
     </div>
     <div class="step-card">
       <div class="step-num">STEP 03</div>
       <div class="step-icon">⚙️</div>
       <div class="step-title">Operate</div>
-      <p class="step-desc">Agents run autonomously in the background — surfacing insights, drafting documents, and flagging issues while your team focuses on patient care.</p>
+      <p class="step-desc">Agents run continuously — tracking returns, flagging missing docs, reconciling books, and surfacing audit risks. Your team stays focused on advisory work, not document chasing.</p>
     </div>
   </div>
 </section>
@@ -275,42 +266,39 @@
 <section id="compliance">
   <div class="compliance-inner">
     <div>
-      <div class="eyebrow">Compliance</div>
-      <h2>HIPAA-Aware<br>by Design.</h2>
-      <p class="sub" style="margin-bottom:32px">360ops was architected from the ground up with healthcare data sensitivity in mind. Every layer of the platform enforces boundaries around PHI.</p>
+      <div class="eyebrow">Financial Data &amp; Privacy Controls</div>
+      <h2>Built for Sensitive<br>Financial Data.</h2>
+      <p class="sub" style="margin-bottom:32px">SSNs, EIN numbers, account balances, salary histories — accounting data is among the most sensitive a business handles. 360ops scrubs it before any AI model sees it.</p>
       <div class="compliance-list">
         <div class="comp-item">
           <div class="comp-check">✓</div>
-          <div class="comp-text"><strong>Zero PHI storage</strong> — patient data never stored on 360ops servers. We process, we don't retain.</div>
+          <div class="comp-text"><strong>SSN / EIN / account-number scrubbing</strong> — every prompt is stripped of identifying financial data before it reaches Claude, GPT, or Gemini.</div>
         </div>
         <div class="comp-item">
           <div class="comp-check">✓</div>
-          <div class="comp-text"><strong>Read-only connector access</strong> — we can't write to your EHR. Your clinical data stays entirely under your control.</div>
+          <div class="comp-text"><strong>Engagement-scoped RBAC</strong> — staff only see clients they're assigned to. Junior associates can't access partner-held high-net-worth files.</div>
         </div>
         <div class="comp-item">
           <div class="comp-check">✓</div>
-          <div class="comp-text"><strong>12-layer STRATA architecture</strong> — detects and protects PHI in every AI query before it reaches any model or external service.</div>
+          <div class="comp-text"><strong>Drake Tax fusion (Spartan)</strong> — for firms that run on-prem, agents work directly inside Drake Tax workflows without exposing returns to the cloud.</div>
         </div>
         <div class="comp-item">
           <div class="comp-check">✓</div>
-          <div class="comp-text"><strong>Dedicated database</strong> — no other healthcare client can ever see your data. Fully isolated, always.</div>
+          <div class="comp-text"><strong>Tenant-isolated database</strong> — your client books are isolated from every other firm's data. Cross-firm exposure is architecturally impossible.</div>
         </div>
-      </div>
-      <div class="comp-note">
-        ⚠ 360ops is not a covered entity. PHI handling guidance is provided as part of onboarding. HIPAA BAA available on Business · Spartan deployments.
       </div>
     </div>
     <div class="comp-visual">
       <div class="comp-badge-large">
-        <div class="comp-badge-icon">🛡️</div>
-        <div class="comp-badge-title">HIPAA-Aware</div>
-        <div class="comp-badge-sub">Built for healthcare operations where data sensitivity is non-negotiable.</div>
+        <div class="comp-badge-icon">📊</div>
+        <div class="comp-badge-title">Audit-Ready · Privilege-Aware</div>
+        <div class="comp-badge-sub">Built for the realities of running an accounting practice — where one leaked SSN ends a client relationship.</div>
         <div class="comp-tags">
-          <span class="comp-tag">Zero PHI Storage</span>
-          <span class="comp-tag">Read-Only</span>
-          <span class="comp-tag">12-Layer STRATA</span>
-          <span class="comp-tag">Isolated DB</span>
-          <span class="comp-tag">BAA Available</span>
+          <span class="comp-tag">PII Scrubbed</span>
+          <span class="comp-tag">Drake Tax</span>
+          <span class="comp-tag">QuickBooks</span>
+          <span class="comp-tag">Engagement-Scoped</span>
+          <span class="comp-tag">Audit-Ready</span>
         </div>
       </div>
     </div>
@@ -321,19 +309,19 @@
 <section id="pricing-reminder">
   <div class="eyebrow" style="justify-content:center">Pricing</div>
   <h2>Transparent tiers.<br>No surprises.</h2>
-  <p class="sub" style="margin:0 auto 48px;text-align:center">Same clear pricing across all industries. Choose the tier that matches your practice size and operational needs.</p>
+  <p class="sub" style="margin:0 auto 48px;text-align:center">Same clear pricing across all industries. Choose the deployment that fits your firm size and engagement mix.</p>
   <div class="pricing-tiers">
     <div class="tier-card">
       <div class="tier-name">Personal</div>
-      <div class="tier-desc">Solo clinicians and individual practitioners. Native desktop · $29.99–$99.99/mo. PHI scrubbed before any cloud AI call.</div>
+      <div class="tier-desc">Solo CPAs and bookkeepers. Native desktop · $29.99–$99.99/mo. Client data scrubbed before any cloud AI call.</div>
     </div>
     <div class="tier-card" style="border-color:var(--cyan-line)">
       <div class="tier-name">Business · Atlas</div>
-      <div class="tier-desc">For practices on the cloud. From $2.99/user · 5 modules. M365 + QuickBooks integration. 5-user minimum.</div>
+      <div class="tier-desc">For firms on the cloud. From $2.99/user · 5 modules. M365 + QuickBooks integrated. 5-user minimum.</div>
     </div>
     <div class="tier-card">
       <div class="tier-name">Business · Spartan</div>
-      <div class="tier-desc">For health systems with strict data residency. On-prem appliance · HIPAA BAA · EMR fusion (Epic, eCW). Contact Sales.</div>
+      <div class="tier-desc">For firms with strict client data residency. On-prem appliance · Drake Tax fusion · returns never leave your office. Contact Sales.</div>
     </div>
   </div>
   <a href="/#pricing" class="btn-ghost" style="display:inline-flex">View Full Pricing →</a>
@@ -342,8 +330,8 @@
 <!-- CTA -->
 <section class="cta-section">
   <div class="eyebrow" style="justify-content:center">Get Started</div>
-  <h2>Ready to deploy AI<br>in your practice?</h2>
-  <p class="cta-sub">Start your free trial today. No PHI stored. No write access to your EHR. Just AI that works within your boundaries.</p>
+  <h2>Ready to make your<br>practice tax-season-proof?</h2>
+  <p class="cta-sub">Start your free trial. AI that respects financial data — protecting client trust, audit readiness, and your filing deadlines at every stage.</p>
   <div class="cta-actions">
     <a href="https://portal.360ops.ai/signup" class="btn-primary">
       Start Free Trial →

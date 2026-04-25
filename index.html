@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>360ops — The Sovereign AI Operating System</title>
-  <meta name="description" content="360ops gives your business a fleet of AI agents — scrubbing sensitive data before it reaches any AI model. Personal, cloud, or on-prem. You choose." />
+  <title>360ops — Sovereign AI Operating System · Desktop · Cloud · On-Prem</title>
+  <meta name="description" content="360ops gives your business a team of AI agents — scrubbing sensitive data before it reaches any AI model. 360ops Desktop, cloud (Atlas), or on-prem (Spartan). You choose." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -259,7 +259,14 @@
     .footer-links a{font-family:var(--font-body,'Inter',sans-serif);font-size:14px;color:var(--text-secondary);text-decoration:none;transition:color 0.2s;letter-spacing:0.04em;font-weight:500}
     .footer-links a:hover{color:var(--cyan)}
 
-    @media(max-width:1200px){.feat-grid{grid-template-columns:repeat(2,1fr)}.atlas-grid{grid-template-columns:repeat(2,1fr)}.pwa-grid{grid-template-columns:1fr 1fr}}
+    .atlas-card{padding:22px 18px}
+    .atlas-card .pc-name{font-size:13px}
+    .atlas-card .ac-price{font-size:22px}
+    .atlas-card .pc-features li{font-size:11.5px;line-height:1.45;gap:6px}
+    .atlas-card .btn-pc{font-size:9.5px;padding:10px 12px}
+    @media(max-width:1400px){.atlas-grid{grid-template-columns:repeat(5,1fr)}}
+    @media(max-width:1200px){.feat-grid{grid-template-columns:repeat(2,1fr)}.atlas-grid{grid-template-columns:repeat(3,1fr)!important}.pwa-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:780px){.atlas-grid{grid-template-columns:repeat(2,1fr)!important}}
     @media(max-width:960px){
       nav{padding:18px 24px}nav ul{display:none}
       .hero,section{padding-left:24px;padding-right:24px}.hero{padding-top:120px}
@@ -311,9 +318,9 @@
     <li class="has-dropdown">
       <a href="#products" class="drop-trigger">Products <span class="drop-arrow">▾</span></a>
       <ul class="nav-dropdown-menu">
-        <li><a href="#pricing" onclick="switchTab('pwa')">📱 Personal <span class="nav-dropdown-menu" style="display:none"></span><span class="dd-label dd-pwa">$29/mo</span></a></li>
-        <li><a href="#pricing" onclick="switchTab('atlas')">☁️ Business <span class="dd-label dd-atlas">$99/user/mo</span></a></li>
-        <li><a href="#pricing" onclick="switchTab('spartan')">🏛️ Enterprise <span class="dd-label dd-spartan">Contact Sales</span></a></li>
+        <li><a href="#pricing" onclick="switchTab('pwa')">💻 Personal <span class="nav-dropdown-menu" style="display:none"></span><span class="dd-label dd-pwa">$29.99/mo</span></a></li>
+        <li><a href="#pricing" onclick="switchTab('atlas')">☁️ Business · Atlas <span class="dd-label dd-atlas">from $2.99/user</span></a></li>
+        <li><a href="#pricing" onclick="switchTab('spartan')">🏛️ Business · Spartan <span class="dd-label dd-spartan">Contact Sales</span></a></li>
       </ul>
     </li>
     <li><a href="#features">Features</a></li>
@@ -331,10 +338,10 @@
 <section class="hero">
   <div class="hero-radial"></div>
   <div class="hero-content">
-    <div class="badge"><div class="badge-pulse"></div>Sovereign AI — from pocket to datacenter</div>
+    <div class="badge"><div class="badge-pulse"></div>Sovereign AI — Desktop · Cloud · On-Prem</div>
     <h1>Use any AI.<br><span class="hi-cyan">Leak nothing.</span></h1>
-    <p class="hero-sub">One platform. Personal, Business, Enterprise.</p>
-    <p class="hero-body">360ops sits between you and every AI model. Raw PII, PHI, and financial data never reach a cloud model — scrubbed before the call, or kept on your hardware entirely. Start on your phone, bring your team to the cloud, go on-prem when compliance demands it. Raw PII, PHI, and financial data never reach any AI model.</p>
+    <p class="hero-sub">One platform. Personal · Business · On-Prem.</p>
+    <p class="hero-body">360ops sits between you and every AI model. Raw PII, PHI, CUI, and financial data never reach a cloud model — scrubbed before the call, or kept on your own hardware entirely. Start on your desktop, bring your team to the cloud, go on-prem when compliance demands it.</p>
     <div class="hero-actions">
       <a href="/get-started.html" class="btn-primary">
         Get Started
@@ -359,12 +366,11 @@
   <div class="logos-label">Agents work inside tools you already use</div>
   <div class="logos-row">
     <div class="integration-pill"><span class="dot"></span>Microsoft 365</div>
-    <div class="integration-pill"><span class="dot"></span>QuickBooks</div>
-    <div class="integration-pill"><span class="dot"></span>Atera</div>
-    <div class="integration-pill"><span class="dot"></span>Slack</div>
     <div class="integration-pill"><span class="dot"></span>Google Workspace</div>
-    <div class="integration-pill"><span class="dot"></span>OneDrive</div>
-    <div class="integration-pill"><span class="dot"></span>Outlook</div>
+    <div class="integration-pill"><span class="dot"></span>Atera</div>
+    <div class="integration-pill"><span class="dot"></span>QuickBooks</div>
+    <div class="integration-pill"><span class="dot"></span>Twilio</div>
+    <div class="integration-pill"><span class="dot"></span>Stripe</div>
   </div>
 </div>
 
@@ -377,54 +383,54 @@
 
     <div class="path-card pwa">
       <div class="path-badge pb-pwa">Personal</div>
-      <div class="path-icon">📱</div>
-      <h3>360ops Personal</h3>
-      <p class="path-tagline">Your private AI. On every device. Never trained on you. The AI that remembers you and protects you.</p>
-      <div class="path-price">$29<span style="font-size:14px;font-weight:400"> /mo</span></div>
-      <div class="path-price-sub">Solo · Pro $49 · Power $99</div>
+      <div class="path-icon">💻</div>
+      <h3>360ops Desktop</h3>
+      <p class="path-tagline">Your private AI. Native desktop app. Never trained on you. Remembers you, protects you — on your machine, under your control.</p>
+      <div class="path-price">$29.99<span style="font-size:14px;font-weight:400"> /mo</span></div>
+      <div class="path-price-sub">Solo · Pro $49.99 · Power $99.99</div>
       <ul class="path-features">
         <li>Data scrubbing on every prompt</li>
-        <li>AI router — best model auto-selected</li>
-        <li>1M tokens/mo included (Starter)</li>
-        <li>PDF & TXT upload</li>
-        <li>Cross-session memory</li>
+        <li>AI router — best model auto-selected (Pro+)</li>
+        <li>Optional local LLM — runs on your machine</li>
+        <li>Native app · Windows · macOS · Linux</li>
+        <li>Cross-session memory (Pro+)</li>
         <li>No company IT required</li>
       </ul>
-      <a href="https://portal.360ops.ai/chat/onboard?plan=solo" class="path-btn pb-btn-pwa">Start for $29/mo →</a>
+      <a href="https://portal.360ops.ai/chat/onboard?plan=solo" class="path-btn pb-btn-pwa">Start for $29.99/mo →</a>
     </div>
 
     <div class="path-card atlas">
-      <div class="path-badge pb-atlas" style="display:flex;align-items:center;gap:6px">☁️ Business <span style="font-size:9px;background:rgba(255,107,53,0.15);color:var(--orange);border:1px solid rgba(255,107,53,0.3);padding:1px 6px;border-radius:3px;letter-spacing:0.08em">MOST POPULAR</span></div>
+      <div class="path-badge pb-atlas" style="display:flex;align-items:center;gap:6px">☁️ Business · Atlas <span style="font-size:9px;background:rgba(255,107,53,0.15);color:var(--orange);border:1px solid rgba(255,107,53,0.3);padding:1px 6px;border-radius:3px;letter-spacing:0.08em">MOST POPULAR</span></div>
       <div class="path-icon">☁️</div>
-      <h3>360ops Business</h3>
-      <p class="path-tagline">The operating layer your tools have been missing. Your team stops assembling reality by hand. Every tool absorbed. Every department aware.</p>
-      <div class="path-price">$99<span style="font-size:14px;font-weight:400"> /user/mo</span></div>
-      <div class="path-price-sub">Business · Volume discounts available</div>
+      <h3>Business on Atlas</h3>
+      <p class="path-tagline">The operating layer your tools have been missing. Modular by design — start with Guard, add what your team needs. Every tool absorbed, every department aware.</p>
+      <div class="path-price">from $2.99<span style="font-size:14px;font-weight:400"> /user/mo</span></div>
+      <div class="path-price-sub">5 modules · 5-user minimum · Cloud SaaS</div>
       <ul class="path-features">
-        <li>Unlimited AI agents</li>
-        <li>Unlimited connectors</li>
-        <li>12-stage compliance gatekeeper</li>
-        <li>Full integration suite</li>
-        <li>Cross-system agent memory</li>
+        <li>5 modules: Guard · Security · Tech · Pulse · Operation</li>
+        <li>Mix and match — per-user or org-flat (Operation)</li>
+        <li>12-layer STRATA architecture</li>
+        <li>Full integrations: M365 · Google · Atera · QuickBooks · Twilio</li>
+        <li>Cross-system agent memory + RBAC</li>
         <li>30-day free trial</li>
       </ul>
       <a href="https://portal.360ops.ai/signup/trial" class="path-btn pb-btn-atlas">Start Free Trial →</a>
     </div>
 
     <div class="path-card spartan">
-      <div class="path-badge pb-spartan">🏛️ Enterprise</div>
+      <div class="path-badge pb-spartan">🏛️ Business · Spartan</div>
       <div class="path-icon">🏛️</div>
-      <h3>360ops Enterprise</h3>
-      <p class="path-tagline">Cloud AI quality. Your hardware. Your rules. Raw PHI, CUI, and financial data never leave your building. HIPAA, CMMC, and air-gap ready.</p>
+      <h3>Business on Spartan</h3>
+      <p class="path-tagline">Same modules. Your hardware. Your rules. Raw PHI, CUI, and financial data never leave your building. HIPAA, CMMC, and air-gap ready.</p>
       <div class="path-price">Contact Sales</div>
-      <div class="path-price-sub">Custom pricing · Hardware required</div>
+      <div class="path-price-sub">On-prem appliance · Custom SLA</div>
       <ul class="path-features">
-        <li>Data stays on your infrastructure</li>
-        <li>Cloud AI quality, zero raw data exposure</li>
-        <li>HIPAA / CMMC / regulated industries</li>
-        <li>Runs on your own compatible hardware</li>
-        <li>White-glove setup + SLA</li>
-        <li>True air-gap option available</li>
+        <li>Same Guard / Security / Tech / Pulse / Operation modules</li>
+        <li>3 sovereignty modes: Connected · Restricted · Air-gap</li>
+        <li>HIPAA · CMMC L1/L2 · Attorney-client</li>
+        <li>Vertical fusion: Epic · Clio · CDK · Drake Tax</li>
+        <li>White-glove setup + dedicated SLA</li>
+        <li>DoD air-gap option available</li>
       </ul>
       <a href="/demo.html?product=spartan" class="path-btn pb-btn-spartan">Contact Sales →</a>
     </div>
@@ -435,32 +441,32 @@
 <!-- UPGRADE FUNNEL -->
 <section id="funnel" style="padding-top:0;padding-bottom:80px">
   <div class="eyebrow" style="margin-bottom:12px">The upgrade path</div>
-  <h2 style="margin-bottom:8px">Start at $29. Scale to enterprise.</h2>
-  <p class="sub" style="margin-bottom:32px">Every step has a natural ceiling that leads to the next conversation — from personal productivity to a six-figure on-prem deployment.</p>
+  <h2 style="margin-bottom:8px">Start at $29.99. Scale to on-prem.</h2>
+  <p class="sub" style="margin-bottom:32px">Every step has a natural ceiling that leads to the next — from personal productivity to a regulated on-prem deployment. Same engine all the way through.</p>
   <div class="funnel-row">
     <div class="funnel-step">
       <div class="f-tier">Entry · Personal</div>
       <div class="f-name">Solo</div>
-      <div class="f-price fp-pwa">$29/mo</div>
+      <div class="f-price fp-pwa">$29.99/mo</div>
     </div>
     <div class="funnel-step">
       <div class="f-tier">Professional · Personal</div>
       <div class="f-name">Pro</div>
-      <div class="f-price fp-pwa">$49/mo</div>
+      <div class="f-price fp-pwa">$49.99/mo</div>
     </div>
     <div class="funnel-step">
       <div class="f-tier">Power User · Personal</div>
       <div class="f-name">Power</div>
-      <div class="f-price fp-pwa">$99/mo</div>
+      <div class="f-price fp-pwa">$99.99/mo</div>
     </div>
     <div class="funnel-step">
-      <div class="f-tier">Company move · Business</div>
-      <div class="f-name">Business</div>
-      <div class="f-price fp-atlas">$99/user/mo</div>
+      <div class="f-tier">Company move · Atlas</div>
+      <div class="f-name">Business · Atlas</div>
+      <div class="f-price fp-atlas">from $2.99/user</div>
     </div>
     <div class="funnel-step">
-      <div class="f-tier">Regulated · Enterprise</div>
-      <div class="f-name">Enterprise</div>
+      <div class="f-tier">Regulated · Spartan</div>
+      <div class="f-name">Business · Spartan</div>
       <div class="f-price fp-spartan">Contact Sales</div>
     </div>
   </div>
@@ -485,7 +491,7 @@
     <div class="feat-card">
       <div class="feat-icon-wrap">🔒</div>
       <div class="feat-title">Compliance Is the Architecture.</div>
-      <p class="feat-desc">12-stage gatekeeper. PII never sent to AI raw. RBAC scoped per connector. Your data never leaves your control — on cloud or on-prem.</p>
+      <p class="feat-desc">12-layer STRATA stack. PII / PHI / CUI never sent to AI raw. RBAC scoped per connector. Your data never leaves your control — on cloud or on-prem.</p>
     </div>
     <div class="feat-card">
       <div class="feat-icon-wrap">🧠</div>
@@ -502,26 +508,26 @@
   <p class="sub">From personal productivity to enterprise on-prem. No free tier — every plan is built for profit and real use.</p>
 
   <div class="pricing-tabs">
-    <button class="ptab active-pwa" onclick="switchTab('pwa')">📱 Personal</button>
-    <button class="ptab" onclick="switchTab('atlas')">☁️ Business</button>
-    <button class="ptab" onclick="switchTab('spartan')">🏛️ Enterprise</button>
+    <button class="ptab active-pwa" onclick="switchTab('pwa')">💻 Personal</button>
+    <button class="ptab" onclick="switchTab('atlas')">☁️ Business · Atlas</button>
+    <button class="ptab" onclick="switchTab('spartan')">🏛️ Business · Spartan</button>
   </div>
 
-  <!-- PWA -->
+  <!-- PERSONAL -->
   <div class="pricing-panel active" id="panel-pwa">
     <div class="pwa-grid">
       <div class="pwa-card">
         <div class="pc-tier">Personal · Solo</div>
         <div class="pc-name">Personal Solo</div>
         <div class="pc-for">Anyone who wants private AI</div>
-        <div class="pc-price">$29<span>/mo</span></div>
+        <div class="pc-price">$29.99<span>/mo</span></div>
         <div class="pc-divider"></div>
         <ul class="pc-features">
           <li>Data scrubbing on every prompt</li>
-          <li>1M tokens/mo included</li>
-          <li>GPT-4o Mini</li>
-          <li>PDF & TXT upload</li>
-          <li>Session memory</li>
+          <li>Single cloud provider (Claude · GPT · Gemini)</li>
+          <li>Optional local LLM (1 model)</li>
+          <li>Native desktop · Win · macOS · Linux</li>
+          <li>Conversation memory</li>
         </ul>
         <a href="https://portal.360ops.ai/chat/onboard?plan=solo" class="btn-pc btn-pc-ghost">Get Started →</a>
       </div>
@@ -529,32 +535,32 @@
         <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px">MOST POPULAR</div>
         <div class="pc-tier">Personal · Pro</div>
         <div class="pc-name">Personal Pro</div>
-        <div class="pc-for">Consultant, freelancer, power user</div>
-        <div class="pc-price">$49<span>/mo</span></div>
+        <div class="pc-for">Professional · privacy matters</div>
+        <div class="pc-price">$49.99<span>/mo</span></div>
         <div class="pc-divider"></div>
         <ul class="pc-features">
-          <li>Everything in Starter</li>
-          <li>5M tokens/mo included</li>
-          <li>All AI models (auto-routed)</li>
-          <li>All file types + batch upload</li>
-          <li>Cross-session memory</li>
-          <li>Voice input + full scrub report</li>
+          <li>Everything in Solo</li>
+          <li>Multi-provider · 5-tier AI router auto-selects</li>
+          <li>Up to 3 concurrent local models</li>
+          <li>All 6 scrubber categories</li>
+          <li>Semantic cross-session memory</li>
+          <li>Goal Anchor · single-goal tracking</li>
         </ul>
         <a href="https://portal.360ops.ai/chat/onboard?plan=pro" class="btn-pc btn-pc-solid">Get Started →</a>
       </div>
       <div class="pwa-card">
         <div class="pc-tier">Personal · Power</div>
         <div class="pc-name">Personal Power</div>
-        <div class="pc-for">Daily document processing, OCR, export</div>
-        <div class="pc-price">$99<span>/mo</span></div>
+        <div class="pc-for">Power user · AI that does things</div>
+        <div class="pc-price">$99.99<span>/mo</span></div>
         <div class="pc-divider"></div>
         <ul class="pc-features">
-          <li>Everything in Solo</li>
-          <li>10M tokens/mo included</li>
-          <li>Pick your AI model per chat</li>
-          <li>OCR for scanned documents</li>
-          <li>Export to PDF, DOCX, CSV</li>
-          <li>Custom personas</li>
+          <li>Everything in Pro</li>
+          <li>Multi-provider + priority compute queue</li>
+          <li>Unlimited local models · agent-routed</li>
+          <li>Custom scrubber rules</li>
+          <li>Full agent framework + Goal Anchor</li>
+          <li>Ambient surface (proactive AI)</li>
         </ul>
         <a href="https://portal.360ops.ai/chat/onboard?plan=power" class="btn-pc btn-pc-ghost">Get Started →</a>
       </div>
@@ -564,31 +570,93 @@
 
   <!-- ATLAS -->
   <div class="pricing-panel" id="panel-atlas">
-    <div class="atlas-grid" style="grid-template-columns:1fr;max-width:500px;margin:0 auto">
-      <div class="atlas-card featured">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#5BA4E5;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px">EVERYTHING INCLUDED</div>
-        <div class="pc-tier">Business</div>
-        <div class="pc-name">360ops Business</div>
-        <div class="pc-for">Full AI operating system for your company</div>
-        <div class="ac-price">$99<span>/user/mo</span></div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);margin-bottom:16px;letter-spacing:0.06em">Volume: $89 (26+), $79 (76+), $69 (151+)</div>
+    <p class="sub" style="margin:0 auto 32px;text-align:center;max-width:640px">Pick the modules your team needs. Mix per-user modules with the org-flat Operation tier. 5-user minimum.</p>
+    <div class="atlas-grid" style="grid-template-columns:repeat(5,1fr);gap:14px">
+
+      <div class="atlas-card">
+        <div class="pc-tier">Module 1</div>
+        <div class="pc-name">Guard</div>
+        <div class="pc-for">Foundational layer · required entry</div>
+        <div class="ac-price">$2.99<span>/user/mo</span></div>
         <div class="pc-divider"></div>
         <ul class="pc-features ac-features">
-          <li>Unlimited AI agents</li>
-          <li>Unlimited connectors (M365, Atera, QBO, Slack...)</li>
-          <li>Full 12-stage compliance gatekeeper</li>
-          <li>Data scrubbing + PII protection</li>
-          <li>Cross-session memory + agent learning</li>
-          <li>Multi-model AI routing (cost-optimized)</li>
-          <li>Full workspace: Email, Teams, SMS, Files, Finance</li>
-          <li>RBAC + department-level access control</li>
+          <li>Gatekeeper IN/OUT</li>
+          <li>Data Scrubber (all 6 categories)</li>
+          <li>AI Router (5-tier)</li>
+          <li>M365 SSO + Stripe billing</li>
+          <li>Audit trail + RBAC</li>
+        </ul>
+        <a href="https://portal.360ops.ai/signup/trial?module=guard" class="btn-pc btn-ac">Start with Guard →</a>
+      </div>
+
+      <div class="atlas-card">
+        <div class="pc-tier">Module 2</div>
+        <div class="pc-name">Security</div>
+        <div class="pc-for">Memory + comms layer</div>
+        <div class="ac-price">$9.99<span>/user/mo</span></div>
+        <div class="pc-divider"></div>
+        <ul class="pc-features ac-features">
+          <li>Everything in Guard</li>
+          <li>Full semantic Memory</li>
+          <li>Twilio SMS · tenant-scoped</li>
+          <li>Goal Anchor · single-goal</li>
+          <li>Named AI agents (partial)</li>
+        </ul>
+        <a href="https://portal.360ops.ai/signup/trial?module=security" class="btn-pc btn-ac-ghost">Add Security →</a>
+      </div>
+
+      <div class="atlas-card">
+        <div class="pc-tier">Module 3</div>
+        <div class="pc-name">Tech</div>
+        <div class="pc-for">MSP / IT operations</div>
+        <div class="ac-price">$49.99<span>/user/mo</span></div>
+        <div class="pc-divider"></div>
+        <ul class="pc-features ac-features">
+          <li>Everything in Security</li>
+          <li>Atera RMM/PSA integration</li>
+          <li>Google Workspace (full)</li>
+          <li>Full agent framework</li>
+          <li>Anticipatory work (partial)</li>
+        </ul>
+        <a href="https://portal.360ops.ai/signup/trial?module=tech" class="btn-pc btn-ac-ghost">Add Tech →</a>
+      </div>
+
+      <div class="atlas-card">
+        <div class="pc-tier">Module 4</div>
+        <div class="pc-name">Pulse</div>
+        <div class="pc-for">Anticipatory + ambient</div>
+        <div class="ac-price">$19.99<span>/user/mo</span></div>
+        <div class="pc-divider"></div>
+        <ul class="pc-features ac-features">
+          <li>Everything in Security</li>
+          <li>Anticipatory (full) — proactive work</li>
+          <li>Ambient surface (full)</li>
+          <li>QuickBooks (partial)</li>
+          <li>Full agent framework</li>
+        </ul>
+        <a href="https://portal.360ops.ai/signup/trial?module=pulse" class="btn-pc btn-ac-ghost">Add Pulse →</a>
+      </div>
+
+      <div class="atlas-card featured">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#5BA4E5;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px">EVERYTHING</div>
+        <div class="pc-tier">Module 5 · org-flat</div>
+        <div class="pc-name">Operation</div>
+        <div class="pc-for">Full stack · whole organization</div>
+        <div class="ac-price">$299.99<span>/mo · org</span></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#5BA4E5;margin-bottom:16px;letter-spacing:0.06em">Flat per organization · not per-user</div>
+        <div class="pc-divider"></div>
+        <ul class="pc-features ac-features">
+          <li>All Guard + Security + Tech + Pulse</li>
+          <li>Atera + QuickBooks (full)</li>
+          <li>Full Anticipatory + Ambient</li>
+          <li>Full agent framework</li>
           <li>30-day free trial</li>
         </ul>
-        <a href="https://portal.360ops.ai/signup/trial" class="btn-pc btn-ac">Start Free Trial →</a>
-        <a href="/demo.html" class="btn-pc btn-ac-ghost" style="margin-top:10px">Book a Demo →</a>
+        <a href="https://portal.360ops.ai/signup/trial?module=operation" class="btn-pc btn-ac">Start Free Trial →</a>
       </div>
+
     </div>
-    <p class="pricing-note">AI usage billed separately via prepaid credits wallet · 30-day free trial · Annual pricing available</p>
+    <p class="pricing-note">5-user minimum · AI usage billed separately via prepaid credits wallet · Annual pricing available · <a href="/pricing.html#atlas" style="color:var(--cyan)">See full module breakdown →</a></p>
   </div>
 
   <!-- SPARTAN -->
@@ -596,18 +664,18 @@
     <div class="spartan-panel">
       <div>
         <div class="sp-eyebrow">On-Premises · Regulated Industries</div>
-        <div class="sp-title">360ops Enterprise</div>
-        <p class="sp-desc">Your hardware is the data scrubbing layer. Raw PII, PHI, CUI, and financial data never leave your building. The Enterprise deployment scrubs sensitive data on-site, then sends only safe structured queries to cloud AI models. HIPAA and CMMC clients use cloud AI quality — legally.</p>
+        <div class="sp-title">Business on Spartan</div>
+        <p class="sp-desc">Same Guard / Security / Tech / Pulse / Operation modules as Atlas — running on your own hardware. Raw PII, PHI, CUI, and financial data never leave your building. Spartan scrubs on-site, then sends only safe structured queries to cloud AI. HIPAA and CMMC clients use cloud AI quality — legally.</p>
         <ul class="sp-features">
-          <li><div class="sp-check">✓</div>All data stays on your hardware — nothing raw leaves</li>
-          <li><div class="sp-check">✓</div>Cloud AI quality without raw data exposure</li>
-          <li><div class="sp-check">✓</div>HIPAA / CMMC / regulated industry ready</li>
-          <li><div class="sp-check">✓</div>Compatible hardware required (contact us for specs)</li>
-          <li><div class="sp-check">✓</div>True air-gap (local models only) available for DoD</li>
+          <li><div class="sp-check">✓</div>Same 5 modules as Atlas — local residency</li>
+          <li><div class="sp-check">✓</div>3 sovereignty modes: Connected · Restricted · Air-gap</li>
+          <li><div class="sp-check">✓</div>HIPAA · CMMC L1/L2 · Attorney-client</li>
+          <li><div class="sp-check">✓</div>Vertical fusion: Epic · eCW · Clio · CDK · Drake Tax</li>
+          <li><div class="sp-check">✓</div>Air-gap (local models only) for DoD</li>
           <li><div class="sp-check">✓</div>White-glove deployment + dedicated SLA</li>
         </ul>
         <div class="sp-actions">
-          <a href="/demo.html?product=enterprise" class="btn-spartan">
+          <a href="/demo.html?product=spartan" class="btn-spartan">
             Contact Sales
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -617,12 +685,14 @@
       <div class="sp-badge-panel">
         <div class="sp-badge-icon">🏛️</div>
         <div class="sp-badge-title">On-Prem · Data Sovereign</div>
-        <div class="sp-badge-sub">Same intelligence as Atlas. Your hardware. Your building. Your rules.</div>
+        <div class="sp-badge-sub">Same modules as Atlas. Your hardware. Your building. Your rules.</div>
         <div class="sp-tags">
-          <span class="sp-tag">HIPAA-Ready</span>
-          <span class="sp-tag">CMMC-Ready</span>
-          <span class="sp-tag">Hardware Required</span>
-          <span class="sp-tag">Air-Gap Option</span>
+          <span class="sp-tag">HIPAA</span>
+          <span class="sp-tag">CMMC L1/L2</span>
+          <span class="sp-tag">Attorney-Client</span>
+          <span class="sp-tag">Air-Gap</span>
+          <span class="sp-tag">Connected</span>
+          <span class="sp-tag">Restricted</span>
           <span class="sp-tag">Custom SLA</span>
           <span class="sp-tag">White Glove</span>
         </div>
@@ -638,41 +708,35 @@
   <h2>Built for every<br>industry.</h2>
   <p class="sub">360ops is industry-agnostic infrastructure. Drop it into any sector and agents immediately adapt to your workflows, regulations, and data.</p>
   <div class="ind-grid">
-    <div class="ind-card">
+    <a href="/healthcare.html" class="ind-card" style="text-decoration:none;color:inherit">
       <div class="ind-icon">🏥</div>
       <div class="ind-name">Healthcare</div>
-      <p class="ind-desc">HIPAA-aware agents for clinical workflows, patient data management, and administrative automation.</p>
-      <span class="ind-tag">HIPAA-Aware</span>
-    </div>
-    <div class="ind-card">
+      <p class="ind-desc">HIPAA-aware agents for clinical workflows, patient data, and administrative automation. EMR fusion (Epic, eCW) on Spartan.</p>
+      <span class="ind-tag">HIPAA · EMR Fusion</span>
+    </a>
+    <a href="/legal.html" class="ind-card" style="text-decoration:none;color:inherit">
       <div class="ind-icon">⚖️</div>
       <div class="ind-name">Legal</div>
-      <p class="ind-desc">Compliance-first AI for document intelligence, billing automation, and client workflow management.</p>
-      <span class="ind-tag">Privilege-Aware</span>
+      <p class="ind-desc">Privilege-aware AI for matter management, document intelligence, and conflict detection. Clio fusion on Spartan.</p>
+      <span class="ind-tag">Privilege-Aware · Clio</span>
+    </a>
+    <a href="/cpa.html" class="ind-card" style="text-decoration:none;color:inherit">
+      <div class="ind-icon">📊</div>
+      <div class="ind-name">CPA &amp; Accounting</div>
+      <p class="ind-desc">Tax-season-aware AI for filing workflows, reconciliation, and audit prep. Drake Tax fusion on Spartan, QuickBooks on both.</p>
+      <span class="ind-tag">Drake Tax · QBO</span>
+    </a>
+    <div class="ind-card">
+      <div class="ind-icon">🚗</div>
+      <div class="ind-name">Automotive</div>
+      <p class="ind-desc">Dealership-aware AI for F&amp;I, service ops, inventory, and customer follow-up. CDK DMS fusion on Spartan.</p>
+      <span class="ind-tag">CDK DMS Fusion</span>
     </div>
     <div class="ind-card">
-      <div class="ind-icon">🏗️</div>
-      <div class="ind-name">Construction</div>
-      <p class="ind-desc">Field and office operations: subcontractor management, compliance documentation, and AI cost forecasting.</p>
-      <span class="ind-tag">Field + Office</span>
-    </div>
-    <div class="ind-card">
-      <div class="ind-icon">💰</div>
-      <div class="ind-name">Finance</div>
-      <p class="ind-desc">Audit-ready AI workflows for reconciliation, reporting, and regulatory compliance at every level.</p>
-      <span class="ind-tag">Audit-Ready</span>
-    </div>
-    <div class="ind-card">
-      <div class="ind-icon">🛒</div>
-      <div class="ind-name">E-Commerce</div>
-      <p class="ind-desc">Customer and inventory AI that personalizes experiences, predicts demand, and automates support.</p>
-      <span class="ind-tag">Customer + Inventory</span>
-    </div>
-    <div class="ind-card">
-      <div class="ind-icon">🏢</div>
-      <div class="ind-name">Professional Services</div>
-      <p class="ind-desc">Client-serving agents that handle proposals, project tracking, and knowledge management for your firm.</p>
-      <span class="ind-tag">Client-Serving</span>
+      <div class="ind-icon">🛡️</div>
+      <div class="ind-name">DoD &amp; Regulated</div>
+      <p class="ind-desc">CMMC L1/L2 ready · CUI handling per DFARS · air-gap mode for highest-sensitivity contracts. Spartan only.</p>
+      <span class="ind-tag">CMMC · Air-Gap</span>
     </div>
   </div>
   <p style="text-align:center;font-size:16px;color:var(--text-secondary);margin-top:48px;font-style:italic;line-height:1.7">Industry-agnostic infrastructure. You bring the business — we bring the intelligence.</p>
@@ -681,8 +745,8 @@
 <!-- CTA -->
 <section class="cta-section" id="contact">
   <div class="eyebrow" style="justify-content:center">Get Started</div>
-  <h2>Sovereign AI starts at $29.</h2>
-  <p class="cta-sub">Start personal at $29/mo. Bring your team to the cloud. Go on-prem when compliance demands it.</p>
+  <h2>Sovereign AI starts at $2.99.</h2>
+  <p class="cta-sub">Personal from $29.99/mo. Business · Atlas from $2.99/user/mo. Spartan on-prem when compliance demands it.</p>
   <div class="cta-actions">
     <a href="/get-started.html" class="btn-primary">
       Get Started
