@@ -15,7 +15,7 @@ Write-Host "  ║   Smart AI Router - Local First      ║" -ForegroundColor Cya
 Write-Host "  ╚══════════════════════════════════════╝" -ForegroundColor Cyan
 Write-Host ""
 
-$RELEASE_URL = "https://github.com/istninc/360ops-releases/releases/download/360router-v2.4.0/360router-win.exe"
+$RELEASE_URL = "https://github.com/360opsai/360ops-releases/releases/download/360router-v2.4.0/360router-win.exe"
 $INSTALL_DIR = "$env:LOCALAPPDATA\360Router"
 $INSTALL_EXE = "$INSTALL_DIR\360router.exe"
 
@@ -148,7 +148,7 @@ Write-Host ""
     Write-Host "  $($_.Exception.Message)" -ForegroundColor Red
     Write-Host ""
     Write-Host "  If this keeps happening, download manually:" -ForegroundColor Yellow
-    Write-Host "  https://github.com/istninc/360ops-portal/releases" -ForegroundColor Cyan
+    Write-Host "  https://github.com/360opsai/360ops-portal/releases" -ForegroundColor Cyan
     Write-Host ""
     Read-Host "  Press Enter to close"
 }

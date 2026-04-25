@@ -39,7 +39,7 @@ case "$OS" in
         ;;
 esac
 
-RELEASE_URL="https://github.com/istninc/360ops-portal/releases/latest/download/${BINARY_NAME}"
+RELEASE_URL="https://github.com/360opsai/360ops-portal/releases/latest/download/${BINARY_NAME}"
 INSTALL_DIR="$HOME/.local/bin"
 INSTALL_BIN="$INSTALL_DIR/360router"
 
