@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing — 360ops Sovereign AI Operating System</title>
-  <meta name="description" content="360ops pricing — Personal from $29.99/mo, Business · Atlas from $2.99/user/mo, Spartan on-prem custom. AI routing + data scrubbing. No free tier." />
+  <meta name="description" content="360ops pricing — Personal from $29.99/mo, Business · Atlas $99/user/mo (5-user min) with cloud AI included, Spartan on-prem custom. Optional modules stack on any base." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -330,98 +330,79 @@
 
   <!-- ATLAS PANEL -->
   <div class="pricing-panel" id="panel-atlas">
-    <p class="sub" style="margin:0 auto 36px;text-align:center;max-width:680px">Five modules. Pick the ones your team needs. Stack per-user modules with the org-flat Operation tier. 5-user minimum on Business.</p>
-    <div class="atlas-grid" style="grid-template-columns:repeat(5,1fr);gap:14px">
+    <p class="sub" style="margin:0 auto 36px;text-align:center;max-width:700px">Atlas is the cloud SaaS for teams. Power-tier features plus team benefits, with cloud AI usage included. 5-user minimum. Add optional modules on top as you grow.</p>
 
-      <div class="price-card">
-        <div class="card-tier">Module 1 · entry</div>
-        <div class="card-name">Guard</div>
-        <div class="card-for">Foundational layer · required entry to Atlas</div>
-        <div class="card-price">$2.99<span class="period">/user/mo</span></div>
-        <div class="card-divider"></div>
-        <ul class="card-features cf-atlas">
-          <li>Gatekeeper IN/OUT (JWT + RBAC)</li>
-          <li>Data Scrubber — PII / PHI / CUI / financial</li>
-          <li>5-tier AI Router</li>
-          <li>M365 SSO + Stripe billing</li>
-          <li>Audit trail (signed · immutable)</li>
-          <li>Approval gates · circuit breakers</li>
-          <li>Token budget alerts (50/80/90%)</li>
-        </ul>
-        <a href="https://portal.360ops.ai/signup/trial?module=guard" class="btn-card bc-atlas">Start with Guard →</a>
-      </div>
-
-      <div class="price-card">
-        <div class="card-tier">Module 2</div>
-        <div class="card-name">Security</div>
-        <div class="card-for">Memory + comms layer</div>
-        <div class="card-price">$9.99<span class="period">/user/mo</span></div>
-        <div class="card-divider"></div>
-        <ul class="card-features cf-atlas">
-          <li>Everything in Guard</li>
-          <li>Full semantic Memory (cross-session)</li>
-          <li>Twilio SMS · tenant-scoped, rate-limited</li>
-          <li>Goal Anchor · single-goal tracking</li>
-          <li>Named AI agents (partial)</li>
-          <li>Attorney-client mode (partial)</li>
-        </ul>
-        <a href="https://portal.360ops.ai/signup/trial?module=security" class="btn-card bc-atlas-ghost">Add Security →</a>
-      </div>
-
-      <div class="price-card">
-        <div class="card-tier">Module 3</div>
-        <div class="card-name">Tech</div>
-        <div class="card-for">MSP / IT operations</div>
-        <div class="card-price">$49.99<span class="period">/user/mo</span></div>
-        <div class="card-divider"></div>
-        <ul class="card-features cf-atlas">
-          <li>Everything in Security</li>
-          <li>Atera RMM/PSA · clients · agents · tickets</li>
-          <li>Google Workspace (full · Gmail · Calendar · Drive)</li>
-          <li>Full agent framework</li>
-          <li>Anticipatory work (partial)</li>
-          <li>Ambient surface (partial)</li>
-        </ul>
-        <a href="https://portal.360ops.ai/signup/trial?module=tech" class="btn-card bc-atlas-ghost">Add Tech →</a>
-      </div>
-
-      <div class="price-card">
-        <div class="card-tier">Module 4</div>
-        <div class="card-name">Pulse</div>
-        <div class="card-for">Anticipatory + ambient layer</div>
-        <div class="card-price">$19.99<span class="period">/user/mo</span></div>
-        <div class="card-divider"></div>
-        <ul class="card-features cf-atlas">
-          <li>Everything in Security</li>
-          <li>Anticipatory (full) — proactive work before you ask</li>
-          <li>Ambient surface (full) — desk-aware AI</li>
-          <li>QuickBooks (partial — invoices, AR/AP)</li>
-          <li>Full agent framework</li>
-        </ul>
-        <a href="https://portal.360ops.ai/signup/trial?module=pulse" class="btn-card bc-atlas-ghost">Add Pulse →</a>
-      </div>
+    <div class="atlas-grid" style="grid-template-columns:1fr;max-width:640px;margin:0 auto 56px">
 
       <div class="price-card featured-atlas">
-        <div class="card-top-badge ctb-atlas">Everything · Org Flat</div>
-        <div class="card-tier">Module 5 · org-flat</div>
-        <div class="card-name">Operation</div>
-        <div class="card-for">Full stack · whole organization</div>
-        <div class="card-price">$299.99<span class="period">/mo · org</span></div>
-        <div class="card-margin">Flat per organization — not per-user · supersedes module stack</div>
+        <div class="card-top-badge ctb-atlas">Base Subscription</div>
+        <div class="card-tier">Business · Atlas</div>
+        <div class="card-name">360ops Atlas</div>
+        <div class="card-for">Cloud Business OS · 5-user minimum · M365 SSO</div>
+        <div class="card-price">$99<span class="period">/user/mo</span></div>
+        <div class="card-margin">Floor: 5 users = $495/mo · cloud AI usage included</div>
         <div class="card-divider"></div>
         <ul class="card-features cf-atlas">
-          <li>All Guard + Security + Tech + Pulse</li>
-          <li>Atera + QuickBooks (full integration)</li>
-          <li>Full Anticipatory + Ambient (AMAIE)</li>
-          <li>Full agent framework + Goal Anchor</li>
-          <li>30-day free trial</li>
+          <li>Cloud AI usage included (Claude · GPT · Gemini)</li>
+          <li>Overage &amp; refill options for heavy usage</li>
+          <li>Power-tier features + team-level RBAC</li>
+          <li>Multi-user agents · shared memory · shared workspaces</li>
+          <li>Full integrations: M365 · Google · Atera · QuickBooks · Twilio</li>
+          <li>Multi-tenant data isolation + immutable audit trail</li>
+          <li>Approval gates &amp; circuit breakers</li>
+          <li>30-day free trial · annual pricing available (save 20%)</li>
         </ul>
-        <a href="https://portal.360ops.ai/signup/trial?module=operation" class="btn-card bc-atlas">Start Free Trial →</a>
+        <a href="https://portal.360ops.ai/signup/trial" class="btn-card bc-atlas">Start Free Trial →</a>
         <a href="/demo.html" class="btn-card bc-atlas-ghost" style="margin-top:10px">Book a Demo →</a>
       </div>
 
     </div>
-    <p class="pricing-note">5-user minimum · AI usage billed separately via prepaid credits wallet · Annual pricing available (save 20%)</p>
+
+    <div style="text-align:center;margin-bottom:20px">
+      <div class="eyebrow" style="justify-content:center;color:#5BA4E5">Optional Modules · Stack on top of Atlas</div>
+      <h2 style="font-size:clamp(20px,2.5vw,28px);margin-bottom:10px">Add capability as you grow</h2>
+      <p class="sub" style="margin:0 auto;text-align:center;max-width:580px">Modules layer on top of your Atlas (or Spartan) subscription. Add only what your team needs.</p>
+    </div>
+
+    <div class="atlas-grid" style="grid-template-columns:repeat(5,1fr);gap:14px">
+
+      <div class="price-card">
+        <div class="card-tier">Add-on</div>
+        <div class="card-name">Guard</div>
+        <div class="card-for">Compliance &amp; audit-grade controls</div>
+        <div class="card-price">+$2.99<span class="period">/user/mo</span></div>
+      </div>
+
+      <div class="price-card">
+        <div class="card-tier">Add-on</div>
+        <div class="card-name">Security</div>
+        <div class="card-for">Comms + deeper memory</div>
+        <div class="card-price">+$9.99<span class="period">/user/mo</span></div>
+      </div>
+
+      <div class="price-card">
+        <div class="card-tier">Add-on</div>
+        <div class="card-name">Pulse</div>
+        <div class="card-for">Anticipatory + ambient AI</div>
+        <div class="card-price">+$19.99<span class="period">/user/mo</span></div>
+      </div>
+
+      <div class="price-card">
+        <div class="card-tier">Add-on</div>
+        <div class="card-name">Tech</div>
+        <div class="card-for">MSP / IT vertical</div>
+        <div class="card-price">+$49.99<span class="period">/user/mo</span></div>
+      </div>
+
+      <div class="price-card">
+        <div class="card-tier">Add-on · Org-flat · Business only</div>
+        <div class="card-name">Operation</div>
+        <div class="card-for">Bundle of everything · whole org</div>
+        <div class="card-price">+$299.99<span class="period">/mo · org</span></div>
+      </div>
+
+    </div>
+    <p class="pricing-note">Modules require an Atlas (or Spartan) base subscription · 5-user minimum on Business · Operation is per-organization, not per-user · Annual pricing available (save 20%)</p>
   </div>
 
   <!-- SPARTAN PANEL -->
@@ -430,9 +411,10 @@
       <div>
         <div class="sp-eyebrow">On-Premises · Regulated Industries · Custom Pricing</div>
         <div class="sp-title">Business on Spartan</div>
-        <p class="sp-desc">Same Guard / Security / Tech / Pulse / Operation modules as Atlas — running on your own hardware. Raw PII, PHI, CUI, and financial data never leave your premises. Spartan scrubs on-site, then sends only safe structured queries to cloud AI. HIPAA, CMMC, and air-gap deployments get cloud AI quality — legally.</p>
+        <p class="sp-desc">The on-prem version of Atlas — same intelligence, running on your own hardware. Raw PII, PHI, CUI, and financial data never leave your premises. Spartan scrubs on-site, then sends only safe structured queries to cloud AI. HIPAA, CMMC, and air-gap deployments get cloud AI quality — legally.</p>
         <ul class="sp-features">
-          <li><div class="sp-check">✓</div>Same 5 modules as Atlas — local residency on your hardware</li>
+          <li><div class="sp-check">✓</div>Same engine as Atlas — runs entirely on your hardware</li>
+          <li><div class="sp-check">✓</div>Optional modules (Guard, Security, Pulse, Tech, Operation) stack on top, just like on Atlas</li>
           <li><div class="sp-check">✓</div>3 sovereignty modes: <strong>Connected</strong> · <strong>Restricted</strong> · <strong>Air-gap</strong></li>
           <li><div class="sp-check">✓</div>HIPAA · CMMC L1/L2 · Attorney-client privilege ready</li>
           <li><div class="sp-check">✓</div>Vertical fusion: Epic · eCW · Clio · CDK · Drake Tax</li>
@@ -442,7 +424,7 @@
         </ul>
         <div class="vs-atlas-note">
           <div class="vs-atlas-note-title">Atlas vs. Spartan — what's the same, what's different</div>
-          <p>Both run the same 5 modules and scrub sensitive data before any cloud AI call — raw PII / PHI / CUI / financials never reach Anthropic, OpenAI, or Google on either. The difference is residency: Atlas stores data in cloud infrastructure (US), Spartan stores data on your own hardware. Choose Spartan when your compliance requirements mandate on-premises data residency, when your contracts prohibit cloud data storage, or when air-gap mode is required (DoD, classified work).</p>
+          <p>Both run the same engine and scrub sensitive data before any cloud AI call — raw PII / PHI / CUI / financials never reach Anthropic, OpenAI, or Google on either. The difference is <strong>residency</strong>: Atlas stores data in cloud infrastructure (US); Spartan stores data on your own hardware. The same optional modules (Guard, Security, Pulse, Tech, Operation) can stack on top of either base. Choose Spartan when your compliance requirements mandate on-premises data residency, when your contracts prohibit cloud data storage, or when air-gap mode is required (DoD, classified work).</p>
         </div>
         <div class="sp-actions" style="margin-top:28px">
           <a href="/demo.html?product=spartan" class="btn-spartan">
@@ -478,15 +460,22 @@
   <div class="credits-panel">
     <div class="credits-inner">
       <div>
-        <div class="credits-eyebrow">AI Usage — All Products</div>
-        <div class="credits-title">Prepaid Credits Wallet</div>
-        <div class="credits-desc">Your subscription covers the platform. AI usage (Claude, GPT, Gemini) is billed separately via a prepaid credits wallet — on Personal, Atlas, and Spartan alike. No surprise charges, ever.</div>
+        <div class="credits-eyebrow">Cloud AI Usage — Included &amp; Overage</div>
+        <div class="credits-title">Included Usage + Refill Wallet</div>
+        <div class="credits-desc">Every base subscription (Personal, Atlas, Spartan) includes cloud AI usage with all providers (Claude, GPT, Gemini). For heavy months, top up the refill wallet for overage — no surprise bills, ever.</div>
         <div class="credits-steps">
           <div class="credits-step">
             <div class="step-num">1</div>
             <div class="step-content">
-              <div class="step-title-text">Add credits to your wallet</div>
-              <div class="step-desc-text">Choose from preset amounts or enter a custom value.</div>
+              <div class="step-title-text">Use what's included with your seat</div>
+              <div class="step-desc-text">Every Personal and Atlas seat includes a monthly cloud AI quota — sufficient for typical daily work.</div>
+            </div>
+          </div>
+          <div class="credits-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-title-text">Top up the refill wallet for overage</div>
+              <div class="step-desc-text">Heavy month? Add a refill at the price you choose. Drained as overage queries run.</div>
               <div class="credit-pill-row">
                 <div class="credit-pill">$50</div>
                 <div class="credit-pill">$100</div>
@@ -496,40 +485,33 @@
             </div>
           </div>
           <div class="credits-step">
-            <div class="step-num">2</div>
-            <div class="step-content">
-              <div class="step-title-text">Credits consumed as agents run</div>
-              <div class="step-desc-text">Each AI query draws from the wallet — full transparency on every call.</div>
-            </div>
-          </div>
-          <div class="credits-step">
             <div class="step-num">3</div>
             <div class="step-content">
               <div class="step-title-text">Smart alerts, no surprise charges</div>
-              <div class="step-desc-text">Get notified at key thresholds. AI pauses at $0 — you're always in control.</div>
+              <div class="step-desc-text">Notified at key thresholds. Overage AI pauses at $0 — included quota keeps working.</div>
               <div class="alert-pills">
                 <div class="alert-pill ap-50"><div class="alert-dot"></div>50% Alert</div>
                 <div class="alert-pill ap-20"><div class="alert-dot"></div>20% Warning</div>
-                <div class="alert-pill ap-0"><div class="alert-dot"></div>0% — AI Paused</div>
+                <div class="alert-pill ap-0"><div class="alert-dot"></div>0% — Overage Paused</div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div>
-        <div style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:600;color:var(--text-primary);letter-spacing:0.06em;margin-bottom:20px">Why a Wallet Model?</div>
+        <div style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:600;color:var(--text-primary);letter-spacing:0.06em;margin-bottom:20px">Why Included + Refill?</div>
         <div class="why-cards">
           <div class="why-card">
-            <div class="why-title">Zero Surprise Charges</div>
-            <p class="why-desc">AI never exceeds your wallet balance. When credits hit $0, AI queries pause — no unexpected bills, ever.</p>
+            <div class="why-title">Cloud AI Already Bundled</div>
+            <p class="why-desc">Your seat includes a monthly quota for Claude, GPT, and Gemini — no separate API keys, no rate-limit headaches.</p>
           </div>
           <div class="why-card">
-            <div class="why-title">Full Cost Visibility</div>
-            <p class="why-desc">Usage dashboard shows exactly what each agent costs per month — broken down by agent, task type, and AI model.</p>
+            <div class="why-title">Pay Only If You Exceed</div>
+            <p class="why-desc">Overage refills are optional. Heavy users top up; typical users never need to. Use is fully transparent in the dashboard.</p>
           </div>
           <div class="why-card">
-            <div class="why-title">360ops Owns the Keys</div>
-            <p class="why-desc">360ops manages all cloud AI API keys and marks up to clients. You get one wallet, one bill — we handle the model complexity.</p>
+            <div class="why-title">360ops Manages the Keys</div>
+            <p class="why-desc">360ops owns the provider API keys and the routing logic. You get one bill, one team to call, no model-juggling.</p>
           </div>
         </div>
       </div>
@@ -548,17 +530,22 @@
 
     <details class="faq-item">
       <summary>What's the difference between Personal, Atlas, and Spartan?</summary>
-      <div class="faq-answer">Personal (360ops Desktop) is for individuals — a private AI router, scrubber, and memory running natively on Windows / macOS / Linux. No company required. Business · Atlas is the cloud-hosted multi-tenant Business OS, sold as 5 modules (Guard, Security, Tech, Pulse, Operation) with multi-user RBAC. Business · Spartan is Atlas deployed on your own hardware — same modules, same intelligence, your data never leaves your building. All three scrub sensitive data before any AI model sees it.</div>
+      <div class="faq-answer">Personal (360ops Desktop) is the native AI app for individuals — runs on Windows / macOS / Linux. Solo $29.99 / Pro $49.99 / Power $99.99. Business · Atlas is the cloud-hosted multi-tenant Business OS at $99/user/mo (5-user minimum) with cloud AI included. Business · Spartan is the on-prem version of Atlas — same intelligence, your data never leaves your building. <strong>Optional modules</strong> (Guard, Security, Pulse, Tech, Operation) stack on top of any base subscription as add-ons. All three scrub sensitive data before any AI model sees it.</div>
     </details>
 
     <details class="faq-item">
-      <summary>How does Atlas module pricing work?</summary>
-      <div class="faq-answer">Atlas is sold as 5 modules. Guard ($2.99/user/mo) is the foundational entry — every Atlas tenant starts here. Add Security ($9.99/user), Tech ($49.99/user), or Pulse ($19.99/user) as your team needs them. Operation ($299.99/mo flat per organization, not per-user) is the everything-included top tier and supersedes the per-user stack. Minimum 5 users on any Business deployment.</div>
+      <summary>How does Atlas pricing work, and how do modules fit in?</summary>
+      <div class="faq-answer">Atlas is the cloud Business base subscription at <strong>$99/user/mo with a 5-user minimum</strong>. It includes cloud AI usage with all major providers (Claude, GPT, Gemini), Power-tier features, team-level RBAC, shared memory, and full integrations. Modules are <strong>optional add-ons that stack on top</strong> of your Atlas subscription: Guard (+$2.99/user), Security (+$9.99/user), Pulse (+$19.99/user), Tech (+$49.99/user), and Operation (+$299.99/mo flat per organization, Business only). You must have an Atlas (or Spartan) base to add any module.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is cloud AI usage included or billed separately?</summary>
+      <div class="faq-answer">Cloud AI usage is <strong>included</strong> with every Atlas seat — Claude, GPT, and Gemini are all available through our managed routing, and the cost is bundled into the $99/user/mo. For teams with heavy usage that exceeds the included quota, we offer <strong>overage and refill options</strong> so your work never stops. No surprise bills — every overage prompts confirmation first.</div>
     </details>
 
     <details class="faq-item">
       <summary>Why is there no free tier?</summary>
-      <div class="faq-answer">Free tiers cost real money to support — API calls, infrastructure, and human time. Our entry prices ($29.99 Personal Solo, $2.99/user Guard) are low enough to be no-brainer purchases, and they include real margin that lets us support you properly. We'd rather charge you fairly and give you a great product than give you something free and unsupported.</div>
+      <div class="faq-answer">Free tiers cost real money to support — API calls, infrastructure, and human time. Our entry prices ($29.99 Personal Solo, $99/user Atlas) are designed to be fair and to include real margin so we can support you properly. We'd rather charge you fairly and give you a great product than give you something free and unsupported.</div>
     </details>
 
     <details class="faq-item">
@@ -583,7 +570,7 @@
 
     <details class="faq-item">
       <summary>Can I upgrade from Personal to Atlas?</summary>
-      <div class="faq-answer">Yes — and it's designed to be seamless. Your memory and personal settings carry over when you upgrade. When you're ready to bring your team onto a multi-user platform, one button in your dashboard initiates the upgrade to Atlas (starting at $2.99/user/mo for Guard). You keep everything you've built.</div>
+      <div class="faq-answer">Yes — and it's designed to be seamless. Your memory and personal settings carry over when you upgrade. When you're ready to bring your team onto a multi-user platform, one button in your dashboard initiates the upgrade to Atlas ($99/user/mo, 5-user minimum). You keep everything you've built.</div>
     </details>
 
     <details class="faq-item">
