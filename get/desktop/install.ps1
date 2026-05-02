@@ -67,8 +67,10 @@ try {
     return
 }
 
-# Filter to 360ops-desktop-* tagged releases, take latest by created_at
-$desktopReleases = $releases | Where-Object { $_.tag_name -like "360ops-desktop-*" } | Sort-Object created_at -Descending
+# Filter to 360ops-desktop-* tagged releases, take latest by published_at
+# (created_at often reflects the tag's underlying commit date, not the
+# release publish time, which can backdate newer releases on the list).
+$desktopReleases = $releases | Where-Object { $_.tag_name -like "360ops-desktop-*" } | Sort-Object published_at -Descending
 if (-not $desktopReleases) {
     Write-Host "  No 360ops-desktop releases found in 360opsai/360ops-releases." -ForegroundColor Red
     return
