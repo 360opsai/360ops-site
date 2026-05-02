@@ -162,6 +162,21 @@ try {
     Set-ItemProperty -Path $RunKey -Name "360ops-Desktop" -Value "`"$BinaryPath`"" -Type String -Force
 } catch {}
 
+# Add the install dir to USER PATH so `360ops-desktop update` works
+# from any PowerShell session without typing the full path. User
+# scope only; never touches machine PATH.
+try {
+    $userPath = [Environment]::GetEnvironmentVariable("PATH", "User")
+    if (-not $userPath) { $userPath = "" }
+    if ($userPath -notlike "*$InstallDir*") {
+        $newPath = if ($userPath) { "$userPath;$InstallDir" } else { $InstallDir }
+        [Environment]::SetEnvironmentVariable("PATH", $newPath, "User")
+        # Also patch the current session's PATH so the user can run
+        # `360ops-desktop` immediately without re-launching PowerShell.
+        $env:PATH = "$env:PATH;$InstallDir"
+    }
+} catch {}
+
 # Track install (silent, never blocks)
 try {
     $trackBody = @{ type = "download"; os = "windows"; method = "script"; product = "360ops-desktop"; version = $displayVersion } | ConvertTo-Json -Compress
