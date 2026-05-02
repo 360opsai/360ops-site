@@ -172,13 +172,13 @@ Write-Host "  [5/5] Launching 360ops Desktop..." -ForegroundColor Yellow
 Start-Process -FilePath $BinaryPath -WorkingDirectory $InstallDir
 
 Write-Host ""
-Write-Host "  ╔══════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-Write-Host "  ║  ✓ Installed $displayVersion".PadRight(56) + "║" -ForegroundColor Green
-Write-Host "  ║                                                      ║" -ForegroundColor Cyan
-Write-Host "  ║  Press Ctrl+Space anywhere for the chat popup.       ║" -ForegroundColor White
-Write-Host "  ║  Push the right edge of any window for the side bar. ║" -ForegroundColor White
-Write-Host "  ║  Tray icon → right-click for Quit / Settings.        ║" -ForegroundColor White
-Write-Host "  ╚══════════════════════════════════════════════════════╝" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "  ✓ 360ops Desktop $displayVersion installed!" -ForegroundColor Green
+Write-Host ""
+Write-Host "  • Press Ctrl+Space anywhere for the chat popup." -ForegroundColor White
+Write-Host "  • Push the right edge of any window for the side bar." -ForegroundColor White
+Write-Host "  • Tray icon → right-click for Quit / Settings." -ForegroundColor White
+Write-Host "  • Auto-starts on login. Re-run installer to upgrade." -ForegroundColor White
 Write-Host ""
 Write-Host "  Re-run this installer anytime to upgrade." -ForegroundColor Gray
 Write-Host ""
