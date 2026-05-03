@@ -84,17 +84,17 @@ html, body {
   color: inherit;
 }
 
-.brand-mark {
-  width: 24px;
-  height: 24px;
-  border: 1.5px solid var(--accent);
-  background: rgba(0, 229, 255, 0.08);
-  transform: rotate(45deg);
+/* v1.1 logo lockup — uses the canonical 12-segment ring SVG */
+.brand-logo {
+  width: 36px;
+  height: 36px;
   display: inline-block;
 }
-
+.brand-logo.brand-logo-dark { display: inline-block; }
+.brand-logo.brand-logo-light { display: none; }
 @media (prefers-color-scheme: light) {
-  .brand-mark { background: rgba(8, 145, 178, 0.08); }
+  .brand-logo.brand-logo-dark { display: none; }
+  .brand-logo.brand-logo-light { display: inline-block; }
 }
 
 .brand-wordmark {
@@ -107,6 +107,46 @@ html, body {
 .brand-wordmark em {
   font-style: italic;
   color: var(--accent);
+}
+
+/* Tagline strip directly under the page title */
+.legal-tagline {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin: 0 0 12px;
+}
+
+/* Three-pillars summary at top of every legal page */
+.pillars-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0 0 56px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-card);
+}
+.pillar {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+.pillar-name {
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.pillar-line {
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+@media (max-width: 640px) {
+  .pillars-strip { grid-template-columns: 1fr; gap: 14px; }
 }
 
 .section-tag {
