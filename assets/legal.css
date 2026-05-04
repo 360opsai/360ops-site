@@ -84,11 +84,15 @@ html, body {
   color: inherit;
 }
 
-/* v1.1 logo lockup — uses the canonical 12-segment ring SVG */
+/* v1.1 logo lockup — uses the no-bg variant of the 12-segment ring SVG so
+   the colored segments stand out against the page background. The logo
+   files with the baked-in dark/light rect would camouflage on a matching
+   page bg and look like an empty square. */
 .brand-logo {
-  width: 36px;
-  height: 36px;
+  width: 52px;
+  height: 52px;
   display: inline-block;
+  flex-shrink: 0;
 }
 .brand-logo.brand-logo-dark { display: inline-block; }
 .brand-logo.brand-logo-light { display: none; }
@@ -100,13 +104,18 @@ html, body {
 .brand-wordmark {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 20px;
+  font-size: 26px;
   letter-spacing: -0.01em;
+  line-height: 1;
 }
 
 .brand-wordmark em {
   font-style: italic;
   color: var(--accent);
+}
+
+.brand-mark-link {
+  gap: 14px;
 }
 
 /* Tagline strip directly under the page title */

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="360ops logo">
+  <title>360ops</title>
+  <desc>The 360ops production logo — twelve color-coded segments forming a 360-degree ring around the 360 hero with OPS subscript. Each segment represents a channel the platform integrates with.</desc>
+
+  
+
+  <g transform="translate(128 128)">
+    <g transform="rotate(-90)">
+      <path d="M 0 -106 A 106 106 0 0 1 53 -91.8" fill="none" stroke="#00E5FF" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 53 -91.8 A 106 106 0 0 1 91.8 -53" fill="none" stroke="#0891b2" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 91.8 -53 A 106 106 0 0 1 106 0" fill="none" stroke="#5cf2ff" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 106 0 A 106 106 0 0 1 91.8 53" fill="none" stroke="#0e7490" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 91.8 53 A 106 106 0 0 1 53 91.8" fill="none" stroke="#00E5FF" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 53 91.8 A 106 106 0 0 1 0 106" fill="none" stroke="#0891b2" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 0 106 A 106 106 0 0 1 -53 91.8" fill="none" stroke="#5cf2ff" stroke-width="6" stroke-linecap="round"/>
+      <path d="M -53 91.8 A 106 106 0 0 1 -91.8 53" fill="none" stroke="#0e7490" stroke-width="6" stroke-linecap="round"/>
+      <path d="M -91.8 53 A 106 106 0 0 1 -106 0" fill="none" stroke="#00E5FF" stroke-width="6" stroke-linecap="round"/>
+      <path d="M -106 0 A 106 106 0 0 1 -91.8 -53" fill="none" stroke="#0891b2" stroke-width="6" stroke-linecap="round"/>
+      <path d="M -91.8 -53 A 106 106 0 0 1 -53 -91.8" fill="none" stroke="#5cf2ff" stroke-width="6" stroke-linecap="round"/>
+      <path d="M -53 -91.8 A 106 106 0 0 1 0 -106" fill="none" stroke="#0e7490" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <text x="0" y="6" text-anchor="middle" font-family="'Orbitron', sans-serif" font-size="56" font-weight="700" letter-spacing="2" fill="#00E5FF">360</text>
+    <text x="0" y="38" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="600" letter-spacing="8" fill="#00E5FF">OPS</text>
+  </g>
+</svg>
